@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 
@@ -959,6 +958,129 @@
               </div>
 
 
+              
+
+              <!-- DOMÍNIO 5 – RESERVA -->
+
+              <div class="block">
+
+                <div class="block-title">
+
+                  <h4>
+                    🌿 Reserva de Saúde (máx. 15 pts)
+                  </h4>
+
+                  <span class="pill">
+                    Capacidade intrínseca e fatores protetores modificáveis
+                  </span>
+
+                </div>
+
+
+                <details>
+
+                  <summary>
+                    Descrição geral
+                  </summary>
+
+                  <p class="small" style="margin-top:8px;">
+                    Avalia fatores de reserva de saúde associados ao envelhecimento saudável:
+                    sono, atividade física, nutrição, participação social e cognição ativa.
+                  </p>
+
+                </details>
+
+
+                <div class="form-grid-3">
+
+                  <div class="field">
+
+                    <label>
+                      Sono (0–3 pts)
+                    </label>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="3"
+                      step="1"
+                      data-block="lifestyle"
+                      placeholder="Quantidade/regularidade do sono" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Exercício semanal (0–3 pts)
+                    </label>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="3"
+                      step="1"
+                      data-block="lifestyle"
+                      placeholder="Minutos/semana, variedade" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Nutrição (0–3 pts)
+                    </label>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="3"
+                      step="1"
+                      data-block="lifestyle"
+                      placeholder="Frequência de alimentos protetores" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Participação social (0–3 pts)
+                    </label>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="3"
+                      step="1"
+                      data-block="lifestyle"
+                      placeholder="Contatos/semana, grupos, atividades" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Cognição ativa (0–3 pts)
+                    </label>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="3"
+                      step="1"
+                      data-block="lifestyle"
+                      placeholder="Leitura, estudos, jogos, cursos..." />
+
+                  </div>
+
+                </div>
+
+              </div>
+
               <!-- DOMÍNIO 1 – COGNITIVO -->
 
               <div class="block">
@@ -1325,8 +1447,7 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
 
               </div>
 
-
-              <!-- DOMÍNIO 2 – MOBILIDADE -->
+              <!-- DOMÍNIO 2 – MOBILIDADE FUNCIONAL + CONTROLE POSTURAL -->
 
               <div class="block">
 
@@ -1612,8 +1733,168 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
                 </div>
 
+<!-- DOMÍNIO 4 – EQUILÍBRIO -->
+
+              <div class="block">
+
+                <div class="block-title">
+
+                  <h4>
+                    ⚖️ Controle Postural (máx. 15 pts)
+                  </h4>
+
+                  <span class="pill">
+                    Estabilidade, controle neuromuscular e risco de queda
+                  </span>
+
+                </div>
+
+
+                <details>
+
+                  <summary>
+                    Descrição e referência etária
+                  </summary>
+
+                  <p class="small" style="margin-top:8px;">
+                    Mede capacidade de manter equilíbrio em semi-tandem,
+                    tandem e apoio unipodal, com tempos comparados por idade.
+                  </p>
+
+                </details>
+
+
+                <div class="form-grid-3">
+
+                  <div class="field">
+
+                    <label>
+                      Semi-tandem – tempo (s)
+                    </label>
+
+                    <input
+                      id="semiTime"
+                      type="number"
+                      min="0"
+                      step="1"
+                      placeholder="Segundos" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Tandem – tempo (s)
+                    </label>
+
+                    <input
+                      id="tandemTime"
+                      type="number"
+                      min="0"
+                      step="1"
+                      placeholder="Segundos" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Unipodal – tempo (s)
+                    </label>
+
+                    <input
+                      id="uniTime"
+                      type="number"
+                      min="0"
+                      step="1"
+                      placeholder="Segundos" />
+
+                  </div>
+
+                </div>
+
+
+                <div class="form-grid-3" style="margin-top:var(--space-4);">
+
+                  <div class="field">
+
+                    <label>
+                      Pontuação semi-tandem (0–5)
+                    </label>
+
+                    <input
+                      id="semiScore"
+                      type="number"
+                      min="0"
+                      max="5"
+                      step="1"
+                      data-block="balance"
+                      readonly
+                      placeholder="Automático por idade" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Pontuação tandem (0–5)
+                    </label>
+
+                    <input
+                      id="tandemScore"
+                      type="number"
+                      min="0"
+                      max="5"
+                      step="1"
+                      data-block="balance"
+                      readonly
+                      placeholder="Automático por idade" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Pontuação unipodal (0–5)
+                    </label>
+
+                    <input
+                      id="uniScore"
+                      type="number"
+                      min="0"
+                      max="5"
+                      step="1"
+                      data-block="balance"
+                      readonly
+                      placeholder="Automático por idade" />
+
+                  </div>
+
+                </div>
+
+
+                <details>
+
+                  <summary>
+                    Instruções – Semi-tandem, Tandem e Unipodal
+                  </summary>
+
+                  <p class="small" style="margin-top:8px;">
+                    • Semi-tandem: um pé parcialmente à frente do outro.<br>
+                    • Tandem: pés em linha.<br>
+                    • Unipodal: em pé sobre um pé, outro elevado.<br>
+                    • Cronometrar até apoiar ou perder claramente a posição.
+                  </p>
+
+                </details>
+
               </div>
 
+              </div>
 
               <!-- DOMÍNIO 3 – FORÇA -->
 
@@ -2011,292 +2292,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
               </div>
 
-
-              <!-- DOMÍNIO 4 – EQUILÍBRIO -->
-
-              <div class="block">
-
-                <div class="block-title">
-
-                  <h4>
-                    ⚖️ Controle Postural (máx. 15 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Estabilidade, controle neuromuscular e risco de queda
-                  </span>
-
-                </div>
-
-
-                <details>
-
-                  <summary>
-                    Descrição e referência etária
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Mede capacidade de manter equilíbrio em semi-tandem,
-                    tandem e apoio unipodal, com tempos comparados por idade.
-                  </p>
-
-                </details>
-
-
-                <div class="form-grid-3">
-
-                  <div class="field">
-
-                    <label>
-                      Semi-tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="semiTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="tandemTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Unipodal – tempo (s)
-                    </label>
-
-                    <input
-                      id="uniTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-                </div>
-
-
-                <div class="form-grid-3" style="margin-top:var(--space-4);">
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação semi-tandem (0–5)
-                    </label>
-
-                    <input
-                      id="semiScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação tandem (0–5)
-                    </label>
-
-                    <input
-                      id="tandemScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação unipodal (0–5)
-                    </label>
-
-                    <input
-                      id="uniScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-                </div>
-
-
-                <details>
-
-                  <summary>
-                    Instruções – Semi-tandem, Tandem e Unipodal
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Semi-tandem: um pé parcialmente à frente do outro.<br>
-                    • Tandem: pés em linha.<br>
-                    • Unipodal: em pé sobre um pé, outro elevado.<br>
-                    • Cronometrar até apoiar ou perder claramente a posição.
-                  </p>
-
-                </details>
-
-              </div>
-
-
-              <!-- DOMÍNIO 5 – RESERVA -->
-
-              <div class="block">
-
-                <div class="block-title">
-
-                  <h4>
-                    🌿 Reserva de Saúde (máx. 15 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Capacidade intrínseca e fatores protetores modificáveis
-                  </span>
-
-                </div>
-
-
-                <details>
-
-                  <summary>
-                    Descrição geral
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Avalia fatores de reserva de saúde associados ao envelhecimento saudável:
-                    sono, atividade física, nutrição, participação social e cognição ativa.
-                  </p>
-
-                </details>
-
-
-                <div class="form-grid-3">
-
-                  <div class="field">
-
-                    <label>
-                      Sono (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Quantidade/regularidade do sono" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Exercício semanal (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Minutos/semana, variedade" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Nutrição (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Frequência de alimentos protetores" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Participação social (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Contatos/semana, grupos, atividades" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Cognição ativa (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Leitura, estudos, jogos, cursos..." />
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div class="field">
+<div class="field">
 
                 <label>
                   Observações da avaliação
@@ -4436,4 +4432,3 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 </body>
 
 </html>
-```
