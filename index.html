@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M50 Mente Viva</title>
-
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
 
   <style>
     :root,
     [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
 
       --space-1: .25rem;
@@ -36,12 +33,10 @@
       --color-surface-offset: #f3f0ec;
       --color-border: #d4d1ca;
       --color-divider: #dcd9d5;
-
       --color-text: #222017;
       --color-text-muted: #6f6b63;
       --color-text-faint: #9b978d;
       --color-text-inverse: #f9f8f4;
-
       --color-primary: #015d6c;
       --color-primary-hover: #014452;
       --color-primary-highlight: #cedcd8;
@@ -49,20 +44,16 @@
       --color-warning: #964219;
       --color-error: #a12c7b;
       --color-blue: #006494;
-
       --radius-sm: .375rem;
       --radius-md: .5rem;
       --radius-lg: .75rem;
       --radius-xl: 1rem;
       --radius-full: 9999px;
-
       --shadow-sm: 0 1px 2px rgba(40, 37, 29, .06);
       --shadow-md: 0 8px 24px rgba(40, 37, 29, .08);
       --shadow-lg: 0 12px 32px rgba(40, 37, 29, .12);
-
-      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-
-      --font-body: 'Satoshi', system-ui, sans-serif;
+      --transition: 180ms cubic-bezier(.16, 1, .3, 1);
+      --font-body: Satoshi, system-ui, sans-serif;
     }
 
     [data-theme="dark"] {
@@ -72,12 +63,10 @@
       --color-surface-offset: #22211f;
       --color-border: #393836;
       --color-divider: #262523;
-
       --color-text: #e4e1db;
       --color-text-muted: #a5a29b;
       --color-text-faint: #79766f;
       --color-text-inverse: #171614;
-
       --color-primary: #4f98a3;
       --color-primary-hover: #227f8b;
       --color-primary-highlight: #313b3b;
@@ -85,24 +74,13 @@
       --color-warning: #bb653b;
       --color-error: #d163a7;
       --color-blue: #5591c7;
-
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, .25);
       --shadow-md: 0 8px 24px rgba(0, 0, 0, .32);
       --shadow-lg: 0 12px 32px rgba(0, 0, 0, .4);
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
     body {
       font-family: var(--font-body);
       font-size: var(--text-base);
@@ -111,23 +89,10 @@
       line-height: 1.5;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-      color: inherit;
-    }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; }
 
-    button {
-      cursor: pointer;
-      border: 0;
-      background: none;
-    }
-
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       padding: .85rem 1rem;
       border: 1px solid var(--color-border);
@@ -135,11 +100,7 @@
       background: var(--color-surface-2);
     }
 
-    textarea {
-      min-height: 96px;
-      resize: vertical;
-    }
-
+    textarea { min-height: 96px; resize: vertical; }
     textarea.readonly {
       min-height: 3.2rem;
       font-size: var(--text-xs);
@@ -147,13 +108,7 @@
       resize: none;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
-      margin: 0;
-    }
+    h1, h2, h3, h4, p { margin: 0; }
 
     .app {
       display: grid;
@@ -193,14 +148,10 @@
       padding: var(--space-6);
       display: grid;
       gap: var(--space-6);
-      background: radial-gradient(circle at top left, #eef3f1, transparent 55%), var(--color-bg);
+      background: radial-gradient(circle at top left, #eef3f1, transparent 55%, var(--color-bg));
     }
 
-    .brand {
-      display: flex;
-      gap: var(--space-3);
-      align-items: center;
-    }
+    .brand { display: flex; gap: var(--space-3); align-items: center; }
 
     .logo {
       width: 40px;
@@ -220,10 +171,7 @@
       margin-top: 2px;
     }
 
-    .nav {
-      display: grid;
-      gap: var(--space-2);
-    }
+    .nav { display: grid; gap: var(--space-2); }
 
     .nav button {
       display: flex;
@@ -275,10 +223,7 @@
       gap: var(--space-4);
     }
 
-    .kpi,
-    .panel {
-      padding: var(--space-5);
-    }
+    .kpi, .panel { padding: var(--space-5); }
 
     .kpi .value {
       font-size: var(--text-xl);
@@ -286,9 +231,7 @@
       font-variant-numeric: tabular-nums lining-nums;
     }
 
-    .muted {
-      color: var(--color-text-muted);
-    }
+    .muted { color: var(--color-text-muted); }
 
     .grid-2 {
       display: grid;
@@ -313,10 +256,7 @@
       gap: var(--space-4);
     }
 
-    .field {
-      display: grid;
-      gap: 6px;
-    }
+    .field { display: grid; gap: 6px; }
 
     .field label {
       font-size: var(--text-sm);
@@ -365,18 +305,14 @@
       color: var(--color-text-inverse);
     }
 
-    .btn-primary:hover {
-      background: var(--color-primary-hover);
-    }
+    .btn-primary:hover { background: var(--color-primary-hover); }
 
     .btn-secondary {
       background: var(--color-surface-offset);
       border-color: var(--color-border);
     }
 
-    .btn-ghost {
-      border-color: var(--color-border);
-    }
+    .btn-ghost { border-color: var(--color-border); }
 
     .toolbar {
       display: flex;
@@ -397,17 +333,14 @@
       color: var(--color-primary);
     }
 
-    .table-wrap {
-      overflow: auto;
-    }
+    .table-wrap { overflow: auto; }
 
     table {
       width: 100%;
       border-collapse: collapse;
     }
 
-    th,
-    td {
+    th, td {
       padding: 1rem .85rem;
       border-bottom: 1px solid var(--color-divider);
       text-align: left;
@@ -457,17 +390,14 @@
       overflow: hidden;
     }
 
-    .bar > span {
+    .bar span {
       display: block;
       height: 100%;
       background: linear-gradient(90deg, var(--color-primary), var(--color-blue));
       border-radius: 999px;
     }
 
-    .history-list {
-      display: grid;
-      gap: var(--space-3);
-    }
+    .history-list { display: grid; gap: var(--space-3); }
 
     .history-item {
       padding: var(--space-4);
@@ -487,9 +417,7 @@
       border: 1px solid color-mix(in srgb, var(--color-warning) 25%, var(--color-border));
     }
 
-    .hidden {
-      display: none !important;
-    }
+    .hidden { display: none !important; }
 
     .empty {
       padding: var(--space-8);
@@ -497,10 +425,7 @@
       color: var(--color-text-muted);
     }
 
-    .report {
-      display: grid;
-      gap: var(--space-5);
-    }
+    .report { display: grid; gap: var(--space-5); }
 
     .report-head {
       display: flex;
@@ -522,9 +447,7 @@
       border-radius: var(--radius-lg);
     }
 
-    .small {
-      font-size: var(--text-xs);
-    }
+    .small { font-size: var(--text-xs); }
 
     details {
       border-radius: var(--radius-md);
@@ -541,102 +464,56 @@
       list-style: none;
     }
 
-    details summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details[open] {
-      background: var(--color-surface-offset);
-    }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] { background: var(--color-surface-offset); }
 
     .tagline {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
     }
 
+    .result-good { color: var(--color-success); }
+    .result-average { color: var(--color-primary); }
+    .result-low { color: var(--color-warning); }
+
     @media (max-width: 1100px) {
-      .hero,
-      .grid-2,
-      .report-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .kpis,
-      .scores {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .form-grid,
-      .form-grid-3,
-      .score-row {
-        grid-template-columns: 1fr;
-      }
-
-      .app {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        display: none;
-      }
+      .hero, .grid-2, .report-grid { grid-template-columns: 1fr; }
+      .kpis, .scores { grid-template-columns: repeat(2, 1fr); }
+      .form-grid, .form-grid-3, .score-row { grid-template-columns: 1fr; }
+      .app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
     }
 
     @media print {
-      body {
-        background: #fff;
-        color: #000;
-      }
-
-      .sidebar,
-      .topbar,
-      .no-print {
-        display: none !important;
-      }
-
-      .app,
-      .main,
-      .content {
+      body { background: #fff; color: #000; }
+      .sidebar, .topbar, .no-print { display: none !important; }
+      .app, .main, .content {
         display: block;
         height: auto;
         overflow: visible;
         padding: 0;
       }
-
-      .card,
-      .block,
-      .report-box,
-      .score-box {
+      .card, .block, .report-box, .score-box {
         box-shadow: none;
         border: 1px solid #bbb;
         background: #fff;
       }
-
-      .content > *:not(#screen-report) {
-        display: none !important;
-      }
-
-      #screen-report {
-        display: block !important;
-      }
+      .content > :not(#screen-report) { display: none !important; }
+      #screen-report { display: block !important; }
     }
   </style>
 </head>
 
 <body>
-
   <div class="app">
-
     <aside class="sidebar no-print">
-
       <div class="brand">
         <div class="logo" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.2" aria-label="Logo M50 Mente Viva">
-            <path d="M4 18V6l4.5 6L13 6v12" />
-            <path d="M20 7h-4a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4h-4" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-label="Logo M50 Mente Viva">
+            <path d="M4 18V6l4.5 6L13 6v12"></path>
+            <path d="M20 7h-4a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4h-4"></path>
           </svg>
         </div>
-
         <div>
           <strong>M50 Mente Viva</strong>
           <small>Monitorização funcional 50+</small>
@@ -644,3391 +521,1201 @@
       </div>
 
       <nav class="nav">
-
-        <button class="active" data-screen="dashboard">
-          <span class="icon">🏠</span>
-          Painel
-        </button>
-
-        <button data-screen="new-test">
-          <span class="icon">📝</span>
-          Novo teste
-        </button>
-
-        <button data-screen="report">
-          <span class="icon">📄</span>
-          Relatório
-        </button>
-
-        <button data-screen="studies">
-          <span class="icon">📚</span>
-          Estudos
-        </button>
-
+        <button class="active" data-screen="dashboard"><span class="icon">◈</span> Painel</button>
+        <button data-screen="new-test"><span class="icon">＋</span> Novo teste</button>
+        <button data-screen="report"><span class="icon">▤</span> Relatório</button>
+        <button data-screen="studies"><span class="icon">⌁</span> Estudos</button>
       </nav>
 
-      <div class="notice small">
-        O M50 Mente Viva é um protocolo de rastreio funcional e acompanhamento de evolução,
-        baseado em testes amplamente usados em envelhecimento saudável e escalas internas do método.
-        Não constitui diagnóstico médico, psicológico ou neuropsicológico.
+      <div class="notice">
+        <small>O M50 Mente Viva é um protocolo de rastreio funcional e acompanhamento de evolução, baseado em testes amplamente usados em envelhecimento saudável e escalas internas do método. Não constitui diagnóstico médico, psicológico ou neuropsicológico.</small>
       </div>
-
     </aside>
 
-
     <section class="main">
-
       <header class="topbar no-print">
-
         <div>
-          <h1 style="font-size:var(--text-xl);">
-            M50 Mente Viva
-          </h1>
-
-          <p class="tagline">
-            Índice integrado de longevidade funcional para o Espaço M50.
-          </p>
+          <h1 style="font-size:var(--text-xl)">M50 Mente Viva</h1>
+          <p class="tagline">Índice integrado de longevidade funcional para o Espaço M50.</p>
         </div>
-
         <div class="toolbar">
-
-          <button class="btn btn-secondary" id="themeToggle">
-            Tema claro/escuro
-          </button>
-
+          <button class="btn btn-secondary" id="themeToggle">Tema claro/escuro</button>
         </div>
-
       </header>
-
 
       <main class="content">
 
-
-        <!-- PAINEL -->
-
         <section id="screen-dashboard">
-
           <div class="hero card">
-
             <div>
-
-              <span class="pill">
-                Protocolo interno · 50+
-              </span>
-
-              <h2 style="font-size:var(--text-xl);margin:12px 0;">
-                Cinco domínios para enxergar a autonomia real do aluno.
-              </h2>
-
-              <p class="muted">
-                O M50 Mente Viva integra cognição, mobilidade, força,
-                controle postural e reserva de saúde em um índice único (0–100).
-              </p>
-
-              <div class="btn-row" style="margin-top:20px;">
-
-                <button
-                  class="btn btn-primary"
-                  data-screen-link="new-test">
-                  Iniciar avaliação
-                </button>
-
+              <span class="pill">Protocolo interno 50+</span>
+              <h2 style="font-size:var(--text-xl);margin:12px 0">Cinco domínios para enxergar a autonomia real do aluno.</h2>
+              <p class="muted">O M50 Mente Viva integra cognição, mobilidade, força, controle postural e reserva de saúde em um índice único 0–100.</p>
+              <div class="btn-row" style="margin-top:20px">
+                <button class="btn btn-primary" data-screen-link="new-test">Iniciar avaliação</button>
               </div>
-
             </div>
-
 
             <div class="hero-right">
-
-              <h3 style="font-size:var(--text-lg);margin-bottom:8px;">
-                Domínios avaliados
-              </h3>
-
-              <p class="small muted">
-                🧠 Domínio Cognitivo – atenção, memória e organização mental.
-              </p>
-
-              <p class="small muted">
-                🚶 Mobilidade Funcional – deslocamento, velocidade e mudança de direção.
-              </p>
-
-              <p class="small muted">
-                💪 Força e Potência Muscular – força de preensão e membros inferiores.
-              </p>
-
-              <p class="small muted">
-                ⚖️ Controle Postural – estabilidade em posições desafiadoras.
-              </p>
-
-              <p class="small muted">
-                🌿 Reserva de Saúde – hábitos e cognição ativa que protegem a autonomia.
-              </p>
-
+              <h3 style="font-size:var(--text-lg);margin-bottom:8px">Domínios avaliados</h3>
+              <p class="small muted">Domínio Cognitivo: atenção, memória e organização mental.</p>
+              <p class="small muted">Mobilidade Funcional: deslocamento, velocidade e mudança de direção.</p>
+              <p class="small muted">Força e Potência Muscular: dinamometria de ambas as mãos e membros inferiores.</p>
+              <p class="small muted">Controle Postural: estabilidade em posições desafiadoras.</p>
+              <p class="small muted">Reserva de Saúde: hábitos e cognição ativa que protegem a autonomia.</p>
             </div>
-
           </div>
-
 
           <div class="kpis">
-
             <div class="card kpi">
-              <span class="muted small">
-                Avaliações realizadas
-              </span>
-
-              <div class="value" id="kpiTests">
-                0
-              </div>
+              <span class="muted small">Avaliações realizadas</span>
+              <div class="value" id="kpiTests">0</div>
             </div>
-
-
             <div class="card kpi">
-              <span class="muted small">
-                Média geral (0–100)
-              </span>
-
-              <div class="value" id="kpiAverage">
-                0
-              </div>
+              <span class="muted small">Média geral 0–100</span>
+              <div class="value" id="kpiAverage">0</div>
             </div>
-
-
             <div class="card kpi">
-              <span class="muted small">
-                Em atenção/risco (&lt;70)
-              </span>
-
-              <div class="value" id="kpiRisk">
-                0
-              </div>
+              <span class="muted small">Em atenção/risco &lt;70</span>
+              <div class="value" id="kpiRisk">0</div>
             </div>
-
-
             <div class="card kpi">
-              <span class="muted small">
-                Status
-              </span>
-
-              <div class="value">
-                M50
-              </div>
+              <span class="muted small">Status</span>
+              <div class="value">M50</div>
             </div>
-
           </div>
-
         </section>
-
-
-        <!-- NOVO TESTE -->
 
         <section id="screen-new-test" class="hidden">
-
           <div class="card panel">
-
             <div class="student-header">
-
               <div>
-
-                <h3>
-                  Novo teste M50 Mente Viva
-                </h3>
-
-                <p class="muted">
-                  Siga as instruções em cada domínio. O índice final é calculado automaticamente.
-                </p>
-
+                <h3>Novo teste M50 Mente Viva</h3>
+                <p class="muted">Siga as instruções em cada domínio. O índice final é calculado automaticamente.</p>
               </div>
-
-              <span class="pill">
-                Total 0–100 pts
-              </span>
-
+              <span class="pill">Total 0–100 pts</span>
             </div>
 
-
-            <form id="testForm" class="report" style="margin-top:20px;">
-
-
-              <!-- DADOS DA AVALIAÇÃO -->
-
+            <form id="testForm" class="report" style="margin-top:20px">
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    Dados da pessoa avaliada
-                  </h4>
-
-                  <span class="pill">
-                    Identificação da avaliação
-                  </span>
-
+                  <h4>Dados da pessoa avaliada</h4>
+                  <span class="pill">Identificação da avaliação</span>
                 </div>
-
 
                 <div class="form-grid">
-
                   <div class="field">
-
-                    <label>
-                      Nome completo
-                    </label>
-
-                    <input
-                      id="personName"
-                      required
-                      placeholder="Nome da pessoa avaliada" />
-
+                    <label>Nome completo</label>
+                    <input id="personName" required placeholder="Nome da pessoa avaliada">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Data de nascimento
-                    </label>
-
-                    <input
-                      type="date"
-                      id="personBirthDate"
-                      required />
-
+                    <label>Data de nascimento</label>
+                    <input type="date" id="personBirthDate" required>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Sexo
-                    </label>
-
-                    <select
-                      id="personSex"
-                      required>
-
-                      <option value="">
-                        Selecione
-                      </option>
-
-                      <option value="F">
-                        Feminino
-                      </option>
-
-                      <option value="M">
-                        Masculino
-                      </option>
-
-                      <option value="O">
-                        Outro
-                      </option>
-
+                    <label>Sexo</label>
+                    <select id="personSex" required>
+                      <option value="">Selecione</option>
+                      <option value="F">Feminino</option>
+                      <option value="M">Masculino</option>
+                      <option value="O">Outro</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Data do teste
-                    </label>
-
-                    <input
-                      type="date"
-                      id="testDate"
-                      required />
-
+                    <label>Data do teste</label>
+                    <input type="date" id="testDate" required>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Avaliador
-                    </label>
-
-                    <input
-                      id="evaluator"
-                      placeholder="Nome do profissional" />
-
+                    <label>Avaliador</label>
+                    <input id="evaluator" placeholder="Nome do profissional">
                   </div>
-
                 </div>
-
               </div>
 
-
-              <!-- DOMÍNIO 1 – COGNITIVO -->
-
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    🧠 Domínio Cognitivo (máx. 25 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Atenção, memória e organização temporal
-                  </span>
-
+                  <h4>Domínio Cognitivo · máx. 25 pts</h4>
+                  <span class="pill">Atenção, memória e organização temporal</span>
                 </div>
-
 
                 <details>
-
-                  <summary>
-                    Como aplicar este domínio
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Ambiente calmo, com óculos/aparelho se necessários.<br>
-                    • Escala interna M50, inspirada em tarefas de triagem cognitiva
-                    (fluência verbal, memória de palavras, teste do relógio, atenção sustentada).<br>
-                    • Não substitui testes neuropsicológicos padronizados;
-                    serve para rastreio e acompanhamento funcional.
+                  <summary>Como aplicar este domínio</summary>
+                  <p class="small" style="margin-top:8px">
+                    Ambiente calmo, com óculos/aparelho se necessários.<br>
+                    Escala interna M50, inspirada em tarefas de triagem cognitiva: fluência verbal, memória de palavras, teste do relógio e atenção sustentada.<br>
+                    Não substitui testes neuropsicológicos padronizados: serve para rastreio e acompanhamento funcional.
                   </p>
-
                 </details>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      Fluência verbal – animais em 60 s
-                    </label>
-
+                    <label>Fluência verbal: animais em 60 s</label>
                     <select data-block="cognition">
-
-                      <option value="">
-                        Pontuação
-                      </option>
-
-                      <option value="5">
-                        5 pts – ≥ 20 animais
-                      </option>
-
-                      <option value="4">
-                        4 pts – 16 a 19
-                      </option>
-
-                      <option value="3">
-                        3 pts – 13 a 15
-                      </option>
-
-                      <option value="2">
-                        2 pts – 10 a 12
-                      </option>
-
-                      <option value="1">
-                        1 pt – &lt; 10
-                      </option>
-
+                      <option value="">Pontuação</option>
+                      <option value="5">5 pts: ≥20 animais</option>
+                      <option value="4">4 pts: 16 a 19</option>
+                      <option value="3">3 pts: 13 a 15</option>
+                      <option value="2">2 pts: 10 a 12</option>
+                      <option value="1">1 pt: &lt;10</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Resumo da regra
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Contar o número de animais diferentes ditos em 60 segundos. Não contar repetições nem palavras que não sejam animais.
-                    </textarea>
-
+                    <label>Resumo da regra</label>
+                    <textarea class="readonly" disabled>Contar o número de animais diferentes ditos em 60 segundos. Não contar repetições nem palavras que não sejam animais.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="fluencia"
-                      placeholder="Pausas, repetições, dificuldade de iniciar..." />
-
+                    <label>Obs.</label>
+                    <input data-note="fluencia" placeholder="Pausas, repetições, dificuldade de iniciar...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      Memória imediata – 5 palavras
-                    </label>
-
+                    <label>Memória imediata: 5 palavras</label>
                     <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – lembra 5
-                      </option>
-
-                      <option value="4">
-                        4 pts – lembra 4
-                      </option>
-
-                      <option value="3">
-                        3 pts – lembra 3
-                      </option>
-
-                      <option value="1">
-                        1 pt – lembra 1–2
-                      </option>
-
-                      <option value="0">
-                        0 pt – nenhuma
-                      </option>
-
+                      <option value=""></option>
+                      <option value="5">5 pts: lembra 5</option>
+                      <option value="4">4 pts: lembra 4</option>
+                      <option value="3">3 pts: lembra 3</option>
+                      <option value="1">1 pt: lembra 1–2</option>
+                      <option value="0">0 pt: nenhuma</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Palavras
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Casa · Chave · Flor · Janela · Jardim
-                    </textarea>
-
+                    <label>Palavras</label>
+                    <textarea class="readonly" disabled>Casa · Chave · Flor · Janela · Jardim</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="memoria-imediata"
-                      placeholder="Nº de repetições, distrações..." />
-
+                    <label>Obs.</label>
+                    <input data-note="memoria-imediata" placeholder="Nº de repetições, distrações...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      Teste do relógio – 11h10
-                    </label>
-
+                    <label>Teste do relógio: 11h10</label>
                     <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – desenho completo e coerente
-                      </option>
-
-                      <option value="4">
-                        4 pts – pequenos erros
-                      </option>
-
-                      <option value="3">
-                        3 pts – erros moderados
-                      </option>
-
-                      <option value="2">
-                        2 pts – muitos erros
-                      </option>
-
-                      <option value="1">
-                        1 pt – incapaz
-                      </option>
-
+                      <option value=""></option>
+                      <option value="5">5 pts: desenho completo e coerente</option>
+                      <option value="4">4 pts: pequenos erros</option>
+                      <option value="3">3 pts: erros moderados</option>
+                      <option value="2">2 pts: muitos erros</option>
+                      <option value="1">1 pt: incapaz</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Referência
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Círculo reconhecível, números de 1 a 12 bem distribuídos e ponteiros indicando 11h10.
-                    </textarea>
-
+                    <label>Referência</label>
+                    <textarea class="readonly" disabled>Círculo reconhecível, números de 1 a 12 bem distribuídos e ponteiros indicando 11h10.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="relogio"
-                      placeholder="Nºs fora de ordem, ponteiros trocados..." />
-
+                    <label>Obs.</label>
+                    <input data-note="relogio" placeholder="Números fora de ordem, ponteiros trocados...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      Memória tardia – após ~5 min
-                    </label>
-
+                    <label>Memória tardia: após 5 min</label>
                     <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – lembra 5 espontâneo
-                      </option>
-
-                      <option value="4">
-                        4 pts – lembra 4 espontâneo
-                      </option>
-
-                      <option value="3">
-                        3 pts – lembra 3 espontâneo
-                      </option>
-
-                      <option value="1">
-                        1 pt – lembra 1–2
-                      </option>
-
-                      <option value="0">
-                        0 pt – nenhuma
-                      </option>
-
+                      <option value=""></option>
+                      <option value="5">5 pts: lembra 5 espontâneo</option>
+                      <option value="4">4 pts: lembra 4 espontâneo</option>
+                      <option value="3">3 pts: lembra 3 espontâneo</option>
+                      <option value="1">1 pt: lembra 1–2</option>
+                      <option value="0">0 pt: nenhuma</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Referência
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Perguntar novamente pelas 5 palavras depois de ~5 minutos, sem aviso prévio. Usar pistas categoriais se necessário.
-                    </textarea>
-
+                    <label>Referência</label>
+                    <textarea class="readonly" disabled>Perguntar novamente pelas 5 palavras depois de 5 minutos, sem aviso prévio. Usar pistas categoriais se necessário.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="memoria-tardia"
-                      placeholder="Precisou de pistas? Reconhece mas não evoca?" />
-
+                    <label>Obs.</label>
+                    <input data-note="memoria-tardia" placeholder="Precisou de pistas? Reconhece mas não evoca?">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      Atenção – meses do ano ao contrário
-                    </label>
-
+                    <label>Atenção: meses do ano ao contrário</label>
                     <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – sem erros
-                      </option>
-
-                      <option value="4">
-                        4 pts – 1 erro com autocorreção
-                      </option>
-
-                      <option value="3">
-                        3 pts – 2 erros
-                      </option>
-
-                      <option value="2">
-                        2 pts – ≥ 3 erros/hesitação
-                      </option>
-
-                      <option value="1">
-                        1 pt – incapaz
-                      </option>
-
+                      <option value=""></option>
+                      <option value="5">5 pts: sem erros</option>
+                      <option value="4">4 pts: 1 erro com autocorreção</option>
+                      <option value="3">3 pts: 2 erros</option>
+                      <option value="2">2 pts: 3 erros/hesitação</option>
+                      <option value="1">1 pt: incapaz</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Referência
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não conhecer nomes.
-                    </textarea>
-
+                    <label>Referência</label>
+                    <textarea class="readonly" disabled>Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não conhecer nomes.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="atencao"
-                      placeholder="Erros, travamentos, não conhece meses..." />
-
+                    <label>Obs.</label>
+                    <input data-note="atencao" placeholder="Erros, travamentos, não conhece meses...">
                   </div>
-
                 </div>
-
               </div>
 
-
-              <!-- DOMÍNIO 2 – MOBILIDADE -->
-
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    🚶 Mobilidade Funcional (máx. 25 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Capacidade de deslocamento, transferência postural e agilidade
-                  </span>
-
+                  <h4>Mobilidade Funcional · máx. 25 pts</h4>
+                  <span class="pill">Capacidade de deslocamento, transferência postural e agilidade</span>
                 </div>
-
 
                 <details>
-
-                  <summary>
-                    Objetivo e preparação
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Avaliar marcha, transferências, velocidade e mudança de direção – componentes críticos para autonomia.<br>
-                    • Usa testes validados como TUG e velocidade de marcha, combinados com um teste próprio de mudança de direção para dar identidade ao método.
+                  <summary>Objetivo e preparação</summary>
+                  <p class="small" style="margin-top:8px">
+                    Avaliar marcha, transferências, velocidade e mudança de direção — componentes críticos para autonomia.<br>
+                    Usa testes validados como TUG e velocidade de marcha, combinados com um teste próprio de mudança de direção para dar identidade ao método.
                   </p>
-
                 </details>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      1. Timed Up and Go (TUG)
-                    </label>
-
+                    <label>1. Timed Up and Go — TUG</label>
                     <select data-block="mobility">
-
-                      <option value="">
-                      </option>
-
-                      <option value="8">
-                        &lt; 10 s – baixo risco
-                      </option>
-
-                      <option value="6">
-                        10–12 s – funcional
-                      </option>
-
-                      <option value="4">
-                        13–15 s – atenção
-                      </option>
-
-                      <option value="2">
-                        &gt; 15 s – risco elevado
-                      </option>
-
+                      <option value=""></option>
+                      <option value="8">8 pts: &lt;10 s, baixo risco</option>
+                      <option value="6">6 pts: 10–12 s, funcional</option>
+                      <option value="4">4 pts: 13–15 s, atenção</option>
+                      <option value="2">2 pts: &gt;15 s, risco elevado</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Como medir
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Sentar em cadeira com braços, levantar ao comando “já”, caminhar 3 m, virar, retornar e sentar novamente. Cronometrar do comando até encostar de novo no encosto.
-                    </textarea>
-
+                    <label>Como medir</label>
+                    <textarea class="readonly" disabled>Sentar em cadeira com braços, levantar ao comando “já”, caminhar 3 m, virar, retornar e sentar novamente. Cronometrar do comando até encostar de novo no encosto.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      placeholder="Perde equilíbrio, precisa de apoio, uso de bengala..." />
-
+                    <label>Obs.</label>
+                    <input placeholder="Perde equilíbrio, precisa de apoio, uso de bengala...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      2. Velocidade de marcha – 4 m
-                    </label>
-
+                    <label>2. Velocidade de marcha — 4 m</label>
                     <select data-block="mobility">
-
-                      <option value="">
-                      </option>
-
-                      <option value="6">
-                        6 pts – &gt; 1,0 m/s (≤ 4,0 s)
-                      </option>
-
-                      <option value="5">
-                        5 pts – 0,8–1,0 m/s (4,1–5,0 s)
-                      </option>
-
-                      <option value="4">
-                        4 pts – 0,6–0,79 m/s (5,1–6,5 s)
-                      </option>
-
-                      <option value="2">
-                        2 pts – 0,4–0,59 m/s (6,6–10 s)
-                      </option>
-
-                      <option value="1">
-                        1 pt – &lt; 0,4 m/s (&gt; 10 s ou apoio constante)
-                      </option>
-
+                      <option value=""></option>
+                      <option value="6">6 pts: &gt;1,0 m/s, &lt;4,0 s</option>
+                      <option value="5">5 pts: 0,8–1,0 m/s, 4,1–5,0 s</option>
+                      <option value="4">4 pts: 0,6–0,79 m/s, 5,1–6,5 s</option>
+                      <option value="2">2 pts: 0,4–0,59 m/s, 6,6–10 s</option>
+                      <option value="1">1 pt: &lt;0,4 m/s, &gt;10 s ou apoio constante</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Como medir
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Marcar 4 m em superfície plana. Pedir que caminhe em passo habitual, sem correr. Cronometrar do início do movimento até o pé cruzar a linha final.
-                    </textarea>
-
+                    <label>Como medir</label>
+                    <textarea class="readonly" disabled>Marcar 4 m em superfície plana. Pedir que caminhe em passo habitual, sem correr. Cronometrar do início do movimento até o pé cruzar a linha final.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      placeholder="Assimetria de passo, arrasta pés, medo de cair..." />
-
+                    <label>Obs.</label>
+                    <input placeholder="Assimetria de passo, arrasta pés, medo de cair...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      3. Five Times Sit to Stand (5xSTS)
-                    </label>
-
+                    <label>3. Five Times Sit to Stand — 5xSTS</label>
                     <select data-block="mobility">
-
-                      <option value="">
-                      </option>
-
-                      <option value="6">
-                        6 pts – ≤ 11 s
-                      </option>
-
-                      <option value="5">
-                        5 pts – 12–14 s
-                      </option>
-
-                      <option value="4">
-                        4 pts – 15–17 s
-                      </option>
-
-                      <option value="2">
-                        2 pts – 18–20 s
-                      </option>
-
-                      <option value="1">
-                        1 pt – &gt; 20 s ou não completa sem apoio
-                      </option>
-
+                      <option value=""></option>
+                      <option value="6">6 pts: ≤11 s</option>
+                      <option value="5">5 pts: 12–14 s</option>
+                      <option value="4">4 pts: 15–17 s</option>
+                      <option value="2">2 pts: 18–20 s</option>
+                      <option value="1">1 pt: &gt;20 s ou não completa sem apoio</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Como medir
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Sentar em cadeira padrão, braços cruzados. Ao comando “já”, levantar e sentar 5 vezes o mais rápido possível, sem usar as mãos. Cronometrar todo o ciclo.
-                    </textarea>
-
+                    <label>Como medir</label>
+                    <textarea class="readonly" disabled>Sentar em cadeira padrão, braços cruzados. Ao comando “já”, levantar e sentar 5 vezes o mais rápido possível, sem usar as mãos. Cronometrar todo o ciclo.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      placeholder="Usa braços, perde alinhamento, dor ao levantar..." />
-
+                    <label>Obs.</label>
+                    <input placeholder="Usa braços, perde alinhamento, dor ao levantar...">
                   </div>
-
                 </div>
 
-
                 <div class="score-row">
-
                   <div class="field">
-
-                    <label>
-                      4. Mudança de direção – cone 3 m
-                    </label>
-
+                    <label>4. Mudança de direção: cone 3 m</label>
                     <select data-block="mobility">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – excelente
-                      </option>
-
-                      <option value="4">
-                        4 pts – bom
-                      </option>
-
-                      <option value="3">
-                        3 pts – regular
-                      </option>
-
-                      <option value="2">
-                        2 pts – ruim
-                      </option>
-
-                      <option value="1">
-                        1 pt – incapaz sem ajuda
-                      </option>
-
+                      <option value=""></option>
+                      <option value="5">5 pts: excelente</option>
+                      <option value="4">4 pts: bom</option>
+                      <option value="3">3 pts: regular</option>
+                      <option value="2">2 pts: ruim</option>
+                      <option value="1">1 pt: incapaz sem ajuda</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Como medir
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do tronco, necessidade de apoio e confiança.
-                    </textarea>
-
+                    <label>Como medir</label>
+                    <textarea class="readonly" disabled>Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do tronco, necessidade de apoio e confiança.</textarea>
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      placeholder="Vira em muitos passos, agarra no cone, trava na virada..." />
-
+                    <label>Obs.</label>
+                    <input placeholder="Vira em muitos passos, agarra no cone, trava na virada...">
                   </div>
-
                 </div>
-
               </div>
 
-
-              <!-- DOMÍNIO 3 – FORÇA -->
-
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    💪 Força e Potência Muscular (máx. 20 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Força de preensão e membros inferiores
-                  </span>
-
+                  <h4>Força e Potência Muscular · máx. 20 pts</h4>
+                  <span class="pill">Dinamometria bilateral e membros inferiores</span>
                 </div>
 
-
                 <details>
-
-                  <summary>
-                    Objetivo, mão e referência etária
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Integra força máxima de preensão e resistência de membros inferiores,
-                    comparando com faixas internas por idade e sexo.<br>
-                    • Registrar sempre qual mão foi usada e, se mediu as duas,
-                    usar o melhor valor como referência de força.
+                  <summary>Objetivo, instrumento e regra de classificação</summary>
+                  <p class="small" style="margin-top:8px">
+                    A força de preensão deve ser medida obrigatoriamente nas duas mãos com <strong>dinamômetro manual</strong>.<br><br>
+                    Registre o melhor resultado de cada mão em kgf. O sistema utiliza automaticamente o maior valor entre as duas mãos e compara esse resultado com a idade e o gênero cadastrados.<br><br>
+                    Classificação automática: <strong>Ruim (baixo) = 2 pts</strong>, <strong>Bom (médio) = 6 pts</strong> e <strong>Ótimo (alto) = 10 pts</strong>.
                   </p>
-
                 </details>
-
 
                 <div class="form-grid">
-
                   <div class="field">
-
-                    <label>
-                      Mão dominante
-                    </label>
-
-                    <select id="dominantHand">
-
-                      <option value="">
-                        Selecione
-                      </option>
-
-                      <option value="D">
-                        Direita
-                      </option>
-
-                      <option value="E">
-                        Esquerda
-                      </option>
-
+                    <label>Mão dominante</label>
+                    <select id="dominantHand" required>
+                      <option value="">Selecione</option>
+                      <option value="D">Direita</option>
+                      <option value="E">Esquerda</option>
                     </select>
-
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Mediu as duas mãos?
-                    </label>
-
-                    <select id="bothHands">
-
-                      <option value="nao">
-                        Não
-                      </option>
-
-                      <option value="sim">
-                        Sim
-                      </option>
-
-                    </select>
-
+                    <label>Instrumento utilizado</label>
+                    <input value="Dinamômetro manual" readonly>
                   </div>
-
                 </div>
 
-
-                <div class="form-grid" style="margin-top:var(--space-4);">
-
+                <div class="form-grid" style="margin-top:var(--space-4)">
                   <div class="field">
-
-                    <label>
-                      Preensão – mão dominante (kgf)
-                    </label>
-
-                    <input
-                      id="gripDominant"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="Valor bruto em kgf" />
-
+                    <label>Preensão mão direita — kgf</label>
+                    <input id="gripRight" type="number" min="0" step="0.1" required placeholder="Melhor resultado da mão direita">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Preensão – melhor valor
-                    </label>
-
-                    <input
-                      id="gripBest"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="Maior kgf medido (opcional)" />
-
+                    <label>Preensão mão esquerda — kgf</label>
+                    <input id="gripLeft" type="number" min="0" step="0.1" required placeholder="Melhor resultado da mão esquerda">
                   </div>
-
                 </div>
 
-
-                <div class="form-grid" style="margin-top:var(--space-4);">
-
+                <div class="form-grid" style="margin-top:var(--space-4)">
                   <div class="field">
-
-                    <label>
-                      Pontuação automática preensão (0–10)
-                    </label>
-
-                    <input
-                      id="gripScore"
-                      type="number"
-                      min="0"
-                      max="10"
-                      step="1"
-                      data-block="strength"
-                      readonly
-                      placeholder="Calculado pelo sistema" />
-
+                    <label>Melhor resultado entre as mãos — kgf</label>
+                    <input id="gripBest" type="number" readonly placeholder="Calculado automaticamente">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Comentário
-                    </label>
-
-                    <input
-                      id="gripComment"
-                      placeholder="Ex.: força acima/abaixo da média para a idade" />
-
+                    <label>Classificação automática</label>
+                    <input id="gripClassification" readonly placeholder="Aguardando dados">
                   </div>
-
                 </div>
 
+                <div class="form-grid" style="margin-top:var(--space-4)">
+                  <div class="field">
+                    <label>Pontuação automática da preensão — 0 a 10</label>
+                    <input id="gripScore" type="number" min="0" max="10" step="1" data-block="strength" readonly placeholder="Calculado pelo sistema">
+                  </div>
+                  <div class="field">
+                    <label>Comentário automático</label>
+                    <input id="gripComment" readonly placeholder="Classificação conforme idade e gênero">
+                  </div>
+                </div>
 
                 <details>
-
-                  <summary>
-                    Instruções – Preensão manual
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Sentado ou em pé, ombro ao lado do corpo, cotovelo a 90°,
-                    antebraço em posição neutra. Ajustar dinamômetro à mão dominante
-                    (e à não dominante, se desejar). Pedir 2–3 tentativas máximas,
-                    com incentivo. Registrar o melhor valor em kgf.
+                  <summary>Instruções: dinamometria manual</summary>
+                  <p class="small" style="margin-top:8px">
+                    Utilizar <strong>dinamômetro manual</strong>. A pessoa pode estar sentada ou em pé, com ombro junto ao corpo, cotovelo flexionado a 90° e antebraço em posição neutra.<br><br>
+                    Realizar 2 a 3 tentativas máximas em cada mão, com incentivo verbal e intervalo breve entre elas. Registrar obrigatoriamente o melhor resultado, em kgf, da mão direita e da mão esquerda. O sistema considera o maior resultado das duas mãos.
                   </p>
-
                 </details>
 
-
-                <div class="form-grid" style="margin-top:var(--space-4);">
-
+                <div class="form-grid" style="margin-top:var(--space-4)">
                   <div class="field">
-
-                    <label>
-                      Chair Stand 30 s – repetições
-                    </label>
-
-                    <input
-                      id="csReps"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Nº de repetições em 30 s" />
-
+                    <label>Chair Stand 30 s — repetições</label>
+                    <input id="csReps" type="number" min="0" step="1" placeholder="Nº de repetições em 30 s">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Pontuação automática Chair Stand (0–10)
-                    </label>
-
-                    <input
-                      id="csScore"
-                      type="number"
-                      min="0"
-                      max="10"
-                      step="1"
-                      data-block="strength"
-                      readonly
-                      placeholder="Calculado pelo sistema" />
-
+                    <label>Pontuação automática Chair Stand — 0 a 10</label>
+                    <input id="csScore" type="number" min="0" max="10" step="1" data-block="strength" readonly placeholder="Calculado pelo sistema">
                   </div>
-
                 </div>
 
-
                 <details>
-
-                  <summary>
-                    Instruções – Chair Stand 30 s
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Sentado em cadeira padrão, braços cruzados sobre o peito ou ombros.
-                    Ao comando “já”, levantar e sentar o maior número de vezes possível
-                    em 30 segundos, mantendo segurança.
+                  <summary>Instruções: Chair Stand 30 s</summary>
+                  <p class="small" style="margin-top:8px">
+                    Sentado em cadeira padrão, braços cruzados sobre o peito ou ombros. Ao comando “já”, levantar e sentar o maior número de vezes possível em 30 segundos, mantendo segurança.
                   </p>
-
                 </details>
-
               </div>
-
-
-              <!-- DOMÍNIO 4 – EQUILÍBRIO -->
 
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    ⚖️ Controle Postural (máx. 15 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Estabilidade, controle neuromuscular e risco de queda
-                  </span>
-
+                  <h4>Controle Postural · máx. 15 pts</h4>
+                  <span class="pill">Estabilidade, controle neuromuscular e risco de queda</span>
                 </div>
 
-
                 <details>
-
-                  <summary>
-                    Descrição e referência etária
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Mede capacidade de manter equilíbrio em semi-tandem,
-                    tandem e apoio unipodal, com tempos comparados por idade.
-                  </p>
-
+                  <summary>Descrição e referência etária</summary>
+                  <p class="small" style="margin-top:8px">Mede capacidade de manter equilíbrio em semi-tandem, tandem e apoio unipodal, com tempos comparados por idade.</p>
                 </details>
-
 
                 <div class="form-grid-3">
-
                   <div class="field">
-
-                    <label>
-                      Semi-tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="semiTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
+                    <label>Semi-tandem: tempo em s</label>
+                    <input id="semiTime" type="number" min="0" step="1" placeholder="Segundos">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="tandemTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
+                    <label>Tandem: tempo em s</label>
+                    <input id="tandemTime" type="number" min="0" step="1" placeholder="Segundos">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Unipodal – tempo (s)
-                    </label>
-
-                    <input
-                      id="uniTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
+                    <label>Unipodal: tempo em s</label>
+                    <input id="uniTime" type="number" min="0" step="1" placeholder="Segundos">
                   </div>
-
                 </div>
 
-
-                <div class="form-grid-3" style="margin-top:var(--space-4);">
-
+                <div class="form-grid-3" style="margin-top:var(--space-4)">
                   <div class="field">
-
-                    <label>
-                      Pontuação semi-tandem (0–5)
-                    </label>
-
-                    <input
-                      id="semiScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
+                    <label>Pontuação semi-tandem — 0 a 5</label>
+                    <input id="semiScore" type="number" min="0" max="5" step="1" data-block="balance" readonly placeholder="Automático por idade">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Pontuação tandem (0–5)
-                    </label>
-
-                    <input
-                      id="tandemScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
+                    <label>Pontuação tandem — 0 a 5</label>
+                    <input id="tandemScore" type="number" min="0" max="5" step="1" data-block="balance" readonly placeholder="Automático por idade">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Pontuação unipodal (0–5)
-                    </label>
-
-                    <input
-                      id="uniScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
+                    <label>Pontuação unipodal — 0 a 5</label>
+                    <input id="uniScore" type="number" min="0" max="5" step="1" data-block="balance" readonly placeholder="Automático por idade">
                   </div>
-
                 </div>
-
 
                 <details>
-
-                  <summary>
-                    Instruções – Semi-tandem, Tandem e Unipodal
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Semi-tandem: um pé parcialmente à frente do outro.<br>
-                    • Tandem: pés em linha.<br>
-                    • Unipodal: em pé sobre um pé, outro elevado.<br>
-                    • Cronometrar até apoiar ou perder claramente a posição.
+                  <summary>Instruções: Semi-tandem, Tandem e Unipodal</summary>
+                  <p class="small" style="margin-top:8px">
+                    Semi-tandem: um pé parcialmente à frente do outro.<br>
+                    Tandem: pés em linha.<br>
+                    Unipodal: em pé sobre um pé, outro elevado.<br>
+                    Cronometrar até apoiar ou perder claramente a posição.
                   </p>
-
                 </details>
-
               </div>
-
-
-              <!-- DOMÍNIO 5 – RESERVA -->
 
               <div class="block">
-
                 <div class="block-title">
-
-                  <h4>
-                    🌿 Reserva de Saúde (máx. 15 pts)
-                  </h4>
-
-                  <span class="pill">
-                    Capacidade intrínseca e fatores protetores modificáveis
-                  </span>
-
+                  <h4>Reserva de Saúde · máx. 15 pts</h4>
+                  <span class="pill">Capacidade intrínseca e fatores protetores modificáveis</span>
                 </div>
-
 
                 <details>
-
-                  <summary>
-                    Descrição geral
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Avalia fatores de reserva de saúde associados ao envelhecimento saudável:
-                    sono, atividade física, nutrição, participação social e cognição ativa.
-                  </p>
-
+                  <summary>Descrição geral</summary>
+                  <p class="small" style="margin-top:8px">Avalia fatores de reserva de saúde associados ao envelhecimento saudável: sono, atividade física, nutrição, participação social e cognição ativa.</p>
                 </details>
 
-
                 <div class="form-grid-3">
-
                   <div class="field">
-
-                    <label>
-                      Sono (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Quantidade/regularidade do sono" />
-
+                    <label>Sono — 0 a 3 pts</label>
+                    <input type="number" min="0" max="3" step="1" data-block="lifestyle" placeholder="Quantidade/regularidade do sono">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Exercício semanal (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Minutos/semana, variedade" />
-
+                    <label>Exercício semanal — 0 a 3 pts</label>
+                    <input type="number" min="0" max="3" step="1" data-block="lifestyle" placeholder="Minutos/semana, variedade">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Nutrição (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Frequência de alimentos protetores" />
-
+                    <label>Nutrição — 0 a 3 pts</label>
+                    <input type="number" min="0" max="3" step="1" data-block="lifestyle" placeholder="Frequência de alimentos protetores">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Participação social (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Contatos/semana, grupos, atividades" />
-
+                    <label>Participação social — 0 a 3 pts</label>
+                    <input type="number" min="0" max="3" step="1" data-block="lifestyle" placeholder="Contatos/semana, grupos, atividades">
                   </div>
-
-
                   <div class="field">
-
-                    <label>
-                      Cognição ativa (0–3 pts)
-                    </label>
-
-                    <input
-                      type="number"
-                      min="0"
-                      max="3"
-                      step="1"
-                      data-block="lifestyle"
-                      placeholder="Leitura, estudos, jogos, cursos..." />
-
+                    <label>Cognição ativa — 0 a 3 pts</label>
+                    <input type="number" min="0" max="3" step="1" data-block="lifestyle" placeholder="Leitura, estudos, jogos, cursos">
                   </div>
-
                 </div>
-
               </div>
-
 
               <div class="field">
-
-                <label>
-                  Observações da avaliação
-                </label>
-
-                <textarea
-                  id="testNotes"
-                  placeholder="Registre fatores de risco, evolução percebida e recomendações para o plano de treino e suporte."></textarea>
-
+                <label>Observações da avaliação</label>
+                <textarea id="testNotes" placeholder="Registre fatores de risco, evolução percebida e recomendações para o plano de treino e suporte."></textarea>
               </div>
-
 
               <div class="btn-row no-print">
-
-                <button
-                  type="submit"
-                  class="btn btn-primary">
-                  Gerar relatório
-                </button>
-
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  id="previewReportBtn">
-                  Pré-visualizar relatório
-                </button>
-
+                <button type="submit" class="btn btn-primary">Gerar relatório</button>
+                <button type="button" class="btn btn-secondary" id="previewReportBtn">Pré-visualizar relatório</button>
               </div>
-
             </form>
-
           </div>
-
         </section>
-
-
-        <!-- RELATÓRIO -->
 
         <section id="screen-report" class="hidden">
-
           <div class="card panel report">
-
             <div class="report-head">
-
               <div>
-
-                <h3>
-                  Relatório M50 Mente Viva
-                </h3>
-
-                <p class="muted">
-                  Resumo funcional por domínio, com classificação qualitativa e idades equivalentes.
-                </p>
-
+                <h3>Relatório M50 Mente Viva</h3>
+                <p class="muted">Resumo funcional por domínio, com classificação qualitativa e idades equivalentes.</p>
               </div>
-
-
               <div class="btn-row no-print">
-
-                <button
-                  class="btn btn-secondary"
-                  id="printBtn">
-                  Imprimir / Salvar PDF
-                </button>
-
-                <button
-                  class="btn btn-primary"
-                  id="newEvaluationBtn">
-                  Nova avaliação
-                </button>
-
+                <button class="btn btn-secondary" id="printBtn">Imprimir / Salvar PDF</button>
+                <button class="btn btn-primary" id="newEvaluationBtn">Nova avaliação</button>
               </div>
-
             </div>
-
-
-            <div id="reportContent" class="empty">
-
-              Nenhuma avaliação gerada.
-
-            </div>
-
+            <div id="reportContent" class="empty">Nenhuma avaliação gerada.</div>
           </div>
-
         </section>
 
-
-        <!-- ESTUDOS -->
-
         <section id="screen-studies" class="hidden">
-
           <div class="card panel report">
-
             <div class="report-head">
-
               <div>
-
-                <h3>
-                  Base científica do M50 Mente Viva
-                </h3>
-
-                <p class="muted">
-                  Principais estudos que embasam os testes e conceitos usados no protocolo.
-                </p>
-
+                <h3>Base científica do M50</h3>
+                <p class="muted">Principais estudos que embasam os testes e conceitos usados no protocolo.</p>
               </div>
-
             </div>
 
-
             <div class="report-box">
-
-              <h4>
-                Visão geral
-              </h4>
-
-              <p class="small muted" style="margin-top:12px;">
-                O M50 Mente Viva combina testes amplamente usados em envelhecimento saudável
-                com escalas internas de pontuação. Os estudos não validam o índice como um todo,
-                mas demonstram a relevância dos componentes utilizados para acompanhamento funcional.
-              </p>
-
+              <h4>Visão geral</h4>
+              <p class="small muted" style="margin-top:12px">O M50 Mente Viva combina testes amplamente usados em envelhecimento saudável com escalas internas de pontuação. Os estudos não validam o índice como um todo, mas demonstram a relevância dos componentes utilizados para acompanhamento funcional.</p>
             </div>
 
-
             <div class="report-box">
-
-              <h4>
-                Força de preensão manual
-              </h4>
-
-              <div class="table-wrap" style="margin-top:12px;">
-
+              <h4>Força de preensão manual</h4>
+              <div class="table-wrap" style="margin-top:12px">
                 <table>
-
                   <thead>
-
                     <tr>
                       <th>Estudo</th>
                       <th>População</th>
                       <th>Mensagem principal</th>
                       <th>Como o M50 usa</th>
                     </tr>
-
                   </thead>
-
                   <tbody>
-
                     <tr>
-
-                      <td>
-                        International norms for adult handgrip strength
-                      </td>
-
-                      <td>
-                        Adultos 20–90+
-                      </td>
-
-                      <td>
-                        Descreve curvas normativas internacionais de preensão manual,
-                        mostrando declínio progressivo com a idade e diferenças por sexo.
-                      </td>
-
-                      <td>
-                        As faixas de kgf por idade/sexo do M50 se inspiram nesse padrão.
-                      </td>
-
+                      <td>International norms for adult handgrip strength</td>
+                      <td>Adultos 20–90+</td>
+                      <td>Descreve curvas normativas internacionais de preensão manual, mostrando declínio progressivo com a idade e diferenças por sexo.</td>
+                      <td>As faixas de kgf por idade/sexo do M50 se inspiram nesse padrão.</td>
                     </tr>
-
-
                     <tr>
-
-                      <td>
-                        Hand Grip Strength: age and gender stratified normative data
-                      </td>
-
-                      <td>
-                        Cohorte comunitária
-                      </td>
-
-                      <td>
-                        Apresenta valores normativos estratificados por idade e sexo.
-                      </td>
-
-                      <td>
-                        Reforça o uso da dinamometria como componente do domínio de força.
-                      </td>
-
+                      <td>Hand Grip Strength: age and gender stratified normative data</td>
+                      <td>Coorte comunitária</td>
+                      <td>Apresenta valores normativos estratificados por idade e sexo.</td>
+                      <td>Reforça o uso da dinamometria como componente do domínio de força.</td>
                     </tr>
-
-
                     <tr>
-
-                      <td>
-                        Normative reference values of handgrip strength for Brazilian older adults
-                      </td>
-
-                      <td>
-                        Idosos brasileiros
-                      </td>
-
-                      <td>
-                        Fornece valores normativos específicos para idosos no Brasil.
-                      </td>
-
-                      <td>
-                        Justifica o uso de tabelas internas por faixa etária e sexo.
-                      </td>
-
+                      <td>Normative reference values of handgrip strength for Brazilian older adults</td>
+                      <td>Idosos brasileiros</td>
+                      <td>Fornece valores normativos específicos para idosos no Brasil.</td>
+                      <td>Justifica o uso de tabelas internas por faixa etária e sexo.</td>
                     </tr>
-
                   </tbody>
-
                 </table>
-
               </div>
-
             </div>
 
-
             <div class="report-box">
-
-              <h4>
-                Five Times Sit to Stand e Chair Stand
-              </h4>
-
-              <div class="table-wrap" style="margin-top:12px;">
-
+              <h4>Five Times Sit to Stand e Chair Stand</h4>
+              <div class="table-wrap" style="margin-top:12px">
                 <table>
-
                   <thead>
-
                     <tr>
                       <th>Estudo/guia</th>
                       <th>População</th>
                       <th>Mensagem principal</th>
                       <th>Como o M50 usa</th>
                     </tr>
-
                   </thead>
-
                   <tbody>
-
                     <tr>
-
-                      <td>
-                        Five Times Sit to Stand Test
-                      </td>
-
-                      <td>
-                        Diversas amostras adultas
-                      </td>
-
-                      <td>
-                        Teste rápido de força de membros inferiores e mobilidade de transferência.
-                      </td>
-
-                      <td>
-                        Embasa o uso do 5xSTS na mobilidade funcional.
-                      </td>
-
+                      <td>Five Times Sit to Stand Test</td>
+                      <td>Diversas amostras adultas</td>
+                      <td>Teste rápido de força de membros inferiores e mobilidade de transferência.</td>
+                      <td>Embasa o uso do 5xSTS na mobilidade funcional.</td>
                     </tr>
-
-
                     <tr>
-
-                      <td>
-                        Reference values for the five-repetition sit-to-stand test
-                      </td>
-
-                      <td>
-                        Adultos ≥ 60 anos
-                      </td>
-
-                      <td>
-                        Valores normativos de tempo para 5xSTS.
-                      </td>
-
-                      <td>
-                        Inspira as faixas de tempo usadas na pontuação.
-                      </td>
-
+                      <td>Reference values for the five-repetition sit-to-stand test</td>
+                      <td>Adultos 60+</td>
+                      <td>Valores normativos de tempo para 5xSTS.</td>
+                      <td>Inspira as faixas de tempo usadas na pontuação.</td>
                     </tr>
-
                   </tbody>
-
                 </table>
-
               </div>
-
             </div>
 
-
             <div class="report-box">
-
-              <h4>
-                TUG, velocidade de marcha e equilíbrio
-              </h4>
-
-              <div class="table-wrap" style="margin-top:12px;">
-
+              <h4>TUG, velocidade de marcha e equilíbrio</h4>
+              <div class="table-wrap" style="margin-top:12px">
                 <table>
-
                   <thead>
-
                     <tr>
                       <th>Teste</th>
                       <th>Fonte</th>
                       <th>Mensagem principal</th>
                       <th>Como o M50 usa</th>
                     </tr>
-
                   </thead>
-
                   <tbody>
-
                     <tr>
-
-                      <td>
-                        Timed Up and Go
-                      </td>
-
-                      <td>
-                        Estudos de mobilidade e risco de queda
-                      </td>
-
-                      <td>
-                        Medida rápida de mobilidade e risco funcional.
-                      </td>
-
-                      <td>
-                        Faixas internas de pontuação por tempo.
-                      </td>
-
+                      <td>Timed Up and Go</td>
+                      <td>Estudos de mobilidade e risco de queda</td>
+                      <td>Medida rápida de mobilidade e risco funcional.</td>
+                      <td>Faixas internas de pontuação por tempo.</td>
                     </tr>
-
-
                     <tr>
-
-                      <td>
-                        Velocidade de marcha
-                      </td>
-
-                      <td>
-                        Estudos de marcha e sobrevivência
-                      </td>
-
-                      <td>
-                        Velocidade habitual está associada a incapacidade e prognóstico funcional.
-                      </td>
-
-                      <td>
-                        O M50 utiliza faixas de velocidade como indicador funcional.
-                      </td>
-
+                      <td>Velocidade de marcha</td>
+                      <td>Estudos de marcha e sobrevivência</td>
+                      <td>Velocidade habitual está associada a incapacidade e prognóstico funcional.</td>
+                      <td>O M50 utiliza faixas de velocidade como indicador funcional.</td>
                     </tr>
-
-
                     <tr>
-
-                      <td>
-                        Single-leg stance / tandem
-                      </td>
-
-                      <td>
-                        Estudos normativos de equilíbrio
-                      </td>
-
-                      <td>
-                        Tempos menores em apoio unipodal e tandem indicam pior estabilidade.
-                      </td>
-
-                      <td>
-                        As tabelas internas simplificam esses achados para rastreio.
-                      </td>
-
+                      <td>Single-leg stance / tandem</td>
+                      <td>Estudos normativos de equilíbrio</td>
+                      <td>Tempos menores em apoio unipodal e tandem indicam pior estabilidade.</td>
+                      <td>As tabelas internas simplificam esses achados para rastreio.</td>
                     </tr>
-
                   </tbody>
-
                 </table>
-
               </div>
-
             </div>
-
 
             <div class="report-box">
-
-              <h4>
-                Reserva de Saúde e capacidade intrínseca
-              </h4>
-
-              <p class="small muted" style="margin-top:12px;">
-                A ideia de “Reserva de Saúde” no M50 se inspira nos conceitos de
-                capacidade intrínseca, reserva de saúde e envelhecimento saudável,
-                enfatizando fatores como sono, atividade física, nutrição,
-                cognição ativa e participação social.
-                Trata-se de uma construção própria do método.
-              </p>
-
+              <h4>Reserva de Saúde e capacidade intrínseca</h4>
+              <p class="small muted" style="margin-top:12px">A ideia de Reserva de Saúde no M50 se inspira nos conceitos de capacidade intrínseca, reserva de saúde e envelhecimento saudável, enfatizando fatores como sono, atividade física, nutrição, cognição ativa e participação social. Trata-se de uma construção própria do método.</p>
             </div>
-
           </div>
-
         </section>
-
       </main>
-
     </section>
-
   </div>
 
-
   <script>
-
-    /*
-      ============================================================
-      M50 MENTE VIVA
-      Fluxo:
-      Painel → Novo Teste → Relatório
-      Não existe cadastro permanente de aluno.
-      ============================================================
-    */
-
-
     const state = {
       tests: [],
       currentTest: null
     };
 
-
     const els = {
-
-      navButtons: [
-        ...document.querySelectorAll('[data-screen]')
-      ],
-
+      navButtons: [...document.querySelectorAll("[data-screen]")],
       screens: {
-
-        dashboard:
-          document.getElementById('screen-dashboard'),
-
-        'new-test':
-          document.getElementById('screen-new-test'),
-
-        report:
-          document.getElementById('screen-report'),
-
-        studies:
-          document.getElementById('screen-studies')
-
+        dashboard: document.getElementById("screen-dashboard"),
+        "new-test": document.getElementById("screen-new-test"),
+        report: document.getElementById("screen-report"),
+        studies: document.getElementById("screen-studies")
       },
-
-      testForm:
-        document.getElementById('testForm'),
-
-      personName:
-        document.getElementById('personName'),
-
-      personBirthDate:
-        document.getElementById('personBirthDate'),
-
-      personSex:
-        document.getElementById('personSex'),
-
-      testDate:
-        document.getElementById('testDate'),
-
-      evaluator:
-        document.getElementById('evaluator'),
-
-      testNotes:
-        document.getElementById('testNotes'),
-
-      reportContent:
-        document.getElementById('reportContent'),
-
-      kpiTests:
-        document.getElementById('kpiTests'),
-
-      kpiAverage:
-        document.getElementById('kpiAverage'),
-
-      kpiRisk:
-        document.getElementById('kpiRisk'),
-
-      dominantHand:
-        document.getElementById('dominantHand'),
-
-      bothHands:
-        document.getElementById('bothHands'),
-
-      gripDominant:
-        document.getElementById('gripDominant'),
-
-      gripBest:
-        document.getElementById('gripBest'),
-
-      gripScore:
-        document.getElementById('gripScore'),
-
-      csReps:
-        document.getElementById('csReps'),
-
-      csScore:
-        document.getElementById('csScore'),
-
-      semiTime:
-        document.getElementById('semiTime'),
-
-      tandemTime:
-        document.getElementById('tandemTime'),
-
-      uniTime:
-        document.getElementById('uniTime'),
-
-      semiScore:
-        document.getElementById('semiScore'),
-
-      tandemScore:
-        document.getElementById('tandemScore'),
-
-      uniScore:
-        document.getElementById('uniScore')
-
+      testForm: document.getElementById("testForm"),
+      personName: document.getElementById("personName"),
+      personBirthDate: document.getElementById("personBirthDate"),
+      personSex: document.getElementById("personSex"),
+      testDate: document.getElementById("testDate"),
+      evaluator: document.getElementById("evaluator"),
+      testNotes: document.getElementById("testNotes"),
+      reportContent: document.getElementById("reportContent"),
+      kpiTests: document.getElementById("kpiTests"),
+      kpiAverage: document.getElementById("kpiAverage"),
+      kpiRisk: document.getElementById("kpiRisk"),
+      dominantHand: document.getElementById("dominantHand"),
+      gripRight: document.getElementById("gripRight"),
+      gripLeft: document.getElementById("gripLeft"),
+      gripBest: document.getElementById("gripBest"),
+      gripClassification: document.getElementById("gripClassification"),
+      gripScore: document.getElementById("gripScore"),
+      gripComment: document.getElementById("gripComment"),
+      csReps: document.getElementById("csReps"),
+      csScore: document.getElementById("csScore"),
+      semiTime: document.getElementById("semiTime"),
+      tandemTime: document.getElementById("tandemTime"),
+      uniTime: document.getElementById("uniTime"),
+      semiScore: document.getElementById("semiScore"),
+      tandemScore: document.getElementById("tandemScore"),
+      uniScore: document.getElementById("uniScore")
     };
 
+    const uid = () => crypto.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random()}`;
 
-    const uid = () => {
-
-      if (crypto.randomUUID) {
-        return crypto.randomUUID();
-      }
-
-      return String(
-        Date.now() + Math.random()
-      );
-
-    };
-
-
-    const today =
-      new Date().toISOString().slice(0, 10);
-
-
+    const today = new Date().toISOString().slice(0, 10);
     els.testDate.value = today;
 
-
-    /*
-      CLASSIFICAÇÕES
-    */
-
     function classifyGlobal(total) {
-
-      if (total >= 90) return 'Excelente';
-
-      if (total >= 80) return 'Adequado';
-
-      if (total >= 70) return 'Atenção';
-
-      if (total >= 60) return 'Comprometimento leve';
-
-      return 'Necessita intervenção';
-
+      if (total >= 90) return "Excelente";
+      if (total >= 80) return "Adequado";
+      if (total >= 70) return "Atenção";
+      if (total >= 60) return "Comprometimento leve";
+      return "Necessita intervenção";
     }
-
 
     function classifyDomain(pct) {
-
-      if (pct >= 90) return 'Excelente';
-
-      if (pct >= 80) return 'Adequado';
-
-      if (pct >= 70) return 'Atenção';
-
-      if (pct >= 60) return 'Comprometimento leve';
-
-      return 'Necessita intervenção';
-
+      if (pct >= 90) return "Excelente";
+      if (pct >= 80) return "Adequado";
+      if (pct >= 70) return "Atenção";
+      if (pct >= 60) return "Comprometimento leve";
+      return "Necessita intervenção";
     }
-
 
     function percent(score, max) {
-
-      return Math.round(
-        (score / max) * 100
-      ) || 0;
-
+      return Math.round((score / max) * 100 || 0);
     }
-
 
     function sumInputs(selector) {
-
-      return [
-        ...document.querySelectorAll(selector)
-      ].reduce(
-        (acc, el) =>
-          acc + (Number(el.value) || 0),
-        0
-      );
-
+      return [...document.querySelectorAll(selector)]
+        .reduce((acc, el) => acc + (Number(el.value) || 0), 0);
     }
-
-
-    /*
-      IDADE
-    */
 
     function getAge(dateStr) {
-
       if (!dateStr) return null;
 
-      const [y, m, d] =
-        dateStr.split('-').map(Number);
+      const [year, month, day] = dateStr.split("-").map(Number);
+      const birth = new Date(year, month - 1, day);
+      const now = new Date();
 
-      const birth =
-        new Date(y, m - 1, d);
+      let age = now.getFullYear() - birth.getFullYear();
+      const monthDiff = now.getMonth() - birth.getMonth();
 
-      const diff =
-        Date.now() - birth.getTime();
+      if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < birth.getDate())) {
+        age--;
+      }
 
-      const ageDt =
-        new Date(diff);
-
-      return Math.abs(
-        ageDt.getUTCFullYear() - 1970
-      );
-
+      return age;
     }
 
+    function getGripAgeBand(age) {
+      if (age === null || age === undefined) return null;
+      if (age >= 20 && age <= 29) return "20-29";
+      if (age >= 30 && age <= 39) return "30-39";
+      if (age >= 40 && age <= 49) return "40-49";
+      if (age >= 50 && age <= 59) return "50-59";
+      if (age >= 60 && age <= 69) return "60-69";
+      if (age >= 70) return "70+";
+      return null;
+    }
+
+    const gripReference = {
+      M: {
+        "20-29": { low: 45, high: 55 },
+        "30-39": { low: 43, high: 53 },
+        "40-49": { low: 40, high: 50 },
+        "50-59": { low: 37, high: 47 },
+        "60-69": { low: 34, high: 44 },
+        "70+": { low: 30, high: 40 }
+      },
+      F: {
+        "20-29": { low: 28, high: 36 },
+        "30-39": { low: 27, high: 35 },
+        "40-49": { low: 25, high: 33 },
+        "50-59": { low: 23, high: 31 },
+        "60-69": { low: 21, high: 29 },
+        "70+": { low: 18, high: 26 }
+      }
+    };
+
+    function getGripResult(age, sex, kgf) {
+      const band = getGripAgeBand(age);
+      const value = Number(kgf);
+
+      if (!band || !gripReference[sex] || Number.isNaN(value) || value < 0) {
+        return {
+          score: 0,
+          label: "Aguardando dados",
+          comment: "Informe data de nascimento, sexo e resultados das duas mãos."
+        };
+      }
+
+      const reference = gripReference[sex][band];
+
+      if (!reference) {
+        return {
+          score: 0,
+          label: "Sem referência",
+          comment: "A tabela de referência começa a partir de 20 anos."
+        };
+      }
+
+      if (value < reference.low) {
+        return {
+          score: 2,
+          label: "Ruim (baixo)",
+          comment: `Abaixo de ${reference.low} kgf para ${band}, ${sex === "M" ? "masculino" : "feminino"}.`
+        };
+      }
+
+      if (value <= reference.high) {
+        return {
+          score: 6,
+          label: "Bom (médio)",
+          comment: `Entre ${reference.low} e ${reference.high} kgf para ${band}, ${sex === "M" ? "masculino" : "feminino"}.`
+        };
+      }
+
+      return {
+        score: 10,
+        label: "Ótimo (alto)",
+        comment: `Acima de ${reference.high} kgf para ${band}, ${sex === "M" ? "masculino" : "feminino"}.`
+      };
+    }
 
     const ageBands = [
-
-      {
-        min: 50,
-        max: 59,
-        key: '50_59'
-      },
-
-      {
-        min: 60,
-        max: 69,
-        key: '60_69'
-      },
-
-      {
-        min: 70,
-        max: 79,
-        key: '70_79'
-      },
-
-      {
-        min: 80,
-        max: 120,
-        key: '80_plus'
-      }
-
+      { min: 50, max: 59, key: "50-59" },
+      { min: 60, max: 69, key: "60-69" },
+      { min: 70, max: 79, key: "70-79" },
+      { min: 80, max: 120, key: "80plus" }
     ];
 
-
     function getAgeBand(age) {
-
-      if (age == null) return null;
-
-      const band =
-        ageBands.find(
-          b =>
-            age >= b.min &&
-            age <= b.max
-        );
-
-      return band
-        ? band.key
-        : null;
-
+      if (age === null) return null;
+      const band = ageBands.find(b => age >= b.min && age <= b.max);
+      return band ? band.key : null;
     }
-
-
-    /*
-      PREENSÃO
-    */
-
-    const gripCutoffs = {
-
-      F: {
-
-        '50_59': [
-          { min: 26, score: 10 },
-          { min: 22, score: 8 },
-          { min: 18, score: 6 },
-          { min: 14, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '60_69': [
-          { min: 24, score: 10 },
-          { min: 20, score: 8 },
-          { min: 16, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '70_79': [
-          { min: 22, score: 10 },
-          { min: 18, score: 8 },
-          { min: 14, score: 6 },
-          { min: 10, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '80_plus': [
-          { min: 20, score: 10 },
-          { min: 16, score: 8 },
-          { min: 12, score: 6 },
-          { min: 8, score: 4 },
-          { min: 0, score: 2 }
-        ]
-
-      },
-
-      M: {
-
-        '50_59': [
-          { min: 40, score: 10 },
-          { min: 34, score: 8 },
-          { min: 28, score: 6 },
-          { min: 22, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '60_69': [
-          { min: 38, score: 10 },
-          { min: 32, score: 8 },
-          { min: 26, score: 6 },
-          { min: 20, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '70_79': [
-          { min: 34, score: 10 },
-          { min: 28, score: 8 },
-          { min: 22, score: 6 },
-          { min: 16, score: 4 },
-          { min: 0, score: 2 }
-        ],
-
-        '80_plus': [
-          { min: 30, score: 10 },
-          { min: 24, score: 8 },
-          { min: 18, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ]
-
-      }
-
-    };
-
-
-    /*
-      EQUILÍBRIO
-    */
 
     const balanceCutoffs = {
-
       semi: {
-
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
-
+        "50-59": [{ min: 30, score: 5 }, { min: 20, score: 4 }, { min: 10, score: 3 }, { min: 5, score: 2 }, { min: 0, score: 1 }],
+        "60-69": [{ min: 25, score: 5 }, { min: 15, score: 4 }, { min: 8, score: 3 }, { min: 4, score: 2 }, { min: 0, score: 1 }],
+        "70-79": [{ min: 20, score: 5 }, { min: 12, score: 4 }, { min: 6, score: 3 }, { min: 3, score: 2 }, { min: 0, score: 1 }],
+        "80plus": [{ min: 15, score: 5 }, { min: 8, score: 4 }, { min: 4, score: 3 }, { min: 2, score: 2 }, { min: 0, score: 1 }]
       },
-
       tandem: {
-
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
-
+        "50-59": [{ min: 30, score: 5 }, { min: 20, score: 4 }, { min: 10, score: 3 }, { min: 5, score: 2 }, { min: 0, score: 1 }],
+        "60-69": [{ min: 25, score: 5 }, { min: 15, score: 4 }, { min: 8, score: 3 }, { min: 4, score: 2 }, { min: 0, score: 1 }],
+        "70-79": [{ min: 20, score: 5 }, { min: 12, score: 4 }, { min: 6, score: 3 }, { min: 3, score: 2 }, { min: 0, score: 1 }],
+        "80plus": [{ min: 15, score: 5 }, { min: 8, score: 4 }, { min: 4, score: 3 }, { min: 2, score: 2 }, { min: 0, score: 1 }]
       },
-
       uni: {
-
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
-
+        "50-59": [{ min: 30, score: 5 }, { min: 20, score: 4 }, { min: 10, score: 3 }, { min: 5, score: 2 }, { min: 0, score: 1 }],
+        "60-69": [{ min: 25, score: 5 }, { min: 15, score: 4 }, { min: 8, score: 3 }, { min: 4, score: 2 }, { min: 0, score: 1 }],
+        "70-79": [{ min: 20, score: 5 }, { min: 12, score: 4 }, { min: 6, score: 3 }, { min: 3, score: 2 }, { min: 0, score: 1 }],
+        "80plus": [{ min: 15, score: 5 }, { min: 8, score: 4 }, { min: 4, score: 3 }, { min: 2, score: 2 }, { min: 0, score: 1 }]
       }
-
     };
 
-
-    /*
-      PONTUAÇÃO AUTOMÁTICA
-    */
-
-    function scoreGrip(age, sex, kgf) {
-
-      if (!age || !sex || !kgf) {
-        return 0;
-      }
-
-      const band =
-        getAgeBand(age);
-
-      const sexKey =
-        sex === 'M'
-          ? 'M'
-          : 'F';
-
-      const table =
-        gripCutoffs[sexKey]?.[band];
-
-      if (!table) return 0;
-
-      const row =
-        table.find(
-          r => kgf >= r.min
-        );
-
-      return row
-        ? row.score
-        : 0;
-
-    }
-
-
     function scoreBalance(age, seconds, type) {
+      if (age === null || seconds === null || seconds === "") return 0;
 
-      if (
-        !age ||
-        seconds == null
-      ) {
-        return 0;
-      }
-
-      const band =
-        getAgeBand(age);
-
-      const table =
-        balanceCutoffs[type]?.[band];
+      const band = getAgeBand(age);
+      const table = balanceCutoffs[type]?.[band];
 
       if (!table) return 0;
 
-      const row =
-        table.find(
-          r => seconds >= r.min
-        );
-
-      return row
-        ? row.score
-        : 0;
-
+      const row = table.find(r => Number(seconds) >= r.min);
+      return row ? row.score : 0;
     }
-
-
-    /*
-      NAVEGAÇÃO
-    */
 
     function renderScreen(name) {
+      Object.entries(els.screens).forEach(([key, el]) => {
+        el.classList.toggle("hidden", key !== name);
+      });
 
-      Object.entries(
-        els.screens
-      ).forEach(
-        ([key, el]) => {
-
-          el.classList.toggle(
-            'hidden',
-            key !== name
-          );
-
-        }
-      );
-
-
-      els.navButtons.forEach(
-        btn => {
-
-          btn.classList.toggle(
-            'active',
-            btn.dataset.screen === name
-          );
-
-        }
-      );
-
+      els.navButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.screen === name);
+      });
     }
-
-
-    /*
-      KPIs
-    */
 
     function renderKPIs() {
+      const totalTests = state.tests.length;
+      const avg = totalTests
+        ? Math.round(state.tests.reduce((a, t) => a + t.total, 0) / totalTests)
+        : 0;
+      const risk = state.tests.filter(t => t.total < 70).length;
 
-      const totalTests =
-        state.tests.length;
-
-      const avg =
-        totalTests
-          ? Math.round(
-              state.tests.reduce(
-                (a, t) =>
-                  a + t.total,
-                0
-              ) / totalTests
-            )
-          : 0;
-
-      const risk =
-        state.tests.filter(
-          t => t.total < 70
-        ).length;
-
-      els.kpiTests.textContent =
-        totalTests;
-
-      els.kpiAverage.textContent =
-        avg;
-
-      els.kpiRisk.textContent =
-        risk;
-
+      els.kpiTests.textContent = totalTests;
+      els.kpiAverage.textContent = avg;
+      els.kpiRisk.textContent = risk;
     }
 
-
-    /*
-      IDADES FUNCIONAIS
-    */
-
-    function computeAgesEquivalent(
-      age,
-      cogPct,
-      physPct,
-      resPct
-    ) {
-
+    function computeAgesEquivalent(age, cogPct, physPct, resPct) {
       function ageShift(pct) {
-
         if (pct >= 90) return -5;
-
         if (pct >= 80) return -2;
-
         if (pct >= 70) return 0;
-
         if (pct >= 60) return 5;
-
         return 10;
-
       }
-
 
       if (!age) {
-
-        return {
-          cognitiveAge: null,
-          physicalAge: null,
-          reserveAge: null
-        };
-
+        return { cognitiveAge: null, physicalAge: null, reserveAge: null };
       }
 
-
       return {
-
-        cognitiveAge:
-          Math.max(
-            50,
-            age + ageShift(cogPct)
-          ),
-
-        physicalAge:
-          Math.max(
-            50,
-            age + ageShift(physPct)
-          ),
-
-        reserveAge:
-          Math.max(
-            50,
-            age + ageShift(resPct)
-          )
-
+        cognitiveAge: Math.max(50, age + ageShift(cogPct)),
+        physicalAge: Math.max(50, age + ageShift(physPct)),
+        reserveAge: Math.max(50, age + ageShift(resPct))
       };
-
     }
-
-
-    /*
-      DATA
-    */
 
     function formatDate(date) {
-
-      if (!date) return '';
-
-      const [y, m, d] =
-        date.split('-');
-
+      if (!date) return "";
+      const [y, m, d] = date.split("-");
       return `${d}/${m}/${y}`;
-
     }
-
-
-    /*
-      CÁLCULOS AUTOMÁTICOS
-    */
 
     function computeAutoStrengthAndBalance() {
+      const age = getAge(els.personBirthDate.value);
+      const sex = els.personSex.value;
 
-      const age =
-        getAge(
-          els.personBirthDate.value
-        );
+      const rightValue = els.gripRight.value === "" ? null : Number(els.gripRight.value);
+      const leftValue = els.gripLeft.value === "" ? null : Number(els.gripLeft.value);
 
-      const sex =
-        els.personSex.value;
+      if (rightValue !== null && leftValue !== null) {
+        const bestGrip = Math.max(rightValue, leftValue);
+        const gripResult = getGripResult(age, sex, bestGrip);
 
-
-      const bestGrip =
-        Number(els.gripBest.value) ||
-        Number(els.gripDominant.value) ||
-        0;
-
-
-      const gripScoreVal =
-        scoreGrip(
-          age,
-          sex,
-          bestGrip
-        );
-
-
-      els.gripScore.value =
-        gripScoreVal || '';
-
-
-      const csReps =
-        Number(
-          els.csReps.value
-        ) || 0;
-
-
-      let csAuto = 0;
-
-
-      if (age) {
-
-        if (csReps >= 15)
-          csAuto = 10;
-
-        else if (csReps >= 12)
-          csAuto = 8;
-
-        else if (csReps >= 9)
-          csAuto = 6;
-
-        else if (csReps >= 6)
-          csAuto = 4;
-
-        else if (csReps > 0)
-          csAuto = 2;
-
+        els.gripBest.value = bestGrip.toFixed(1);
+        els.gripScore.value = gripResult.score;
+        els.gripClassification.value = gripResult.label;
+        els.gripComment.value = gripResult.comment;
+      } else {
+        els.gripBest.value = "";
+        els.gripScore.value = "";
+        els.gripClassification.value = "Obrigatório medir as duas mãos";
+        els.gripComment.value = "Informe os resultados da mão direita e esquerda com dinamômetro.";
       }
 
+      const csReps = els.csReps.value === "" ? null : Number(els.csReps.value);
+      let csAuto = 0;
 
-      els.csScore.value =
-        csAuto || '';
+      if (csReps !== null) {
+        if (csReps >= 15) csAuto = 10;
+        else if (csReps >= 12) csAuto = 8;
+        else if (csReps >= 9) csAuto = 6;
+        else if (csReps >= 6) csAuto = 4;
+        else csAuto = 2;
+      }
 
+      els.csScore.value = csReps === null ? "" : csAuto;
 
-      const semiTime =
-        Number(els.semiTime.value) || null;
+      const semiTime = els.semiTime.value === "" ? null : Number(els.semiTime.value);
+      const tandemTime = els.tandemTime.value === "" ? null : Number(els.tandemTime.value);
+      const uniTime = els.uniTime.value === "" ? null : Number(els.uniTime.value);
 
-      const tandemTime =
-        Number(els.tandemTime.value) || null;
-
-      const uniTime =
-        Number(els.uniTime.value) || null;
-
-
-      els.semiScore.value =
-        semiTime != null &&
-        semiTime !== 0
-          ? scoreBalance(
-              age,
-              semiTime,
-              'semi'
-            )
-          : '';
-
-
-      els.tandemScore.value =
-        tandemTime != null &&
-        tandemTime !== 0
-          ? scoreBalance(
-              age,
-              tandemTime,
-              'tandem'
-            )
-          : '';
-
-
-      els.uniScore.value =
-        uniTime != null &&
-        uniTime !== 0
-          ? scoreBalance(
-              age,
-              uniTime,
-              'uni'
-            )
-          : '';
-
+      els.semiScore.value = semiTime === null ? "" : scoreBalance(age, semiTime, "semi");
+      els.tandemScore.value = tandemTime === null ? "" : scoreBalance(age, tandemTime, "tandem");
+      els.uniScore.value = uniTime === null ? "" : scoreBalance(age, uniTime, "uni");
     }
 
-
-    /*
-      COLETA DA AVALIAÇÃO
-    */
-
     function collectTestData() {
-
       computeAutoStrengthAndBalance();
 
-
-      const cognition =
-        sumInputs(
-          '[data-block="cognition"]'
-        );
-
-
-      const mobility =
-        sumInputs(
-          '[data-block="mobility"]'
-        );
-
-
-      const strength =
-        sumInputs(
-          '[data-block="strength"]'
-        );
-
-
-      const balance =
-        sumInputs(
-          '[data-block="balance"]'
-        );
-
-
-      const lifestyle =
-        sumInputs(
-          '[data-block="lifestyle"]'
-        );
-
-
-      const total =
-        cognition +
-        mobility +
-        strength +
-        balance +
-        lifestyle;
-
+      const cognition = sumInputs("[data-block='cognition']");
+      const mobility = sumInputs("[data-block='mobility']");
+      const strength = sumInputs("[data-block='strength']");
+      const balance = sumInputs("[data-block='balance']");
+      const lifestyle = sumInputs("[data-block='lifestyle']");
+      const total = cognition + mobility + strength + balance + lifestyle;
 
       return {
-
         id: uid(),
-
-        name:
-          els.personName.value.trim(),
-
-        birthDate:
-          els.personBirthDate.value,
-
-        sex:
-          els.personSex.value,
-
-        date:
-          els.testDate.value,
-
-        evaluator:
-          els.evaluator.value.trim(),
-
-        notes:
-          els.testNotes.value.trim(),
-
+        name: els.personName.value.trim(),
+        birthDate: els.personBirthDate.value,
+        sex: els.personSex.value,
+        date: els.testDate.value,
+        evaluator: els.evaluator.value.trim(),
+        notes: els.testNotes.value.trim(),
+        gripRight: Number(els.gripRight.value),
+        gripLeft: Number(els.gripLeft.value),
+        gripBest: Number(els.gripBest.value),
+        gripClassification: els.gripClassification.value,
         cognition,
         mobility,
         strength,
         balance,
         lifestyle,
-
         total,
-
-        cognitionPct:
-          percent(cognition, 25),
-
-        mobilityPct:
-          percent(mobility, 25),
-
-        strengthPct:
-          percent(strength, 20),
-
-        balancePct:
-          percent(balance, 15),
-
-        lifestylePct:
-          percent(lifestyle, 15),
-
-        classification:
-          classifyGlobal(total)
-
+        cognitionPct: percent(cognition, 25),
+        mobilityPct: percent(mobility, 25),
+        strengthPct: percent(strength, 20),
+        balancePct: percent(balance, 15),
+        lifestylePct: percent(lifestyle, 15),
+        classification: classifyGlobal(total)
       };
-
     }
-
-
-    /*
-      RELATÓRIO
-    */
 
     function buildReport(test) {
-
       if (!test) return;
 
+      state.currentTest = test;
 
-      state.currentTest =
-        test;
-
-
-      const age =
-        getAge(
-          test.birthDate
-        );
-
-
-      const cognitionPct =
-        percent(
-          test.cognition,
-          25
-        );
-
-
-      const mobilityPct =
-        percent(
-          test.mobility,
-          25
-        );
-
-
-      const strengthPct =
-        percent(
-          test.strength,
-          20
-        );
-
-
-      const balancePct =
-        percent(
-          test.balance,
-          15
-        );
-
-
-      const lifestylePct =
-        percent(
-          test.lifestyle,
-          15
-        );
-
-
-      const physicalPct =
-        Math.round(
-          (
-            mobilityPct +
-            strengthPct +
-            balancePct
-          ) / 3
-        ) || 0;
-
-
-      const {
-        cognitiveAge,
-        physicalAge,
-        reserveAge
-      } =
-        computeAgesEquivalent(
-          age,
-          cognitionPct,
-          physicalPct,
-          lifestylePct
-        );
-
+      const age = getAge(test.birthDate);
+      const cognitionPct = percent(test.cognition, 25);
+      const mobilityPct = percent(test.mobility, 25);
+      const strengthPct = percent(test.strength, 20);
+      const balancePct = percent(test.balance, 15);
+      const lifestylePct = percent(test.lifestyle, 15);
+      const physicalPct = Math.round((mobilityPct + strengthPct + balancePct) / 3 || 0);
+      const { cognitiveAge, physicalAge, reserveAge } = computeAgesEquivalent(age, cognitionPct, physicalPct, lifestylePct);
 
       const domains = [
-
-        [
-          '🧠 Domínio Cognitivo',
-          cognitionPct,
-          classifyDomain(cognitionPct)
-        ],
-
-        [
-          '🚶 Mobilidade Funcional',
-          mobilityPct,
-          classifyDomain(mobilityPct)
-        ],
-
-        [
-          '💪 Força e Potência Muscular',
-          strengthPct,
-          classifyDomain(strengthPct)
-        ],
-
-        [
-          '⚖️ Controle Postural',
-          balancePct,
-          classifyDomain(balancePct)
-        ],
-
-        [
-          '🌿 Reserva de Saúde',
-          lifestylePct,
-          classifyDomain(lifestylePct)
-        ]
-
+        ["Domínio Cognitivo", cognitionPct, classifyDomain(cognitionPct)],
+        ["Mobilidade Funcional", mobilityPct, classifyDomain(mobilityPct)],
+        ["Força e Potência Muscular", strengthPct, classifyDomain(strengthPct)],
+        ["Controle Postural", balancePct, classifyDomain(balancePct)],
+        ["Reserva de Saúde", lifestylePct, classifyDomain(lifestylePct)]
       ];
 
-
       els.reportContent.innerHTML = `
-
         <div class="report">
-
           <div class="report-head">
-
             <div>
-
-              <h2 style="font-size:var(--text-xl)">
-                ${test.name}
-              </h2>
-
-              <p class="muted">
-                Teste em ${formatDate(test.date)}
-                · Avaliador:
-                ${test.evaluator || 'Não informado'}
-              </p>
-
+              <h2 style="font-size:var(--text-xl)">${test.name}</h2>
+              <p class="muted">Teste em ${formatDate(test.date)} · Avaliador: ${test.evaluator || "Não informado"}</p>
             </div>
-
-
             <div>
-
-              <div class="pill">
-                Índice global:
-                ${test.total}/100
-              </div>
-
-              <p
-                class="small muted"
-                style="margin-top:8px;"
-              >
-                Classificação global:
-                ${test.classification}
-              </p>
-
+              <div class="pill">Índice global: ${test.total}/100</div>
+              <p class="small muted" style="margin-top:8px">Classificação global: ${test.classification}</p>
             </div>
-
           </div>
 
-
-          <div class="notice small">
-
-            Importante: o M50 Mente Viva é um índice
-            de acompanhamento da funcionalidade e evolução.
-            Não constitui diagnóstico médico,
-            psicológico ou neuropsicológico.
-
+          <div class="notice">
+            <small>Importante: o M50 Mente Viva é um índice de acompanhamento da funcionalidade e evolução. Não constitui diagnóstico médico, psicológico ou neuropsicológico.</small>
           </div>
-
 
           <div class="report-box">
-
-            <h4>
-              Idade cronológica x idades funcionais
-            </h4>
-
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
-
-              Idade cronológica:
-              ${age ? age + ' anos' : 'não informada'}
-              <br>
-
-              Idade cognitiva aproximada:
-              ${cognitiveAge ? cognitiveAge + ' anos' : '—'}
-              <br>
-
-              Idade física aproximada:
-              ${physicalAge ? physicalAge + ' anos' : '—'}
-              <br>
-
-              Idade de reserva de saúde:
-              ${reserveAge ? reserveAge + ' anos' : '—'}
-
-              <br><br>
-
-              As idades funcionais são estimativas internas
-              do método M50, baseadas no desempenho relativo
-              em cada domínio. Servem para comunicação com
-              o aluno e planejamento de treino, e não substituem
-              avaliação médica ou neuropsicológica formal.
-
+            <h4>Força de preensão manual</h4>
+            <p class="small muted" style="margin-top:12px">
+              Instrumento: dinamômetro manual<br>
+              Mão direita: <strong>${test.gripRight} kgf</strong><br>
+              Mão esquerda: <strong>${test.gripLeft} kgf</strong><br>
+              Melhor resultado considerado: <strong>${test.gripBest} kgf</strong><br>
+              Classificação: <strong>${test.gripClassification}</strong>
             </p>
-
           </div>
 
+          <div class="report-box">
+            <h4>Idade cronológica x idades funcionais</h4>
+            <p class="small muted" style="margin-top:12px">
+              Idade cronológica: ${age ? `${age} anos` : "não informada"}<br>
+              Idade cognitiva aproximada: ${cognitiveAge ? `${cognitiveAge} anos` : "não informada"}<br>
+              Idade física aproximada: ${physicalAge ? `${physicalAge} anos` : "não informada"}<br>
+              Idade de reserva de saúde: ${reserveAge ? `${reserveAge} anos` : "não informada"}<br><br>
+              As idades funcionais são estimativas internas do método M50, baseadas no desempenho relativo em cada domínio. Servem para comunicação com o aluno e planejamento de treino, e não substituem avaliação médica ou neuropsicológica formal.
+            </p>
+          </div>
 
           <div class="scores">
-
-            ${domains.map(
-              ([label, pct, cls]) => `
-
-                <div class="score-box">
-
-                  <span class="small muted">
-                    ${label}
-                  </span>
-
-                  <strong>
-                    ${pct}%
-                  </strong>
-
-                  <div
-                    class="bar"
-                    style="margin-top:10px"
-                  >
-
-                    <span
-                      style="width:${pct}%"
-                    ></span>
-
-                  </div>
-
-                  <p
-                    class="small muted"
-                    style="margin-top:8px;"
-                  >
-                    ${cls}
-                  </p>
-
-                </div>
-
-              `
-            ).join('')}
-
+            ${domains.map(([label, pct, cls]) => `
+              <div class="score-box">
+                <span class="small muted">${label}</span>
+                <strong>${pct}%</strong>
+                <div class="bar" style="margin-top:10px"><span style="width:${pct}%"></span></div>
+                <p class="small muted" style="margin-top:8px">${cls}</p>
+              </div>
+            `).join("")}
           </div>
-
 
           <div class="report-grid">
-
             <div class="report-box">
-
-              <h4>
-                Dados da avaliação
-              </h4>
-
-              <p
-                class="small muted"
-                style="margin-top:12px;"
-              >
-                Nascimento:
-                ${test.birthDate
-                  ? formatDate(test.birthDate)
-                  : 'Não informado'}
+              <h4>Dados da avaliação</h4>
+              <p class="small muted" style="margin-top:12px">
+                Nascimento: ${test.birthDate ? formatDate(test.birthDate) : "Não informado"}<br>
+                Sexo: ${test.sex || "Não informado"}
               </p>
-
-              <p class="small muted">
-                Sexo:
-                ${test.sex || 'Não informado'}
-              </p>
-
             </div>
 
-
             <div class="report-box">
-
-              <h4>
-                Resumo numérico por domínio
-              </h4>
-
-              <p
-                class="small muted"
-                style="margin-top:12px;"
-              >
-                🧠 Cognitivo:
-                ${test.cognition}/25
-                (${cognitionPct}%)
-                – ${classifyDomain(cognitionPct)}
+              <h4>Resumo numérico por domínio</h4>
+              <p class="small muted" style="margin-top:12px">
+                Cognitivo: ${test.cognition}/25 · ${cognitionPct}% · ${classifyDomain(cognitionPct)}<br>
+                Mobilidade: ${test.mobility}/25 · ${mobilityPct}% · ${classifyDomain(mobilityPct)}<br>
+                Força: ${test.strength}/20 · ${strengthPct}% · ${classifyDomain(strengthPct)}<br>
+                Postural: ${test.balance}/15 · ${balancePct}% · ${classifyDomain(balancePct)}<br>
+                Reserva: ${test.lifestyle}/15 · ${lifestylePct}% · ${classifyDomain(lifestylePct)}
               </p>
-
-              <p class="small muted">
-                🚶 Mobilidade:
-                ${test.mobility}/25
-                (${mobilityPct}%)
-                – ${classifyDomain(mobilityPct)}
-              </p>
-
-              <p class="small muted">
-                💪 Força:
-                ${test.strength}/20
-                (${strengthPct}%)
-                – ${classifyDomain(strengthPct)}
-              </p>
-
-              <p class="small muted">
-                ⚖️ Postural:
-                ${test.balance}/15
-                (${balancePct}%)
-                – ${classifyDomain(balancePct)}
-              </p>
-
-              <p class="small muted">
-                🌿 Reserva:
-                ${test.lifestyle}/15
-                (${lifestylePct}%)
-                – ${classifyDomain(lifestylePct)}
-              </p>
-
             </div>
-
           </div>
-
 
           <div class="report-box">
-
-            <h4>
-              Observações clínicas e funcionais
-            </h4>
-
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
-              ${test.notes || 'Sem observações registradas.'}
-            </p>
-
+            <h4>Observações clínicas e funcionais</h4>
+            <p class="small muted" style="margin-top:12px">${test.notes || "Sem observações registradas."}</p>
           </div>
-
 
           <div class="report-box">
-
-            <h4>
-              Resultado final
-            </h4>
-
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
-              Índice M50 Mente Viva:
-              <strong>
-                ${test.total}/100
-              </strong>
-              <br>
-
-              Classificação:
-              <strong>
-                ${test.classification}
-              </strong>
+            <h4>Resultado final</h4>
+            <p class="small muted" style="margin-top:12px">
+              Índice M50 Mente Viva: <strong>${test.total}/100</strong><br>
+              Classificação: <strong>${test.classification}</strong>
             </p>
-
           </div>
-
         </div>
-
       `;
 
-
-      renderScreen('report');
-
+      renderScreen("report");
     }
 
+    els.navButtons.forEach(btn => {
+      btn.addEventListener("click", () => renderScreen(btn.dataset.screen));
+    });
 
-    /*
-      EVENTOS DE NAVEGAÇÃO
-    */
+    document.querySelectorAll("[data-screen-link]").forEach(btn => {
+      btn.addEventListener("click", () => renderScreen(btn.dataset.screenLink));
+    });
 
-    els.navButtons.forEach(
-      btn => {
+    els.testForm.addEventListener("input", computeAutoStrengthAndBalance);
+    els.personBirthDate.addEventListener("change", computeAutoStrengthAndBalance);
+    els.personSex.addEventListener("change", computeAutoStrengthAndBalance);
 
-        btn.addEventListener(
-          'click',
-          () => {
+    els.testForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-            renderScreen(
-              btn.dataset.screen
-            );
-
-          }
-        );
-
+      if (!els.personName.value.trim()) {
+        alert("Informe o nome da pessoa avaliada.");
+        return;
       }
-    );
 
-
-    document
-      .querySelectorAll('[data-screen-link]')
-      .forEach(
-        btn => {
-
-          btn.addEventListener(
-            'click',
-            () => {
-
-              renderScreen(
-                btn.dataset.screenLink
-              );
-
-            }
-          );
-
-        }
-      );
-
-
-    /*
-      ATUALIZAÇÃO AUTOMÁTICA
-    */
-
-    els.testForm.addEventListener(
-      'input',
-      () => {
-
-        computeAutoStrengthAndBalance();
-
+      if (els.gripRight.value === "" || els.gripLeft.value === "") {
+        alert("É obrigatório registrar a força de preensão das duas mãos com o dinamômetro.");
+        return;
       }
-    );
 
+      const data = collectTestData();
+      state.tests.unshift(data);
+      renderKPIs();
+      buildReport(data);
+    });
 
-    /*
-      SALVAR / GERAR RELATÓRIO
-    */
-
-    els.testForm.addEventListener(
-      'submit',
-      e => {
-
-        e.preventDefault();
-
-
-        if (
-          !els.personName.value.trim()
-        ) {
-
-          alert(
-            'Informe o nome da pessoa avaliada.'
-          );
-
-          return;
-
-        }
-
-
-        const data =
-          collectTestData();
-
-
-        state.tests.unshift(
-          data
-        );
-
-
-        renderKPIs();
-
-        buildReport(
-          data
-        );
-
+    document.getElementById("previewReportBtn").addEventListener("click", () => {
+      if (!els.personName.value.trim()) {
+        alert("Informe o nome da pessoa avaliada.");
+        return;
       }
-    );
 
+      if (els.gripRight.value === "" || els.gripLeft.value === "") {
+        alert("É obrigatório registrar a força de preensão das duas mãos com o dinamômetro.");
+        return;
+      }
 
-    /*
-      PRÉ-VISUALIZAÇÃO
-    */
+      const data = collectTestData();
+      buildReport(data);
+    });
 
-    document
-      .getElementById(
-        'previewReportBtn'
-      )
-      .addEventListener(
-        'click',
-        () => {
+    document.getElementById("newEvaluationBtn").addEventListener("click", () => {
+      els.testForm.reset();
+      els.testDate.value = today;
+      els.gripBest.value = "";
+      els.gripScore.value = "";
+      els.gripClassification.value = "";
+      els.gripComment.value = "";
+      els.csScore.value = "";
+      els.semiScore.value = "";
+      els.tandemScore.value = "";
+      els.uniScore.value = "";
+      renderScreen("new-test");
+    });
 
-          if (
-            !els.personName.value.trim()
-          ) {
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
 
-            alert(
-              'Informe o nome da pessoa avaliada.'
-            );
-
-            return;
-
-          }
-
-
-          const data =
-            collectTestData();
-
-
-          buildReport(
-            data
-          );
-
-        }
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const root = document.documentElement;
+      root.setAttribute(
+        "data-theme",
+        root.getAttribute("data-theme") === "dark" ? "light" : "dark"
       );
-
-
-    /*
-      NOVA AVALIAÇÃO
-    */
-
-    document
-      .getElementById(
-        'newEvaluationBtn'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          els.testForm.reset();
-
-          els.testDate.value =
-            today;
-
-          els.gripScore.value =
-            '';
-
-          els.csScore.value =
-            '';
-
-          els.semiScore.value =
-            '';
-
-          els.tandemScore.value =
-            '';
-
-          els.uniScore.value =
-            '';
-
-          renderScreen(
-            'new-test'
-          );
-
-        }
-      );
-
-
-    /*
-      IMPRESSÃO
-    */
-
-    document
-      .getElementById(
-        'printBtn'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          window.print();
-
-        }
-      );
-
-
-    /*
-      TEMA
-    */
-
-    document
-      .getElementById(
-        'themeToggle'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          const root =
-            document.documentElement;
-
-          root.setAttribute(
-            'data-theme',
-            root.getAttribute(
-              'data-theme'
-            ) === 'dark'
-              ? 'light'
-              : 'dark'
-          );
-
-        }
-      );
-
-
-    /*
-      INICIALIZAÇÃO
-    */
+    });
 
     renderKPIs();
-
-    renderScreen(
-      'dashboard'
-    );
-
+    renderScreen("dashboard");
   </script>
-
 </body>
-
 </html>
