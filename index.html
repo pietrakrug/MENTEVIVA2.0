@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 
@@ -1631,26 +1626,37 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </h4>
 
                   <span class="pill">
-                    Força de preensão e membros inferiores
+                    Dinamometria bilateral e força de membros inferiores
                   </span>
 
                 </div>
 
 
-                <details>
+                <details open>
 
                   <summary>
-                    Objetivo, mão e referência etária
+                    Objetivo, equipamento e referência
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
-                    • Integra força máxima de preensão e resistência de membros inferiores,
-                    comparando com faixas internas por idade e sexo.<br>
-                    • Registrar sempre qual mão foi usada e, se mediu as duas,
-                    usar o melhor valor como referência de força.
+                    • A força de preensão manual deve ser medida obrigatoriamente nas duas mãos usando <strong>dinamômetro de preensão manual</strong>.<br>
+                    • O sistema utiliza a idade e o sexo informados no cadastro para selecionar automaticamente a faixa de referência.<br>
+                    • Cada mão é classificada individualmente como <strong>Ruim (baixo)</strong>, <strong>Bom (médio)</strong> ou <strong>Ótimo (alto)</strong>.<br>
+                    • A pontuação da preensão corresponde à média das pontuações das duas mãos e vale até 10 pontos.<br>
+                    • O Chair Stand 30 s completa o domínio de força, valendo até 10 pontos.
                   </p>
 
                 </details>
+
+
+                <div class="notice small">
+
+                  <strong>Obrigatório:</strong>
+                  medir e registrar a força da <strong>mão direita</strong> e da
+                  <strong>mão esquerda</strong> antes de finalizar a avaliação.
+                  O sistema não permitirá gerar o relatório se uma das mãos estiver sem resultado.
+
+                </div>
 
 
                 <div class="form-grid">
@@ -1658,10 +1664,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Mão dominante
+                      Mão dominante *
                     </label>
 
-                    <select id="dominantHand">
+                    <select id="dominantHand" required>
 
                       <option value="">
                         Selecione
@@ -1683,20 +1689,12 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Mediu as duas mãos?
+                      Equipamento
                     </label>
 
-                    <select id="bothHands">
-
-                      <option value="nao">
-                        Não
-                      </option>
-
-                      <option value="sim">
-                        Sim
-                      </option>
-
-                    </select>
+                    <input
+                      value="Dinamômetro de preensão manual"
+                      readonly />
 
                   </div>
 
@@ -1708,15 +1706,16 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Preensão – mão dominante (kgf)
+                      Preensão – mão direita (kgf) *
                     </label>
 
                     <input
-                      id="gripDominant"
+                      id="gripRight"
                       type="number"
                       min="0"
                       step="0.1"
-                      placeholder="Valor bruto em kgf" />
+                      required
+                      placeholder="Resultado no dinamômetro" />
 
                   </div>
 
@@ -1724,15 +1723,13 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Preensão – melhor valor
+                      Classificação – mão direita
                     </label>
 
                     <input
-                      id="gripBest"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="Maior kgf medido (opcional)" />
+                      id="gripRightClass"
+                      readonly
+                      placeholder="Calculada automaticamente" />
 
                   </div>
 
@@ -1744,7 +1741,42 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Pontuação automática preensão (0–10)
+                      Preensão – mão esquerda (kgf) *
+                    </label>
+
+                    <input
+                      id="gripLeft"
+                      type="number"
+                      min="0"
+                      step="0.1"
+                      required
+                      placeholder="Resultado no dinamômetro" />
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      Classificação – mão esquerda
+                    </label>
+
+                    <input
+                      id="gripLeftClass"
+                      readonly
+                      placeholder="Calculada automaticamente" />
+
+                  </div>
+
+                </div>
+
+
+                <div class="form-grid" style="margin-top:var(--space-4);">
+
+                  <div class="field">
+
+                    <label>
+                      Pontuação da preensão (0–10)
                     </label>
 
                     <input
@@ -1755,7 +1787,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                       step="1"
                       data-block="strength"
                       readonly
-                      placeholder="Calculado pelo sistema" />
+                      placeholder="Calculada automaticamente" />
 
                   </div>
 
@@ -1763,12 +1795,13 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Comentário
+                      Referência usada
                     </label>
 
                     <input
-                      id="gripComment"
-                      placeholder="Ex.: força acima/abaixo da média para a idade" />
+                      id="gripReference"
+                      readonly
+                      placeholder="Calculada pela idade e sexo" />
 
                   </div>
 
@@ -1778,15 +1811,147 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 <details>
 
                   <summary>
-                    Instruções – Preensão manual
+                    Instruções – Preensão manual com dinamômetro
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
-                    Sentado ou em pé, ombro ao lado do corpo, cotovelo a 90°,
-                    antebraço em posição neutra. Ajustar dinamômetro à mão dominante
-                    (e à não dominante, se desejar). Pedir 2–3 tentativas máximas,
-                    com incentivo. Registrar o melhor valor em kgf.
+                    1. Utilizar um <strong>dinamômetro de preensão manual</strong> adequado ao teste.<br>
+                    2. Posicionar a pessoa sentada ou em pé, com ombro junto ao corpo, cotovelo aproximadamente a 90° e antebraço em posição neutra.<br>
+                    3. Ajustar a empunhadura do dinamômetro de acordo com o tamanho da mão.<br>
+                    4. Realizar o teste na mão direita e na mão esquerda.<br>
+                    5. Fazer 2–3 tentativas máximas em cada mão, com incentivo verbal padronizado e intervalo suficiente para recuperação.<br>
+                    6. Registrar o melhor resultado de cada mão em kgf.<br>
+                    7. O sistema fará automaticamente a classificação conforme idade e sexo cadastrados.
                   </p>
+
+                </details>
+
+
+                <details>
+
+                  <summary>
+                    Tabela de referência – força de preensão (kgf)
+                  </summary>
+
+                  <div class="table-wrap" style="margin-top:12px;">
+
+                    <table>
+
+                      <thead>
+
+                        <tr>
+                          <th>Idade</th>
+                          <th>Gênero</th>
+                          <th>Ruim (baixo)</th>
+                          <th>Bom (médio)</th>
+                          <th>Ótimo (alto)</th>
+                        </tr>
+
+                      </thead>
+
+                      <tbody>
+
+                        <tr>
+                          <td>20–29</td>
+                          <td>Masculino</td>
+                          <td>&lt; 45</td>
+                          <td>45–55</td>
+                          <td>&gt; 55</td>
+                        </tr>
+
+                        <tr>
+                          <td>20–29</td>
+                          <td>Feminino</td>
+                          <td>&lt; 28</td>
+                          <td>28–36</td>
+                          <td>&gt; 36</td>
+                        </tr>
+
+                        <tr>
+                          <td>30–39</td>
+                          <td>Masculino</td>
+                          <td>&lt; 43</td>
+                          <td>43–53</td>
+                          <td>&gt; 53</td>
+                        </tr>
+
+                        <tr>
+                          <td>30–39</td>
+                          <td>Feminino</td>
+                          <td>&lt; 27</td>
+                          <td>27–35</td>
+                          <td>&gt; 35</td>
+                        </tr>
+
+                        <tr>
+                          <td>40–49</td>
+                          <td>Masculino</td>
+                          <td>&lt; 40</td>
+                          <td>40–50</td>
+                          <td>&gt; 50</td>
+                        </tr>
+
+                        <tr>
+                          <td>40–49</td>
+                          <td>Feminino</td>
+                          <td>&lt; 25</td>
+                          <td>25–33</td>
+                          <td>&gt; 33</td>
+                        </tr>
+
+                        <tr>
+                          <td>50–59</td>
+                          <td>Masculino</td>
+                          <td>&lt; 37</td>
+                          <td>37–47</td>
+                          <td>&gt; 47</td>
+                        </tr>
+
+                        <tr>
+                          <td>50–59</td>
+                          <td>Feminino</td>
+                          <td>&lt; 23</td>
+                          <td>23–31</td>
+                          <td>&gt; 31</td>
+                        </tr>
+
+                        <tr>
+                          <td>60–69</td>
+                          <td>Masculino</td>
+                          <td>&lt; 34</td>
+                          <td>34–44</td>
+                          <td>&gt; 44</td>
+                        </tr>
+
+                        <tr>
+                          <td>60–69</td>
+                          <td>Feminino</td>
+                          <td>&lt; 21</td>
+                          <td>21–29</td>
+                          <td>&gt; 29</td>
+                        </tr>
+
+                        <tr>
+                          <td>70+</td>
+                          <td>Masculino</td>
+                          <td>&lt; 30</td>
+                          <td>30–40</td>
+                          <td>&gt; 40</td>
+                        </tr>
+
+                        <tr>
+                          <td>70+</td>
+                          <td>Feminino</td>
+                          <td>&lt; 18</td>
+                          <td>18–26</td>
+                          <td>&gt; 26</td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
 
                 </details>
 
@@ -2622,17 +2787,23 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       dominantHand:
         document.getElementById('dominantHand'),
 
-      bothHands:
-        document.getElementById('bothHands'),
+      gripRight:
+        document.getElementById('gripRight'),
 
-      gripDominant:
-        document.getElementById('gripDominant'),
+      gripRightClass:
+        document.getElementById('gripRightClass'),
 
-      gripBest:
-        document.getElementById('gripBest'),
+      gripLeft:
+        document.getElementById('gripLeft'),
+
+      gripLeftClass:
+        document.getElementById('gripLeftClass'),
 
       gripScore:
         document.getElementById('gripScore'),
+
+      gripReference:
+        document.getElementById('gripReference'),
 
       csReps:
         document.getElementById('csReps'),
@@ -2812,84 +2983,174 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
     /*
-      PREENSÃO
+      PREENSÃO MANUAL
+      Referência fornecida pelo método M50
     */
 
-    const gripCutoffs = {
+    const gripReference = {
 
       F: {
 
-        '50_59': [
-          { min: 26, score: 10 },
-          { min: 22, score: 8 },
-          { min: 18, score: 6 },
-          { min: 14, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '20_29': {
+          low: 28,
+          high: 36
+        },
 
-        '60_69': [
-          { min: 24, score: 10 },
-          { min: 20, score: 8 },
-          { min: 16, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '30_39': {
+          low: 27,
+          high: 35
+        },
 
-        '70_79': [
-          { min: 22, score: 10 },
-          { min: 18, score: 8 },
-          { min: 14, score: 6 },
-          { min: 10, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '40_49': {
+          low: 25,
+          high: 33
+        },
 
-        '80_plus': [
-          { min: 20, score: 10 },
-          { min: 16, score: 8 },
-          { min: 12, score: 6 },
-          { min: 8, score: 4 },
-          { min: 0, score: 2 }
-        ]
+        '50_59': {
+          low: 23,
+          high: 31
+        },
+
+        '60_69': {
+          low: 21,
+          high: 29
+        },
+
+        '70_plus': {
+          low: 18,
+          high: 26
+        }
 
       },
 
       M: {
 
-        '50_59': [
-          { min: 40, score: 10 },
-          { min: 34, score: 8 },
-          { min: 28, score: 6 },
-          { min: 22, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '20_29': {
+          low: 45,
+          high: 55
+        },
 
-        '60_69': [
-          { min: 38, score: 10 },
-          { min: 32, score: 8 },
-          { min: 26, score: 6 },
-          { min: 20, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '30_39': {
+          low: 43,
+          high: 53
+        },
 
-        '70_79': [
-          { min: 34, score: 10 },
-          { min: 28, score: 8 },
-          { min: 22, score: 6 },
-          { min: 16, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '40_49': {
+          low: 40,
+          high: 50
+        },
 
-        '80_plus': [
-          { min: 30, score: 10 },
-          { min: 24, score: 8 },
-          { min: 18, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ]
+        '50_59': {
+          low: 37,
+          high: 47
+        },
+
+        '60_69': {
+          low: 34,
+          high: 44
+        },
+
+        '70_plus': {
+          low: 30,
+          high: 40
+        }
 
       }
 
     };
+
+
+    function getGripAgeBand(age) {
+
+      if (age == null) return null;
+
+      if (age >= 20 && age <= 29)
+        return '20_29';
+
+      if (age >= 30 && age <= 39)
+        return '30_39';
+
+      if (age >= 40 && age <= 49)
+        return '40_49';
+
+      if (age >= 50 && age <= 59)
+        return '50_59';
+
+      if (age >= 60 && age <= 69)
+        return '60_69';
+
+      if (age >= 70)
+        return '70_plus';
+
+      return null;
+
+    }
+
+
+    function getGripReference(age, sex) {
+
+      if (!age || !sex || sex === 'O')
+        return null;
+
+      const band =
+        getGripAgeBand(age);
+
+      if (!band)
+        return null;
+
+      return gripReference[sex]?.[band] || null;
+
+    }
+
+
+    function classifyGrip(kgf, age, sex) {
+
+      const reference =
+        getGripReference(age, sex);
+
+      if (
+        kgf == null ||
+        kgf === '' ||
+        !reference
+      ) {
+        return null;
+      }
+
+
+      const value =
+        Number(kgf);
+
+
+      if (!Number.isFinite(value))
+        return null;
+
+
+      if (value < reference.low) {
+
+        return {
+          label: 'Ruim (baixo)',
+          score: 2
+        };
+
+      }
+
+
+      if (value <= reference.high) {
+
+        return {
+          label: 'Bom (médio)',
+          score: 6
+        };
+
+      }
+
+
+      return {
+        label: 'Ótimo (alto)',
+        score: 10
+      };
+
+    }
 
 
     /*
@@ -3007,41 +3268,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       }
 
     };
-
-
-    /*
-      PONTUAÇÃO AUTOMÁTICA
-    */
-
-    function scoreGrip(age, sex, kgf) {
-
-      if (!age || !sex || !kgf) {
-        return 0;
-      }
-
-      const band =
-        getAgeBand(age);
-
-      const sexKey =
-        sex === 'M'
-          ? 'M'
-          : 'F';
-
-      const table =
-        gripCutoffs[sexKey]?.[band];
-
-      if (!table) return 0;
-
-      const row =
-        table.find(
-          r => kgf >= r.min
-        );
-
-      return row
-        ? row.score
-        : 0;
-
-    }
 
 
     function scoreBalance(age, seconds, type) {
@@ -3237,23 +3463,124 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         els.personSex.value;
 
 
-      const bestGrip =
-        Number(els.gripBest.value) ||
-        Number(els.gripDominant.value) ||
-        0;
+      /*
+        FORÇA DE PREENSÃO
+
+        Obrigatoriamente utiliza as duas mãos.
+        Cada mão é classificada conforme a tabela
+        fornecida pelo método.
+      */
+
+      const rightValue =
+        els.gripRight.value !== ''
+          ? Number(els.gripRight.value)
+          : null;
+
+      const leftValue =
+        els.gripLeft.value !== ''
+          ? Number(els.gripLeft.value)
+          : null;
 
 
-      const gripScoreVal =
-        scoreGrip(
+      const rightResult =
+        classifyGrip(
+          rightValue,
           age,
-          sex,
-          bestGrip
+          sex
         );
 
 
-      els.gripScore.value =
-        gripScoreVal || '';
+      const leftResult =
+        classifyGrip(
+          leftValue,
+          age,
+          sex
+        );
 
+
+      els.gripRightClass.value =
+        rightResult
+          ? `${rightResult.label} · ${rightResult.score}/10`
+          : 'Aguardando resultado';
+
+
+      els.gripLeftClass.value =
+        leftResult
+          ? `${leftResult.label} · ${leftResult.score}/10`
+          : 'Aguardando resultado';
+
+
+      const reference =
+        getGripReference(
+          age,
+          sex
+        );
+
+
+      if (reference) {
+
+        const band =
+          getGripAgeBand(age);
+
+
+        const bandLabel = {
+
+          '20_29': '20–29 anos',
+          '30_39': '30–39 anos',
+          '40_49': '40–49 anos',
+          '50_59': '50–59 anos',
+          '60_69': '60–69 anos',
+          '70_plus': '70+ anos'
+
+        }[band];
+
+
+        const sexLabel =
+          sex === 'M'
+            ? 'Masculino'
+            : 'Feminino';
+
+
+        els.gripReference.value =
+          `${bandLabel} · ${sexLabel} · Ruim < ${reference.low} · Bom ${reference.low}–${reference.high} · Ótimo > ${reference.high}`;
+
+      } else {
+
+        els.gripReference.value =
+          'Informe idade e sexo';
+
+      }
+
+
+      /*
+        A pontuação da preensão vale 10 pontos.
+        Como as duas mãos são obrigatórias, utiliza-se
+        a média das pontuações obtidas nas duas mãos.
+      */
+
+      if (
+        rightResult &&
+        leftResult
+      ) {
+
+        els.gripScore.value =
+          Math.round(
+            (
+              rightResult.score +
+              leftResult.score
+            ) / 2
+          );
+
+      } else {
+
+        els.gripScore.value = '';
+
+      }
+
+
+      /*
+        CHAIR STAND
+      */
 
       const csReps =
         Number(
@@ -3287,6 +3614,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       els.csScore.value =
         csAuto || '';
 
+
+      /*
+        EQUILÍBRIO
+      */
 
       const semiTime =
         Number(els.semiTime.value) || null;
@@ -3881,6 +4212,37 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         }
 
 
+        /*
+          As duas mãos são obrigatórias.
+        */
+
+        if (
+          els.gripRight.value === '' ||
+          els.gripLeft.value === ''
+        ) {
+
+          alert(
+            'É obrigatório medir e registrar a força das duas mãos no dinamômetro: direita e esquerda.'
+          );
+
+          return;
+
+        }
+
+
+        if (
+          els.personSex.value === 'O'
+        ) {
+
+          alert(
+            'Para calcular automaticamente a força de preensão conforme a tabela de referência, selecione Feminino ou Masculino.'
+          );
+
+          return;
+
+        }
+
+
         const data =
           collectTestData();
 
@@ -3925,6 +4287,33 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
           }
 
 
+          if (
+            els.gripRight.value === '' ||
+            els.gripLeft.value === ''
+          ) {
+
+            alert(
+              'É obrigatório medir e registrar a força das duas mãos no dinamômetro: direita e esquerda.'
+            );
+
+            return;
+
+          }
+
+
+          if (
+            els.personSex.value === 'O'
+          ) {
+
+            alert(
+              'Para calcular automaticamente a força de preensão conforme a tabela de referência, selecione Feminino ou Masculino.'
+            );
+
+            return;
+
+          }
+
+
           const data =
             collectTestData();
 
@@ -3954,7 +4343,16 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
           els.testDate.value =
             today;
 
+          els.gripRightClass.value =
+            '';
+
+          els.gripLeftClass.value =
+            '';
+
           els.gripScore.value =
+            '';
+
+          els.gripReference.value =
             '';
 
           els.csScore.value =
@@ -4038,4 +4436,4 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 </body>
 
 </html>
-
+```
