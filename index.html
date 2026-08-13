@@ -554,6 +554,29 @@
       color: var(--color-text-muted);
     }
 
+    .strength-result {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-divider);
+      background: var(--color-surface);
+    }
+
+    .strength-result strong {
+      font-size: var(--text-lg);
+    }
+
+    .result-ruim {
+      color: var(--color-error);
+    }
+
+    .result-bom {
+      color: var(--color-warning);
+    }
+
+    .result-otimo {
+      color: var(--color-success);
+    }
+
     @media (max-width: 1100px) {
       .hero,
       .grid-2,
@@ -629,19 +652,31 @@
     <aside class="sidebar no-print">
 
       <div class="brand">
+
         <div class="logo" aria-hidden="true">
+
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2.2" aria-label="Logo M50 Mente Viva">
+
             <path d="M4 18V6l4.5 6L13 6v12" />
             <path d="M20 7h-4a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4h-4" />
+
           </svg>
+
         </div>
 
         <div>
+
           <strong>M50 Mente Viva</strong>
-          <small>Monitorização funcional 50+</small>
+
+          <small>
+            Monitorização funcional 50+
+          </small>
+
         </div>
+
       </div>
+
 
       <nav class="nav">
 
@@ -667,10 +702,17 @@
 
       </nav>
 
+
       <div class="notice small">
-        O M50 Mente Viva é um protocolo de rastreio funcional e acompanhamento de evolução,
-        baseado em testes amplamente usados em envelhecimento saudável e escalas internas do método.
-        Não constitui diagnóstico médico, psicológico ou neuropsicológico.
+
+        O M50 Mente Viva é um protocolo de rastreio funcional
+        e acompanhamento de evolução, baseado em testes
+        amplamente usados em envelhecimento saudável e escalas
+        internas do método.
+
+        Não constitui diagnóstico médico, psicológico ou
+        neuropsicológico.
+
       </div>
 
     </aside>
@@ -681,6 +723,7 @@
       <header class="topbar no-print">
 
         <div>
+
           <h1 style="font-size:var(--text-xl);">
             M50 Mente Viva
           </h1>
@@ -688,7 +731,9 @@
           <p class="tagline">
             Índice integrado de longevidade funcional para o Espaço M50.
           </p>
+
         </div>
+
 
         <div class="toolbar">
 
@@ -721,16 +766,22 @@
               </h2>
 
               <p class="muted">
-                O M50 Mente Viva integra cognição, mobilidade, força,
-                controle postural e reserva de saúde em um índice único (0–100).
+
+                O M50 Mente Viva integra cognição, mobilidade,
+                força, controle postural e reserva de saúde
+                em um índice único (0–100).
+
               </p>
+
 
               <div class="btn-row" style="margin-top:20px;">
 
                 <button
                   class="btn btn-primary"
                   data-screen-link="new-test">
+
                   Iniciar avaliação
+
                 </button>
 
               </div>
@@ -772,6 +823,7 @@
           <div class="kpis">
 
             <div class="card kpi">
+
               <span class="muted small">
                 Avaliações realizadas
               </span>
@@ -779,10 +831,12 @@
               <div class="value" id="kpiTests">
                 0
               </div>
+
             </div>
 
 
             <div class="card kpi">
+
               <span class="muted small">
                 Média geral (0–100)
               </span>
@@ -790,10 +844,12 @@
               <div class="value" id="kpiAverage">
                 0
               </div>
+
             </div>
 
 
             <div class="card kpi">
+
               <span class="muted small">
                 Em atenção/risco (&lt;70)
               </span>
@@ -801,10 +857,12 @@
               <div class="value" id="kpiRisk">
                 0
               </div>
+
             </div>
 
 
             <div class="card kpi">
+
               <span class="muted small">
                 Status
               </span>
@@ -812,6 +870,7 @@
               <div class="value">
                 M50
               </div>
+
             </div>
 
           </div>
@@ -958,7 +1017,7 @@
               </div>
 
 
-              <!-- DOMÍNIO 1 – COGNITIVO -->
+              <!-- DOMÍNIO 1 -->
 
               <div class="block">
 
@@ -982,11 +1041,15 @@
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
+
                     • Ambiente calmo, com óculos/aparelho se necessários.<br>
+
                     • Escala interna M50, inspirada em tarefas de triagem cognitiva
                     (fluência verbal, memória de palavras, teste do relógio, atenção sustentada).<br>
+
                     • Não substitui testes neuropsicológicos padronizados;
                     serve para rastreio e acompanhamento funcional.
+
                   </p>
 
                 </details>
@@ -1069,8 +1132,7 @@ Contar o número de animais diferentes ditos em 60 segundos. Não contar repeti�
 
                     <select data-block="cognition">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="5">
                         5 pts – lembra 5
@@ -1135,8 +1197,7 @@ Casa · Chave · Flor · Janela · Jardim
 
                     <select data-block="cognition">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="5">
                         5 pts – desenho completo e coerente
@@ -1201,8 +1262,7 @@ Círculo reconhecível, números de 1 a 12 bem distribuídos e ponteiros indican
 
                     <select data-block="cognition">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="5">
                         5 pts – lembra 5 espontâneo
@@ -1267,8 +1327,7 @@ Perguntar novamente pelas 5 palavras depois de ~5 minutos, sem aviso prévio. Us
 
                     <select data-block="cognition">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="5">
                         5 pts – sem erros
@@ -1325,7 +1384,7 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
               </div>
 
 
-              <!-- DOMÍNIO 2 – MOBILIDADE -->
+              <!-- DOMÍNIO 2 -->
 
               <div class="block">
 
@@ -1349,8 +1408,12 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
+
                     • Avaliar marcha, transferências, velocidade e mudança de direção – componentes críticos para autonomia.<br>
-                    • Usa testes validados como TUG e velocidade de marcha, combinados com um teste próprio de mudança de direção para dar identidade ao método.
+
+                    • Usa testes validados como TUG e velocidade de marcha,
+                    combinados com um teste próprio de mudança de direção para dar identidade ao método.
+
                   </p>
 
                 </details>
@@ -1366,8 +1429,7 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
 
                     <select data-block="mobility">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="8">
                         &lt; 10 s – baixo risco
@@ -1427,8 +1489,7 @@ Sentar em cadeira com braços, levantar ao comando “já”, caminhar 3 m, vira
 
                     <select data-block="mobility">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="6">
                         6 pts – &gt; 1,0 m/s (≤ 4,0 s)
@@ -1492,8 +1553,7 @@ Marcar 4 m em superfície plana. Pedir que caminhe em passo habitual, sem correr
 
                     <select data-block="mobility">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="6">
                         6 pts – ≤ 11 s
@@ -1557,8 +1617,7 @@ Sentar em cadeira padrão, braços cruzados. Ao comando “já”, levantar e se
 
                     <select data-block="mobility">
 
-                      <option value="">
-                      </option>
+                      <option value=""></option>
 
                       <option value="5">
                         5 pts – excelente
@@ -1614,7 +1673,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               </div>
 
 
-              <!-- DOMÍNIO 3 – FORÇA -->
+              <!-- DOMÍNIO 3 – FORÇA ATUALIZADO -->
 
               <div class="block">
 
@@ -1625,26 +1684,57 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </h4>
 
                   <span class="pill">
-                    Força de preensão e membros inferiores
+                    Dinamometria bilateral + Chair Stand
                   </span>
 
                 </div>
 
 
-                <details>
+                <details open>
 
                   <summary>
-                    Objetivo, mão e referência etária
+                    Instruções obrigatórias – Dinamômetro
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
-                    • Integra força máxima de preensão e resistência de membros inferiores,
-                    comparando com faixas internas por idade e sexo.<br>
-                    • Registrar sempre qual mão foi usada e, se mediu as duas,
-                    usar o melhor valor como referência de força.
+
+                    <strong>
+                      A força de preensão deve ser medida obrigatoriamente nas duas mãos,
+                      utilizando um dinamômetro de preensão manual.
+                    </strong>
+
+                    <br><br>
+
+                    • Posicionar a pessoa sentada ou em pé, com ombro junto ao corpo,
+                    cotovelo aproximadamente a 90° e antebraço em posição neutra.<br>
+
+                    • Ajustar corretamente a empunhadura do dinamômetro.<br>
+
+                    • Realizar 2–3 tentativas máximas em cada mão, com incentivo padronizado.<br>
+
+                    • Registrar o melhor resultado da mão direita e o melhor resultado da mão esquerda.<br>
+
+                    • O sistema selecionará automaticamente o maior valor entre as duas mãos.<br>
+
+                    • A classificação será calculada automaticamente conforme a idade
+                    e o sexo cadastrados.<br>
+
+                    • O resultado é classificado como <strong>Ruim, Bom ou Ótimo</strong>.
+
                   </p>
 
                 </details>
+
+
+                <div class="notice small">
+
+                  <strong>Obrigatório:</strong>
+                  as duas mãos devem ser avaliadas.
+                  O sistema não permitirá finalizar a avaliação
+                  enquanto os valores da mão direita e da mão esquerda
+                  não forem preenchidos.
+
+                </div>
 
 
                 <div class="form-grid">
@@ -1652,24 +1742,16 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Mão dominante
+                      Preensão – mão direita (kgf) *
                     </label>
 
-                    <select id="dominantHand">
-
-                      <option value="">
-                        Selecione
-                      </option>
-
-                      <option value="D">
-                        Direita
-                      </option>
-
-                      <option value="E">
-                        Esquerda
-                      </option>
-
-                    </select>
+                    <input
+                      id="gripRight"
+                      type="number"
+                      min="0"
+                      step="0.1"
+                      required
+                      placeholder="Melhor resultado da mão direita" />
 
                   </div>
 
@@ -1677,68 +1759,84 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Mediu as duas mãos?
+                      Preensão – mão esquerda (kgf) *
                     </label>
 
-                    <select id="bothHands">
-
-                      <option value="nao">
-                        Não
-                      </option>
-
-                      <option value="sim">
-                        Sim
-                      </option>
-
-                    </select>
+                    <input
+                      id="gripLeft"
+                      type="number"
+                      min="0"
+                      step="0.1"
+                      required
+                      placeholder="Melhor resultado da mão esquerda" />
 
                   </div>
 
                 </div>
 
 
-                <div class="form-grid" style="margin-top:var(--space-4);">
+                <div class="strength-result">
 
-                  <div class="field">
+                  <div class="form-grid">
 
-                    <label>
-                      Preensão – mão dominante (kgf)
-                    </label>
+                    <div>
 
-                    <input
-                      id="gripDominant"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="Valor bruto em kgf" />
+                      <span class="small muted">
+                        Melhor resultado entre as mãos
+                      </span>
+
+                      <strong id="gripBestDisplay">
+                        —
+                      </strong>
+
+                      <span class="small muted">
+                        kgf
+                      </span>
+
+                    </div>
+
+
+                    <div>
+
+                      <span class="small muted">
+                        Referência para idade/sexo
+                      </span>
+
+                      <strong id="gripReferenceDisplay">
+                        —
+                      </strong>
+
+                    </div>
 
                   </div>
 
 
-                  <div class="field">
+                  <div style="margin-top:12px;">
 
-                    <label>
-                      Preensão – melhor valor
-                    </label>
+                    <span class="small muted">
+                      Classificação da força de preensão
+                    </span>
 
-                    <input
-                      id="gripBest"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="Maior kgf medido (opcional)" />
+                    <div
+                      id="gripClassification"
+                      class="pill"
+                      style="margin-top:6px;">
+
+                      Aguardando medição
+
+                    </div>
 
                   </div>
 
                 </div>
 
 
-                <div class="form-grid" style="margin-top:var(--space-4);">
+                <div class="form-grid">
 
                   <div class="field">
 
                     <label>
-                      Pontuação automática preensão (0–10)
+                      Pontuação automática da preensão (0–10)
                     </label>
 
                     <input
@@ -1749,7 +1847,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                       step="1"
                       data-block="strength"
                       readonly
-                      placeholder="Calculado pelo sistema" />
+                      placeholder="Calculado automaticamente" />
 
                   </div>
 
@@ -1757,12 +1855,12 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   <div class="field">
 
                     <label>
-                      Comentário
+                      Observação da preensão
                     </label>
 
                     <input
                       id="gripComment"
-                      placeholder="Ex.: força acima/abaixo da média para a idade" />
+                      placeholder="Assimetria, dor, dificuldade de preensão..." />
 
                   </div>
 
@@ -1772,15 +1870,128 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 <details>
 
                   <summary>
-                    Instruções – Preensão manual
+                    Referência de força de preensão – tabela utilizada pelo M50
                   </summary>
 
-                  <p class="small" style="margin-top:8px;">
-                    Sentado ou em pé, ombro ao lado do corpo, cotovelo a 90°,
-                    antebraço em posição neutra. Ajustar dinamômetro à mão dominante
-                    (e à não dominante, se desejar). Pedir 2–3 tentativas máximas,
-                    com incentivo. Registrar o melhor valor em kgf.
-                  </p>
+                  <div class="table-wrap" style="margin-top:12px;">
+
+                    <table>
+
+                      <thead>
+
+                        <tr>
+                          <th>Idade</th>
+                          <th>Gênero</th>
+                          <th>Ruim (baixo)</th>
+                          <th>Bom (médio)</th>
+                          <th>Ótimo (alto)</th>
+                        </tr>
+
+                      </thead>
+
+                      <tbody>
+
+                        <tr>
+                          <td>20–29</td>
+                          <td>Masculino</td>
+                          <td>&lt; 45</td>
+                          <td>45–55</td>
+                          <td>&gt; 55</td>
+                        </tr>
+
+                        <tr>
+                          <td>20–29</td>
+                          <td>Feminino</td>
+                          <td>&lt; 28</td>
+                          <td>28–36</td>
+                          <td>&gt; 36</td>
+                        </tr>
+
+                        <tr>
+                          <td>30–39</td>
+                          <td>Masculino</td>
+                          <td>&lt; 43</td>
+                          <td>43–53</td>
+                          <td>&gt; 53</td>
+                        </tr>
+
+                        <tr>
+                          <td>30–39</td>
+                          <td>Feminino</td>
+                          <td>&lt; 27</td>
+                          <td>27–35</td>
+                          <td>&gt; 35</td>
+                        </tr>
+
+                        <tr>
+                          <td>40–49</td>
+                          <td>Masculino</td>
+                          <td>&lt; 40</td>
+                          <td>40–50</td>
+                          <td>&gt; 50</td>
+                        </tr>
+
+                        <tr>
+                          <td>40–49</td>
+                          <td>Feminino</td>
+                          <td>&lt; 25</td>
+                          <td>25–33</td>
+                          <td>&gt; 33</td>
+                        </tr>
+
+                        <tr>
+                          <td>50–59</td>
+                          <td>Masculino</td>
+                          <td>&lt; 37</td>
+                          <td>37–47</td>
+                          <td>&gt; 47</td>
+                        </tr>
+
+                        <tr>
+                          <td>50–59</td>
+                          <td>Feminino</td>
+                          <td>&lt; 23</td>
+                          <td>23–31</td>
+                          <td>&gt; 31</td>
+                        </tr>
+
+                        <tr>
+                          <td>60–69</td>
+                          <td>Masculino</td>
+                          <td>&lt; 34</td>
+                          <td>34–44</td>
+                          <td>&gt; 44</td>
+                        </tr>
+
+                        <tr>
+                          <td>60–69</td>
+                          <td>Feminino</td>
+                          <td>&lt; 21</td>
+                          <td>21–29</td>
+                          <td>&gt; 29</td>
+                        </tr>
+
+                        <tr>
+                          <td>70+</td>
+                          <td>Masculino</td>
+                          <td>&lt; 30</td>
+                          <td>30–40</td>
+                          <td>&gt; 40</td>
+                        </tr>
+
+                        <tr>
+                          <td>70+</td>
+                          <td>Feminino</td>
+                          <td>&lt; 18</td>
+                          <td>18–26</td>
+                          <td>&gt; 26</td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
 
                 </details>
 
@@ -1817,7 +2028,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                       step="1"
                       data-block="strength"
                       readonly
-                      placeholder="Calculado pelo sistema" />
+                      placeholder="Calculado automaticamente" />
 
                   </div>
 
@@ -1831,9 +2042,11 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
-                    Sentado em cadeira padrão, braços cruzados sobre o peito ou ombros.
-                    Ao comando “já”, levantar e sentar o maior número de vezes possível
-                    em 30 segundos, mantendo segurança.
+
+                    Sentado em cadeira padrão, braços cruzados sobre o peito
+                    ou ombros. Ao comando “já”, levantar e sentar o maior
+                    número de vezes possível em 30 segundos, mantendo segurança.
+
                   </p>
 
                 </details>
@@ -1841,7 +2054,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               </div>
 
 
-              <!-- DOMÍNIO 4 – EQUILÍBRIO -->
+              <!-- DOMÍNIO 4 -->
 
               <div class="block">
 
@@ -1865,8 +2078,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
+
                     Mede capacidade de manter equilíbrio em semi-tandem,
                     tandem e apoio unipodal, com tempos comparados por idade.
+
                   </p>
 
                 </details>
@@ -1992,10 +2207,12 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
+
                     • Semi-tandem: um pé parcialmente à frente do outro.<br>
                     • Tandem: pés em linha.<br>
                     • Unipodal: em pé sobre um pé, outro elevado.<br>
                     • Cronometrar até apoiar ou perder claramente a posição.
+
                   </p>
 
                 </details>
@@ -2003,7 +2220,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               </div>
 
 
-              <!-- DOMÍNIO 5 – RESERVA -->
+              <!-- DOMÍNIO 5 -->
 
               <div class="block">
 
@@ -2027,8 +2244,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   </summary>
 
                   <p class="small" style="margin-top:8px;">
+
                     Avalia fatores de reserva de saúde associados ao envelhecimento saudável:
                     sono, atividade física, nutrição, participação social e cognição ativa.
+
                   </p>
 
                 </details>
@@ -2143,14 +2362,19 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 <button
                   type="submit"
                   class="btn btn-primary">
+
                   Gerar relatório
+
                 </button>
+
 
                 <button
                   type="button"
                   class="btn btn-secondary"
                   id="previewReportBtn">
+
                   Pré-visualizar relatório
+
                 </button>
 
               </div>
@@ -2188,13 +2412,18 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 <button
                   class="btn btn-secondary"
                   id="printBtn">
+
                   Imprimir / Salvar PDF
+
                 </button>
+
 
                 <button
                   class="btn btn-primary"
                   id="newEvaluationBtn">
+
                   Nova avaliação
+
                 </button>
 
               </div>
@@ -2203,9 +2432,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
             <div id="reportContent" class="empty">
-
               Nenhuma avaliação gerada.
-
             </div>
 
           </div>
@@ -2243,9 +2470,11 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               </h4>
 
               <p class="small muted" style="margin-top:12px;">
+
                 O M50 Mente Viva combina testes amplamente usados em envelhecimento saudável
                 com escalas internas de pontuação. Os estudos não validam o índice como um todo,
                 mas demonstram a relevância dos componentes utilizados para acompanhamento funcional.
+
               </p>
 
             </div>
@@ -2290,7 +2519,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                       </td>
 
                       <td>
-                        As faixas de kgf por idade/sexo do M50 se inspiram nesse padrão.
+                        As faixas apresentadas no protocolo M50 são utilizadas como referência interna.
                       </td>
 
                     </tr>
@@ -2332,7 +2561,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                       </td>
 
                       <td>
-                        Justifica o uso de tabelas internas por faixa etária e sexo.
+                        Justifica a utilização de referências estratificadas por idade e sexo.
                       </td>
 
                     </tr>
@@ -2520,11 +2749,14 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               </h4>
 
               <p class="small muted" style="margin-top:12px;">
+
                 A ideia de “Reserva de Saúde” no M50 se inspira nos conceitos de
                 capacidade intrínseca, reserva de saúde e envelhecimento saudável,
                 enfatizando fatores como sono, atividade física, nutrição,
                 cognição ativa e participação social.
+
                 Trata-se de uma construção própria do método.
+
               </p>
 
             </div>
@@ -2547,7 +2779,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       M50 MENTE VIVA
       Fluxo:
       Painel → Novo Teste → Relatório
-      Não existe cadastro permanente de aluno.
       ============================================================
     */
 
@@ -2613,20 +2844,26 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       kpiRisk:
         document.getElementById('kpiRisk'),
 
-      dominantHand:
-        document.getElementById('dominantHand'),
+      gripRight:
+        document.getElementById('gripRight'),
 
-      bothHands:
-        document.getElementById('bothHands'),
-
-      gripDominant:
-        document.getElementById('gripDominant'),
-
-      gripBest:
-        document.getElementById('gripBest'),
+      gripLeft:
+        document.getElementById('gripLeft'),
 
       gripScore:
         document.getElementById('gripScore'),
+
+      gripBestDisplay:
+        document.getElementById('gripBestDisplay'),
+
+      gripReferenceDisplay:
+        document.getElementById('gripReferenceDisplay'),
+
+      gripClassification:
+        document.getElementById('gripClassification'),
+
+      gripComment:
+        document.getElementById('gripComment'),
 
       csReps:
         document.getElementById('csReps'),
@@ -2670,7 +2907,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
     const today =
       new Date().toISOString().slice(0, 10);
-
 
     els.testDate.value = today;
 
@@ -2742,148 +2978,257 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       const [y, m, d] =
         dateStr.split('-').map(Number);
 
-      const birth =
-        new Date(y, m - 1, d);
+      const todayDate = new Date();
 
-      const diff =
-        Date.now() - birth.getTime();
+      let age =
+        todayDate.getFullYear() - y;
 
-      const ageDt =
-        new Date(diff);
+      const month =
+        todayDate.getMonth() + 1;
 
-      return Math.abs(
-        ageDt.getUTCFullYear() - 1970
-      );
+      const day =
+        todayDate.getDate();
 
-    }
-
-
-    const ageBands = [
-
-      {
-        min: 50,
-        max: 59,
-        key: '50_59'
-      },
-
-      {
-        min: 60,
-        max: 69,
-        key: '60_69'
-      },
-
-      {
-        min: 70,
-        max: 79,
-        key: '70_79'
-      },
-
-      {
-        min: 80,
-        max: 120,
-        key: '80_plus'
+      if (
+        month < m ||
+        (month === m && day < d)
+      ) {
+        age--;
       }
 
-    ];
-
-
-    function getAgeBand(age) {
-
-      if (age == null) return null;
-
-      const band =
-        ageBands.find(
-          b =>
-            age >= b.min &&
-            age <= b.max
-        );
-
-      return band
-        ? band.key
-        : null;
+      return age;
 
     }
 
 
     /*
-      PREENSÃO
+      FAIXAS ETÁRIAS DA TABELA DE PREENSÃO
     */
 
-    const gripCutoffs = {
+    function getGripAgeBand(age) {
 
-      F: {
+      if (age == null) return null;
 
-        '50_59': [
-          { min: 26, score: 10 },
-          { min: 22, score: 8 },
-          { min: 18, score: 6 },
-          { min: 14, score: 4 },
-          { min: 0, score: 2 }
-        ],
+      if (age >= 20 && age <= 29)
+        return '20_29';
 
-        '60_69': [
-          { min: 24, score: 10 },
-          { min: 20, score: 8 },
-          { min: 16, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ],
+      if (age >= 30 && age <= 39)
+        return '30_39';
 
-        '70_79': [
-          { min: 22, score: 10 },
-          { min: 18, score: 8 },
-          { min: 14, score: 6 },
-          { min: 10, score: 4 },
-          { min: 0, score: 2 }
-        ],
+      if (age >= 40 && age <= 49)
+        return '40_49';
 
-        '80_plus': [
-          { min: 20, score: 10 },
-          { min: 16, score: 8 },
-          { min: 12, score: 6 },
-          { min: 8, score: 4 },
-          { min: 0, score: 2 }
-        ]
+      if (age >= 50 && age <= 59)
+        return '50_59';
 
-      },
+      if (age >= 60 && age <= 69)
+        return '60_69';
+
+      if (age >= 70)
+        return '70_plus';
+
+      return null;
+
+    }
+
+
+    /*
+      REFERÊNCIA DE PREENSÃO MANUAL
+      Valores fornecidos pelo usuário.
+    */
+
+    const gripReference = {
 
       M: {
 
-        '50_59': [
-          { min: 40, score: 10 },
-          { min: 34, score: 8 },
-          { min: 28, score: 6 },
-          { min: 22, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '20_29': {
+          low: 45,
+          good: 55
+        },
 
-        '60_69': [
-          { min: 38, score: 10 },
-          { min: 32, score: 8 },
-          { min: 26, score: 6 },
-          { min: 20, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '30_39': {
+          low: 43,
+          good: 53
+        },
 
-        '70_79': [
-          { min: 34, score: 10 },
-          { min: 28, score: 8 },
-          { min: 22, score: 6 },
-          { min: 16, score: 4 },
-          { min: 0, score: 2 }
-        ],
+        '40_49': {
+          low: 40,
+          good: 50
+        },
 
-        '80_plus': [
-          { min: 30, score: 10 },
-          { min: 24, score: 8 },
-          { min: 18, score: 6 },
-          { min: 12, score: 4 },
-          { min: 0, score: 2 }
-        ]
+        '50_59': {
+          low: 37,
+          good: 47
+        },
+
+        '60_69': {
+          low: 34,
+          good: 44
+        },
+
+        '70_plus': {
+          low: 30,
+          good: 40
+        }
+
+      },
+
+      F: {
+
+        '20_29': {
+          low: 28,
+          good: 36
+        },
+
+        '30_39': {
+          low: 27,
+          good: 35
+        },
+
+        '40_49': {
+          low: 25,
+          good: 33
+        },
+
+        '50_59': {
+          low: 23,
+          good: 31
+        },
+
+        '60_69': {
+          low: 21,
+          good: 29
+        },
+
+        '70_plus': {
+          low: 18,
+          good: 26
+        }
 
       }
 
     };
+
+
+    /*
+      CLASSIFICAÇÃO DA PREENSÃO
+
+      Ruim  = 0 pts
+      Bom   = 5 pts
+      Ótimo = 10 pts
+    */
+
+    function classifyGrip(age, sex, kgf) {
+
+      if (
+        age == null ||
+        !sex ||
+        kgf == null ||
+        Number.isNaN(kgf)
+      ) {
+
+        return {
+          label: 'Aguardando medição',
+          score: 0,
+          className: ''
+        };
+
+      }
+
+
+      const band =
+        getGripAgeBand(age);
+
+
+      if (!band || !gripReference[sex]?.[band]) {
+
+        return {
+          label: 'Sem referência',
+          score: 0,
+          className: ''
+        };
+
+      }
+
+
+      const ref =
+        gripReference[sex][band];
+
+
+      if (kgf < ref.low) {
+
+        return {
+          label: 'Ruim (baixo)',
+          score: 0,
+          className: 'result-ruim'
+        };
+
+      }
+
+
+      if (kgf <= ref.good) {
+
+        return {
+          label: 'Bom (médio)',
+          score: 5,
+          className: 'result-bom'
+        };
+
+      }
+
+
+      return {
+        label: 'Ótimo (alto)',
+        score: 10,
+        className: 'result-otimo'
+      };
+
+    }
+
+
+    function getGripReferenceText(age, sex) {
+
+      const band =
+        getGripAgeBand(age);
+
+      if (
+        !band ||
+        !gripReference[sex]?.[band]
+      ) {
+        return 'Informe idade e sexo';
+      }
+
+
+      const ref =
+        gripReference[sex][band];
+
+
+      const ageLabel = {
+
+        '20_29': '20–29 anos',
+
+        '30_39': '30–39 anos',
+
+        '40_49': '40–49 anos',
+
+        '50_59': '50–59 anos',
+
+        '60_69': '60–69 anos',
+
+        '70_plus': '70+ anos'
+
+      }[band];
+
+
+      const sexLabel =
+        sex === 'M'
+          ? 'Masculino'
+          : 'Feminino';
+
+
+      return `${ageLabel} · ${sexLabel} · Ruim < ${ref.low} kgf · Bom ${ref.low}–${ref.good} kgf · Ótimo > ${ref.good} kgf`;
+
+    }
 
 
     /*
@@ -3003,37 +3348,23 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     };
 
 
-    /*
-      PONTUAÇÃO AUTOMÁTICA
-    */
+    function getBalanceAgeBand(age) {
 
-    function scoreGrip(age, sex, kgf) {
+      if (age == null) return null;
 
-      if (!age || !sex || !kgf) {
-        return 0;
-      }
+      if (age >= 50 && age <= 59)
+        return '50_59';
 
-      const band =
-        getAgeBand(age);
+      if (age >= 60 && age <= 69)
+        return '60_69';
 
-      const sexKey =
-        sex === 'M'
-          ? 'M'
-          : 'F';
+      if (age >= 70 && age <= 79)
+        return '70_79';
 
-      const table =
-        gripCutoffs[sexKey]?.[band];
+      if (age >= 80)
+        return '80_plus';
 
-      if (!table) return 0;
-
-      const row =
-        table.find(
-          r => kgf >= r.min
-        );
-
-      return row
-        ? row.score
-        : 0;
+      return null;
 
     }
 
@@ -3041,24 +3372,32 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     function scoreBalance(age, seconds, type) {
 
       if (
-        !age ||
-        seconds == null
+        age == null ||
+        seconds == null ||
+        seconds === ''
       ) {
         return 0;
       }
 
+
       const band =
-        getAgeBand(age);
+        getBalanceAgeBand(age);
+
 
       const table =
         balanceCutoffs[type]?.[band];
 
+
       if (!table) return 0;
 
+
       const row =
-        table.find(
-          r => seconds >= r.min
-        );
+        [...table]
+          .sort((a, b) => b.min - a.min)
+          .find(
+            r => seconds >= r.min
+          );
+
 
       return row
         ? row.score
@@ -3110,6 +3449,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       const totalTests =
         state.tests.length;
 
+
       const avg =
         totalTests
           ? Math.round(
@@ -3121,10 +3461,12 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
             )
           : 0;
 
+
       const risk =
         state.tests.filter(
           t => t.total < 70
         ).length;
+
 
       els.kpiTests.textContent =
         totalTests;
@@ -3227,27 +3569,111 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
           els.personBirthDate.value
         );
 
+
       const sex =
         els.personSex.value;
 
 
-      const bestGrip =
-        Number(els.gripBest.value) ||
-        Number(els.gripDominant.value) ||
-        0;
+      /*
+        PREENSÃO BILATERAL
+      */
+
+      const rightRaw =
+        els.gripRight.value;
 
 
-      const gripScoreVal =
-        scoreGrip(
-          age,
-          sex,
-          bestGrip
-        );
+      const leftRaw =
+        els.gripLeft.value;
 
 
-      els.gripScore.value =
-        gripScoreVal || '';
+      const right =
+        rightRaw === ''
+          ? null
+          : Number(rightRaw);
 
+
+      const left =
+        leftRaw === ''
+          ? null
+          : Number(leftRaw);
+
+
+      const bothMeasured =
+        right !== null &&
+        left !== null &&
+        right >= 0 &&
+        left >= 0;
+
+
+      if (bothMeasured) {
+
+        const bestGrip =
+          Math.max(
+            right,
+            left
+          );
+
+
+        const result =
+          classifyGrip(
+            age,
+            sex,
+            bestGrip
+          );
+
+
+        els.gripBestDisplay.textContent =
+          bestGrip.toFixed(1);
+
+
+        els.gripReferenceDisplay.textContent =
+          getGripReferenceText(
+            age,
+            sex
+          );
+
+
+        els.gripClassification.textContent =
+          result.label;
+
+
+        els.gripClassification.className =
+          `pill ${result.className}`;
+
+
+        els.gripScore.value =
+          result.score;
+
+      } else {
+
+        els.gripBestDisplay.textContent =
+          '—';
+
+
+        els.gripReferenceDisplay.textContent =
+          getGripReferenceText(
+            age,
+            sex
+          );
+
+
+        els.gripClassification.textContent =
+          'Aguardando medição das duas mãos';
+
+
+        els.gripClassification.className =
+          'pill';
+
+
+        els.gripScore.value =
+          '';
+
+      }
+
+
+      /*
+        CHAIR STAND
+      */
 
       const csReps =
         Number(
@@ -3258,43 +3684,52 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       let csAuto = 0;
 
 
-      if (age) {
+      if (csReps >= 15)
+        csAuto = 10;
 
-        if (csReps >= 15)
-          csAuto = 10;
+      else if (csReps >= 12)
+        csAuto = 8;
 
-        else if (csReps >= 12)
-          csAuto = 8;
+      else if (csReps >= 9)
+        csAuto = 6;
 
-        else if (csReps >= 9)
-          csAuto = 6;
+      else if (csReps >= 6)
+        csAuto = 4;
 
-        else if (csReps >= 6)
-          csAuto = 4;
-
-        else if (csReps > 0)
-          csAuto = 2;
-
-      }
+      else if (csReps > 0)
+        csAuto = 2;
 
 
       els.csScore.value =
-        csAuto || '';
+        csReps > 0
+          ? csAuto
+          : '';
 
+
+      /*
+        EQUILÍBRIO
+      */
 
       const semiTime =
-        Number(els.semiTime.value) || null;
+        els.semiTime.value === ''
+          ? null
+          : Number(els.semiTime.value);
+
 
       const tandemTime =
-        Number(els.tandemTime.value) || null;
+        els.tandemTime.value === ''
+          ? null
+          : Number(els.tandemTime.value);
+
 
       const uniTime =
-        Number(els.uniTime.value) || null;
+        els.uniTime.value === ''
+          ? null
+          : Number(els.uniTime.value);
 
 
       els.semiScore.value =
-        semiTime != null &&
-        semiTime !== 0
+        semiTime != null
           ? scoreBalance(
               age,
               semiTime,
@@ -3304,8 +3739,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
       els.tandemScore.value =
-        tandemTime != null &&
-        tandemTime !== 0
+        tandemTime != null
           ? scoreBalance(
               age,
               tandemTime,
@@ -3315,14 +3749,54 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
       els.uniScore.value =
-        uniTime != null &&
-        uniTime !== 0
+        uniTime != null
           ? scoreBalance(
               age,
               uniTime,
               'uni'
             )
           : '';
+
+    }
+
+
+    /*
+      VALIDAÇÃO DA DINAMOMETRIA
+    */
+
+    function validateStrength() {
+
+      const right =
+        els.gripRight.value;
+
+
+      const left =
+        els.gripLeft.value;
+
+
+      if (
+        right === '' ||
+        left === ''
+      ) {
+
+        alert(
+          'A dinamometria é obrigatória nas duas mãos. Informe o melhor resultado da mão direita e da mão esquerda.'
+        );
+
+
+        if (right === '') {
+          els.gripRight.focus();
+        } else {
+          els.gripLeft.focus();
+        }
+
+
+        return false;
+
+      }
+
+
+      return true;
 
     }
 
@@ -3374,6 +3848,39 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         lifestyle;
 
 
+      const age =
+        getAge(
+          els.personBirthDate.value
+        );
+
+
+      const rightGrip =
+        Number(
+          els.gripRight.value
+        );
+
+
+      const leftGrip =
+        Number(
+          els.gripLeft.value
+        );
+
+
+      const bestGrip =
+        Math.max(
+          rightGrip,
+          leftGrip
+        );
+
+
+      const gripResult =
+        classifyGrip(
+          age,
+          els.personSex.value,
+          bestGrip
+        );
+
+
       return {
 
         id: uid(),
@@ -3395,6 +3902,32 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
         notes:
           els.testNotes.value.trim(),
+
+        gripRight,
+
+        gripLeft,
+
+        gripBest:
+          bestGrip,
+
+        gripClassification:
+          gripResult.label,
+
+        gripScore:
+          gripResult.score,
+
+        gripComment:
+          els.gripComment.value.trim(),
+
+        csReps:
+          Number(
+            els.csReps.value
+          ) || 0,
+
+        csScore:
+          Number(
+            els.csScore.value
+          ) || 0,
 
         cognition,
         mobility,
@@ -3563,16 +4096,21 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
             <div>
 
               <div class="pill">
+
                 Índice global:
                 ${test.total}/100
+
               </div>
+
 
               <p
                 class="small muted"
                 style="margin-top:8px;"
               >
+
                 Classificação global:
                 ${test.classification}
+
               </p>
 
             </div>
@@ -3595,6 +4133,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
             <h4>
               Idade cronológica x idades funcionais
             </h4>
+
 
             <p
               class="small muted"
@@ -3623,6 +4162,50 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               em cada domínio. Servem para comunicação com
               o aluno e planejamento de treino, e não substituem
               avaliação médica ou neuropsicológica formal.
+
+            </p>
+
+          </div>
+
+
+          <div class="report-box">
+
+            <h4>
+              💪 Resultado da dinamometria
+            </h4>
+
+
+            <p
+              class="small muted"
+              style="margin-top:12px;"
+            >
+
+              Mão direita:
+              <strong>${test.gripRight.toFixed(1)} kgf</strong>
+
+              <br>
+
+              Mão esquerda:
+              <strong>${test.gripLeft.toFixed(1)} kgf</strong>
+
+              <br>
+
+              Melhor resultado:
+              <strong>${test.gripBest.toFixed(1)} kgf</strong>
+
+              <br>
+
+              Classificação:
+              <strong>${test.gripClassification}</strong>
+
+              <br>
+
+              Pontuação:
+              <strong>${test.gripScore}/10</strong>
+
+              ${test.gripComment
+                ? `<br><br>Observação: ${test.gripComment}`
+                : ''}
 
             </p>
 
@@ -3682,15 +4265,24 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 class="small muted"
                 style="margin-top:12px;"
               >
+
                 Nascimento:
                 ${test.birthDate
                   ? formatDate(test.birthDate)
                   : 'Não informado'}
+
               </p>
 
+
               <p class="small muted">
+
                 Sexo:
-                ${test.sex || 'Não informado'}
+                ${test.sex === 'M'
+                  ? 'Masculino'
+                  : test.sex === 'F'
+                    ? 'Feminino'
+                    : 'Não informado'}
+
               </p>
 
             </div>
@@ -3702,42 +4294,57 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                 Resumo numérico por domínio
               </h4>
 
+
               <p
                 class="small muted"
                 style="margin-top:12px;"
               >
+
                 🧠 Cognitivo:
                 ${test.cognition}/25
                 (${cognitionPct}%)
                 – ${classifyDomain(cognitionPct)}
+
               </p>
 
+
               <p class="small muted">
+
                 🚶 Mobilidade:
                 ${test.mobility}/25
                 (${mobilityPct}%)
                 – ${classifyDomain(mobilityPct)}
+
               </p>
 
+
               <p class="small muted">
+
                 💪 Força:
                 ${test.strength}/20
                 (${strengthPct}%)
                 – ${classifyDomain(strengthPct)}
+
               </p>
 
+
               <p class="small muted">
+
                 ⚖️ Postural:
                 ${test.balance}/15
                 (${balancePct}%)
                 – ${classifyDomain(balancePct)}
+
               </p>
 
+
               <p class="small muted">
+
                 🌿 Reserva:
                 ${test.lifestyle}/15
                 (${lifestylePct}%)
                 – ${classifyDomain(lifestylePct)}
+
               </p>
 
             </div>
@@ -3751,11 +4358,14 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               Observações clínicas e funcionais
             </h4>
 
+
             <p
               class="small muted"
               style="margin-top:12px;"
             >
+
               ${test.notes || 'Sem observações registradas.'}
+
             </p>
 
           </div>
@@ -3767,20 +4377,24 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
               Resultado final
             </h4>
 
+
             <p
               class="small muted"
               style="margin-top:12px;"
             >
+
               Índice M50 Mente Viva:
               <strong>
                 ${test.total}/100
               </strong>
+
               <br>
 
               Classificação:
               <strong>
                 ${test.classification}
               </strong>
+
             </p>
 
           </div>
@@ -3851,6 +4465,18 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     );
 
 
+    els.personBirthDate.addEventListener(
+      'change',
+      computeAutoStrengthAndBalance
+    );
+
+
+    els.personSex.addEventListener(
+      'change',
+      computeAutoStrengthAndBalance
+    );
+
+
     /*
       SALVAR / GERAR RELATÓRIO
     */
@@ -3860,6 +4486,26 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       e => {
 
         e.preventDefault();
+
+
+        if (
+          !els.testForm.checkValidity()
+        ) {
+
+          els.testForm.reportValidity();
+
+          return;
+
+        }
+
+
+        if (
+          !validateStrength()
+        ) {
+
+          return;
+
+        }
 
 
         if (
@@ -3885,6 +4531,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
         renderKPIs();
+
 
         buildReport(
           data
@@ -3919,6 +4566,15 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
           }
 
 
+          if (
+            !validateStrength()
+          ) {
+
+            return;
+
+          }
+
+
           const data =
             collectTestData();
 
@@ -3945,23 +4601,46 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
           els.testForm.reset();
 
+
           els.testDate.value =
             today;
+
 
           els.gripScore.value =
             '';
 
+
+          els.gripBestDisplay.textContent =
+            '—';
+
+
+          els.gripReferenceDisplay.textContent =
+            'Informe idade e sexo';
+
+
+          els.gripClassification.textContent =
+            'Aguardando medição das duas mãos';
+
+
+          els.gripClassification.className =
+            'pill';
+
+
           els.csScore.value =
             '';
+
 
           els.semiScore.value =
             '';
 
+
           els.tandemScore.value =
             '';
 
+
           els.uniScore.value =
             '';
+
 
           renderScreen(
             'new-test'
@@ -4003,6 +4682,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
           const root =
             document.documentElement;
+
 
           root.setAttribute(
             'data-theme',
