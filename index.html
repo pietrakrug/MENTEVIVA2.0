@@ -958,8 +958,6 @@
               </div>
 
 
-              
-
               <!-- DOMÍNIO 5 – RESERVA -->
 
               <div class="block">
@@ -1080,6 +1078,7 @@
                 </div>
 
               </div>
+
 
               <!-- DOMÍNIO 1 – COGNITIVO -->
 
@@ -1447,6 +1446,7 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
 
               </div>
 
+
               <!-- DOMÍNIO 2 – MOBILIDADE FUNCIONAL + CONTROLE POSTURAL -->
 
               <div class="block">
@@ -1733,168 +1733,170 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
                 </div>
 
-<!-- DOMÍNIO 4 – EQUILÍBRIO -->
 
-              <div class="block">
+                <!-- DOMÍNIO 4 – EQUILÍBRIO -->
 
-                <div class="block-title">
+                <div class="block">
 
-                  <h4>
-                    ⚖️ Controle Postural (máx. 15 pts)
-                  </h4>
+                  <div class="block-title">
 
-                  <span class="pill">
-                    Estabilidade, controle neuromuscular e risco de queda
-                  </span>
+                    <h4>
+                      ⚖️ Controle Postural (máx. 15 pts)
+                    </h4>
+
+                    <span class="pill">
+                      Estabilidade, controle neuromuscular e risco de queda
+                    </span>
+
+                  </div>
+
+
+                  <details>
+
+                    <summary>
+                      Descrição e referência etária
+                    </summary>
+
+                    <p class="small" style="margin-top:8px;">
+                      Mede capacidade de manter equilíbrio em semi-tandem,
+                      tandem e apoio unipodal, com tempos comparados por idade.
+                    </p>
+
+                  </details>
+
+
+                  <div class="form-grid-3">
+
+                    <div class="field">
+
+                      <label>
+                        Semi-tandem – tempo (s)
+                      </label>
+
+                      <input
+                        id="semiTime"
+                        type="number"
+                        min="0"
+                        step="1"
+                        placeholder="Segundos" />
+
+                    </div>
+
+
+                    <div class="field">
+
+                      <label>
+                        Tandem – tempo (s)
+                      </label>
+
+                      <input
+                        id="tandemTime"
+                        type="number"
+                        min="0"
+                        step="1"
+                        placeholder="Segundos" />
+
+                    </div>
+
+
+                    <div class="field">
+
+                      <label>
+                        Unipodal – tempo (s)
+                      </label>
+
+                      <input
+                        id="uniTime"
+                        type="number"
+                        min="0"
+                        step="1"
+                        placeholder="Segundos" />
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-grid-3" style="margin-top:var(--space-4);">
+
+                    <div class="field">
+
+                      <label>
+                        Pontuação semi-tandem (0–5)
+                      </label>
+
+                      <input
+                        id="semiScore"
+                        type="number"
+                        min="0"
+                        max="5"
+                        step="1"
+                        data-block="balance"
+                        readonly
+                        placeholder="Automático por idade" />
+
+                    </div>
+
+
+                    <div class="field">
+
+                      <label>
+                        Pontuação tandem (0–5)
+                      </label>
+
+                      <input
+                        id="tandemScore"
+                        type="number"
+                        min="0"
+                        max="5"
+                        step="1"
+                        data-block="balance"
+                        readonly
+                        placeholder="Automático por idade" />
+
+                    </div>
+
+
+                    <div class="field">
+
+                      <label>
+                        Pontuação unipodal (0–5)
+                      </label>
+
+                      <input
+                        id="uniScore"
+                        type="number"
+                        min="0"
+                        max="5"
+                        step="1"
+                        data-block="balance"
+                        readonly
+                        placeholder="Automático por idade" />
+
+                    </div>
+
+                  </div>
+
+
+                  <details>
+
+                    <summary>
+                      Instruções – Semi-tandem, Tandem e Unipodal
+                    </summary>
+
+                    <p class="small" style="margin-top:8px;">
+                      • Semi-tandem: um pé parcialmente à frente do outro.<br>
+                      • Tandem: pés em linha.<br>
+                      • Unipodal: em pé sobre um pé, outro elevado.<br>
+                      • Cronometrar até apoiar ou perder claramente a posição.
+                    </p>
+
+                  </details>
 
                 </div>
-
-
-                <details>
-
-                  <summary>
-                    Descrição e referência etária
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Mede capacidade de manter equilíbrio em semi-tandem,
-                    tandem e apoio unipodal, com tempos comparados por idade.
-                  </p>
-
-                </details>
-
-
-                <div class="form-grid-3">
-
-                  <div class="field">
-
-                    <label>
-                      Semi-tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="semiTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Tandem – tempo (s)
-                    </label>
-
-                    <input
-                      id="tandemTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Unipodal – tempo (s)
-                    </label>
-
-                    <input
-                      id="uniTime"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Segundos" />
-
-                  </div>
-
-                </div>
-
-
-                <div class="form-grid-3" style="margin-top:var(--space-4);">
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação semi-tandem (0–5)
-                    </label>
-
-                    <input
-                      id="semiScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação tandem (0–5)
-                    </label>
-
-                    <input
-                      id="tandemScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação unipodal (0–5)
-                    </label>
-
-                    <input
-                      id="uniScore"
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="1"
-                      data-block="balance"
-                      readonly
-                      placeholder="Automático por idade" />
-
-                  </div>
-
-                </div>
-
-
-                <details>
-
-                  <summary>
-                    Instruções – Semi-tandem, Tandem e Unipodal
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    • Semi-tandem: um pé parcialmente à frente do outro.<br>
-                    • Tandem: pés em linha.<br>
-                    • Unipodal: em pé sobre um pé, outro elevado.<br>
-                    • Cronometrar até apoiar ou perder claramente a posição.
-                  </p>
-
-                </details>
 
               </div>
 
-              </div>
 
               <!-- DOMÍNIO 3 – FORÇA -->
 
@@ -1923,8 +1925,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                     • A força de preensão manual deve ser medida obrigatoriamente nas duas mãos usando <strong>dinamômetro de preensão manual</strong>.<br>
                     • O sistema utiliza a idade e o sexo informados no cadastro para selecionar automaticamente a faixa de referência.<br>
                     • Cada mão é classificada individualmente como <strong>Ruim (baixo)</strong>, <strong>Bom (médio)</strong> ou <strong>Ótimo (alto)</strong>.<br>
-                    • A pontuação da preensão corresponde à média das pontuações das duas mãos e vale até 10 pontos.<br>
-                    • O Chair Stand 30 s completa o domínio de força, valendo até 10 pontos.
+                    • A pontuação da preensão corresponde à média das pontuações das duas mãos e vale até 10 pontos.
                   </p>
 
                 </details>
@@ -2236,63 +2237,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
                 </details>
 
-
-                <div class="form-grid" style="margin-top:var(--space-4);">
-
-                  <div class="field">
-
-                    <label>
-                      Chair Stand 30 s – repetições
-                    </label>
-
-                    <input
-                      id="csReps"
-                      type="number"
-                      min="0"
-                      step="1"
-                      placeholder="Nº de repetições em 30 s" />
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Pontuação automática Chair Stand (0–10)
-                    </label>
-
-                    <input
-                      id="csScore"
-                      type="number"
-                      min="0"
-                      max="10"
-                      step="1"
-                      data-block="strength"
-                      readonly
-                      placeholder="Calculado pelo sistema" />
-
-                  </div>
-
-                </div>
-
-
-                <details>
-
-                  <summary>
-                    Instruções – Chair Stand 30 s
-                  </summary>
-
-                  <p class="small" style="margin-top:8px;">
-                    Sentado em cadeira padrão, braços cruzados sobre o peito ou ombros.
-                    Ao comando “já”, levantar e sentar o maior número de vezes possível
-                    em 30 segundos, mantendo segurança.
-                  </p>
-
-                </details>
-
               </div>
 
-<div class="field">
+
+              <div class="field">
 
                 <label>
                   Observações da avaliação
@@ -2516,7 +2464,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
             <div class="report-box">
 
               <h4>
-                Five Times Sit to Stand e Chair Stand
+                Five Times Sit to Stand
               </h4>
 
               <div class="table-wrap" style="margin-top:12px;">
@@ -2800,12 +2748,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
       gripReference:
         document.getElementById('gripReference'),
-
-      csReps:
-        document.getElementById('csReps'),
-
-      csScore:
-        document.getElementById('csScore'),
 
       semiTime:
         document.getElementById('semiTime'),
@@ -3575,43 +3517,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
 
       /*
-        CHAIR STAND
-      */
-
-      const csReps =
-        Number(
-          els.csReps.value
-        ) || 0;
-
-
-      let csAuto = 0;
-
-
-      if (age) {
-
-        if (csReps >= 15)
-          csAuto = 10;
-
-        else if (csReps >= 12)
-          csAuto = 8;
-
-        else if (csReps >= 9)
-          csAuto = 6;
-
-        else if (csReps >= 6)
-          csAuto = 4;
-
-        else if (csReps > 0)
-          csAuto = 2;
-
-      }
-
-
-      els.csScore.value =
-        csAuto || '';
-
-
-      /*
         EQUILÍBRIO
       */
 
@@ -4349,9 +4254,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
             '';
 
           els.gripReference.value =
-            '';
-
-          els.csScore.value =
             '';
 
           els.semiScore.value =
