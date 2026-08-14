@@ -14,7 +14,7 @@
     :root,
     [data-theme="light"] {
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);A
       --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
       --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
@@ -552,6 +552,35 @@
     .tagline {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
+    }
+
+    .clock-reference {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      min-height: 180px;
+    }
+
+    .clock-reference svg {
+      width: 170px;
+      height: 170px;
+    }
+
+    .clock-reference text {
+      fill: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .score-help {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 4px;
     }
 
     @media (max-width: 1100px) {
@@ -1129,7 +1158,7 @@ EXERCÍCIO SEMANAL= 3 pontos= 3x por semana; 2 pontos= 2x por semana; 1 ponto= 1
                       Fluência verbal – animais em 60 s
                     </label>
 
-                    <select data-block="cognition">
+                    <select id="verbalFluencyScore" data-block="cognition">
 
                       <option value="">
                         Pontuação
@@ -1156,6 +1185,10 @@ EXERCÍCIO SEMANAL= 3 pontos= 3x por semana; 2 pontos= 2x por semana; 1 ponto= 1
                       </option>
 
                     </select>
+
+                    <p class="score-help" id="verbalFluencyCount">
+                      Animais únicos contados: 0
+                    </p>
 
                   </div>
 
@@ -1184,6 +1217,19 @@ Contar o número de animais diferentes ditos em 60 segundos. Não contar repeti�
                       placeholder="Pausas, repetições, dificuldade de iniciar..." />
 
                   </div>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Animais ditos pelo paciente
+                  </label>
+
+                  <textarea
+                    id="verbalFluencyWords"
+                    placeholder="Digite os animais informados pelo paciente, separados por vírgula, ponto e vírgula ou quebra de linha."></textarea>
 
                 </div>
 
@@ -1254,6 +1300,19 @@ Casa · Chave · Flor · Janela · Jardim
                 </div>
 
 
+                <div class="field">
+
+                  <label>
+                    Resposta do paciente – memória imediata
+                  </label>
+
+                  <textarea
+                    id="memoryImmediateResponse"
+                    placeholder="Escreva exatamente as palavras ditas pelo paciente."></textarea>
+
+                </div>
+
+
                 <div class="score-row">
 
                   <div class="field">
@@ -1298,9 +1357,26 @@ Casa · Chave · Flor · Janela · Jardim
                       Referência
                     </label>
 
-                    <textarea class="readonly" disabled>
-Círculo reconhecível, números de 1 a 12 bem distribuídos e ponteiros indicando 11h10.
-                    </textarea>
+                    <div class="clock-reference" aria-label="Relógio de referência marcando 11h10">
+                      <svg viewBox="0 0 200 200" role="img" aria-label="Relógio com números de 1 a 12 e hora 11h10">
+                        <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="4" />
+                        <circle cx="100" cy="100" r="4" fill="currentColor" />
+                        <line x1="100" y1="100" x2="62" y2="79" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                        <line x1="100" y1="100" x2="134" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                        <text x="100" y="30" text-anchor="middle">12</text>
+                        <text x="135" y="39" text-anchor="middle">1</text>
+                        <text x="161" y="65" text-anchor="middle">2</text>
+                        <text x="170" y="104" text-anchor="middle">3</text>
+                        <text x="161" y="143" text-anchor="middle">4</text>
+                        <text x="135" y="169" text-anchor="middle">5</text>
+                        <text x="100" y="178" text-anchor="middle">6</text>
+                        <text x="65" y="169" text-anchor="middle">7</text>
+                        <text x="39" y="143" text-anchor="middle">8</text>
+                        <text x="30" y="104" text-anchor="middle">9</text>
+                        <text x="39" y="65" text-anchor="middle">10</text>
+                        <text x="65" y="39" text-anchor="middle">11</text>
+                      </svg>
+                    </div>
 
                   </div>
 
@@ -1386,6 +1462,19 @@ Perguntar novamente pelas 5 palavras depois de ~5 minutos, sem aviso prévio. Us
                 </div>
 
 
+                <div class="field">
+
+                  <label>
+                    Resposta do paciente – memória tardia
+                  </label>
+
+                  <textarea
+                    id="memoryDelayedResponse"
+                    placeholder="Escreva exatamente as palavras lembradas pelo paciente."></textarea>
+
+                </div>
+
+
                 <div class="score-row">
 
                   <div class="field">
@@ -1448,6 +1537,19 @@ Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não 
                       placeholder="Erros, travamentos, não conhece meses..." />
 
                   </div>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label>
+                    Resposta do paciente – meses do ano ao contrário
+                  </label>
+
+                  <textarea
+                    id="monthsBackwardResponse"
+                    placeholder="Escreva a sequência falada pelo paciente."></textarea>
 
                 </div>
 
@@ -2772,7 +2874,16 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         document.getElementById('tandemScore'),
 
       uniScore:
-        document.getElementById('uniScore')
+        document.getElementById('uniScore'),
+
+      verbalFluencyScore:
+        document.getElementById('verbalFluencyScore'),
+
+      verbalFluencyWords:
+        document.getElementById('verbalFluencyWords'),
+
+      verbalFluencyCount:
+        document.getElementById('verbalFluencyCount')
 
     };
 
@@ -3389,6 +3500,43 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         date.split('-');
 
       return `${d}/${m}/${y}`;
+
+    }
+
+
+    function parseUniqueAnimals(value) {
+
+      return [...new Set(
+        value
+          .split(/[\n,;]+/)
+          .map(item => item.trim().toLowerCase())
+          .filter(Boolean)
+      )];
+
+    }
+
+
+    function getVerbalFluencyScore(count) {
+
+      if (count >= 20) return '5';
+      if (count >= 16) return '4';
+      if (count >= 13) return '3';
+      if (count >= 10) return '2';
+      if (count >= 0) return '1';
+      return '';
+
+    }
+
+
+    function updateVerbalFluency() {
+
+      if (!els.verbalFluencyWords || !els.verbalFluencyScore || !els.verbalFluencyCount) return;
+
+      const uniqueAnimals = parseUniqueAnimals(els.verbalFluencyWords.value || '');
+      const count = uniqueAnimals.length;
+
+      els.verbalFluencyCount.textContent = `Animais únicos contados: ${count}`;
+      els.verbalFluencyScore.value = getVerbalFluencyScore(count);
 
     }
 
@@ -4091,6 +4239,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
       () => {
 
         computeAutoStrengthAndBalance();
+        updateVerbalFluency();
 
       }
     );
@@ -4272,6 +4421,10 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
           els.uniScore.value =
             '';
 
+          if (els.verbalFluencyCount) {
+            els.verbalFluencyCount.textContent = 'Animais únicos contados: 0';
+          }
+
           renderScreen(
             'new-test'
           );
@@ -4331,6 +4484,7 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     */
 
     renderKPIs();
+    updateVerbalFluency();
 
     renderScreen(
       'dashboard'
