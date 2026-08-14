@@ -4507,7 +4507,46 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
     renderScreen(
       'dashboard'
     );
+/* CORREÇÃO — CONTROLE POSTURAL */
+function atualizarControlePostural() {
+  const nascimento = els.personBirthDate.value;
 
+  if (!nascimento) return;
+
+  const idade = getAge(nascimento);
+  const faixa = getAgeBand(idade);
+
+  const tempos = [
+    { campoTempo: els.semiTime, campoPontos: els.semiScore, tipo: 'semi' },
+    { campoTempo: els.tandemTime, campoPontos: els.tandemScore, tipo: 'tandem' },
+    { campoTempo: els.uniTime, campoPontos: els.uniScore, tipo: 'uni' }
+  ];
+
+  tempos.forEach(({ campoTempo, campoPontos, tipo }) => {
+    if (campoTempo.value === '') {
+      campoPontos.value = '';
+      return;
+    }
+
+    const segundos = Number(campoTempo.value);
+    const tabela = balanceCutoffs[tipo]?.[faixa];
+
+    if (!tabela) {
+      campoPontos.value = '';
+      return;
+    }
+
+    const resultado = tabela.find(item => segundos >= item.min);
+    campoPontos.value = resultado ? resultado.score : 0;
+  });
+}
+
+els.personBirthDate.addEventListener('input', atualizarControlePostural);
+els.personBirthDate.addEventListener('change', atualizarControlePostural);
+
+els.semiTime.addEventListener('input', atualizarControlePostural);
+els.tandemTime.addEventListener('input', atualizarControlePostural);
+els.uniTime.addEventListener('input', atualizarControlePostural);
   </script>
 
 </body>
