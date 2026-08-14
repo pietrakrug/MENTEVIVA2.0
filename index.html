@@ -3558,7 +3558,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
         getAge(
           els.personBirthDate.value
         );
-      console.log('Idade calculada:', age, 'Nascimento:', els.personBirthDate.value);
 
       const sex =
         els.personSex.value;
@@ -4508,62 +4507,7 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
       'dashboard'
     );
 
-    /* CÁLCULO DIRETO — CONTROLE POSTURAL */
-function atualizarControlePostural() {
-  const nascimento = els.personBirthDate.value;
 
-  if (!nascimento) {
-    els.semiScore.value = '';
-    els.tandemScore.value = '';
-    els.uniScore.value = '';
-    return;
-  }
-
-  const hoje = new Date();
-  const [ano, mes, dia] = nascimento.split('-').map(Number);
-
-  let idade = hoje.getFullYear() - ano;
-
-  const aniversarioEsteAno = new Date(
-    hoje.getFullYear(),
-    mes - 1,
-    dia
-  );
-
-  if (hoje < aniversarioEsteAno) {
-    idade--;
-  }
-
-  function pontuar(tempo) {
-    if (tempo >= 30) return 5;
-    if (tempo >= 20) return 4;
-    if (tempo >= 10) return 3;
-    if (tempo >= 5) return 2;
-    return 1;
-  }
-
-  els.semiScore.value =
-    els.semiTime.value === ''
-      ? ''
-      : pontuar(Number(els.semiTime.value));
-
-  els.tandemScore.value =
-    els.tandemTime.value === ''
-      ? ''
-      : pontuar(Number(els.tandemTime.value));
-
-  els.uniScore.value =
-    els.uniTime.value === ''
-      ? ''
-      : pontuar(Number(els.uniTime.value));
-}
-
-els.personBirthDate.addEventListener('input', atualizarControlePostural);
-els.personBirthDate.addEventListener('change', atualizarControlePostural);
-
-els.semiTime.addEventListener('input', atualizarControlePostural);
-els.tandemTime.addEventListener('input', atualizarControlePostural);
-els.uniTime.addEventListener('input', atualizarControlePostural);
 
   </script>
 
