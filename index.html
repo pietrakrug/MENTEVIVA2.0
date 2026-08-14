@@ -4507,38 +4507,55 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
     renderScreen(
       'dashboard'
     );
-/* CORREÇÃO — CONTROLE POSTURAL */
+
+    /* CÁLCULO DIRETO — CONTROLE POSTURAL */
 function atualizarControlePostural() {
   const nascimento = els.personBirthDate.value;
 
-  if (!nascimento) return;
+  if (!nascimento) {
+    els.semiScore.value = '';
+    els.tandemScore.value = '';
+    els.uniScore.value = '';
+    return;
+  }
 
-  const idade = getAge(nascimento);
-  const faixa = getAgeBand(idade);
+  const hoje = new Date();
+  const [ano, mes, dia] = nascimento.split('-').map(Number);
 
-  const tempos = [
-    { campoTempo: els.semiTime, campoPontos: els.semiScore, tipo: 'semi' },
-    { campoTempo: els.tandemTime, campoPontos: els.tandemScore, tipo: 'tandem' },
-    { campoTempo: els.uniTime, campoPontos: els.uniScore, tipo: 'uni' }
-  ];
+  let idade = hoje.getFullYear() - ano;
 
-  tempos.forEach(({ campoTempo, campoPontos, tipo }) => {
-    if (campoTempo.value === '') {
-      campoPontos.value = '';
-      return;
-    }
+  const aniversarioEsteAno = new Date(
+    hoje.getFullYear(),
+    mes - 1,
+    dia
+  );
 
-    const segundos = Number(campoTempo.value);
-    const tabela = balanceCutoffs[tipo]?.[faixa];
+  if (hoje < aniversarioEsteAno) {
+    idade--;
+  }
 
-    if (!tabela) {
-      campoPontos.value = '';
-      return;
-    }
+  function pontuar(tempo) {
+    if (tempo >= 30) return 5;
+    if (tempo >= 20) return 4;
+    if (tempo >= 10) return 3;
+    if (tempo >= 5) return 2;
+    return 1;
+  }
 
-    const resultado = tabela.find(item => segundos >= item.min);
-    campoPontos.value = resultado ? resultado.score : 0;
-  });
+  els.semiScore.value =
+    els.semiTime.value === ''
+      ? ''
+      : pontuar(Number(els.semiTime.value));
+
+  els.tandemScore.value =
+    els.tandemTime.value === ''
+      ? ''
+      : pontuar(Number(els.tandemTime.value));
+
+  els.uniScore.value =
+    els.uniTime.value === ''
+      ? ''
+      : pontuar(Number(els.uniTime.value));
 }
 
 els.personBirthDate.addEventListener('input', atualizarControlePostural);
@@ -4547,6 +4564,7 @@ els.personBirthDate.addEventListener('change', atualizarControlePostural);
 els.semiTime.addEventListener('input', atualizarControlePostural);
 els.tandemTime.addEventListener('input', atualizarControlePostural);
 els.uniTime.addEventListener('input', atualizarControlePostural);
+
   </script>
 
 </body>
