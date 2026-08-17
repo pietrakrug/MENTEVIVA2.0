@@ -3511,16 +3511,14 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     }
 
 
-    function parseUniqueAnimals(value) {
-
-      return [...new Set(
-        value
-          .split(/[\n,;]+/)
-          .map(item => item.trim().toLowerCase())
-          .filter(Boolean)
-      )];
-
-    }
+   function parseUniqueAnimals(value) {
+  return [...new Set(
+    value
+      .split(/[\n,;]+/)
+      .map(item => item.trim().toLowerCase())
+      .filter(Boolean)
+  )];
+}
 
 
     function getVerbalFluencyScore(count) {
