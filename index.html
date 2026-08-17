@@ -3196,149 +3196,140 @@ const ageBands = [
 
 
     /*
-      EQUILÍBRIO
-    */
+/*
+EQUILÍBRIO
+Semi-Tandem e Tandem: escala operacional M50, teto de 10 s (SPPB), válida para qualquer idade.
+Unipodal: referência operacional M50 ajustada por faixa etária, de 15 a 90+ anos.
+*/
 
-    const balanceCutoffs = {
+const balanceLabels = {
+  1: 'Muito ruim',
+  2: 'Ruim',
+  3: 'Regular',
+  4: 'Bom',
+  5: 'Muito bom'
+};
 
-      semi: {
+const unipodalCutoffs = {
+  '15_19': [
+    { min: 40, score: 5 },
+    { min: 25, score: 4 },
+    { min: 15, score: 3 },
+    { min: 5, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '20_29': [
+    { min: 40, score: 5 },
+    { min: 25, score: 4 },
+    { min: 15, score: 3 },
+    { min: 5, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '30_39': [
+    { min: 40, score: 5 },
+    { min: 25, score: 4 },
+    { min: 15, score: 3 },
+    { min: 5, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '40_49': [
+    { min: 35, score: 5 },
+    { min: 25, score: 4 },
+    { min: 15, score: 3 },
+    { min: 5, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '50_59': [
+    { min: 30, score: 5 },
+    { min: 20, score: 4 },
+    { min: 10, score: 3 },
+    { min: 5, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '60_69': [
+    { min: 25, score: 5 },
+    { min: 15, score: 4 },
+    { min: 7, score: 3 },
+    { min: 3, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '70_79': [
+    { min: 18, score: 5 },
+    { min: 10, score: 4 },
+    { min: 6, score: 3 },
+    { min: 3, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '80_89': [
+    { min: 10, score: 5 },
+    { min: 7, score: 4 },
+    { min: 4, score: 3 },
+    { min: 2, score: 2 },
+    { min: 0, score: 1 }
+  ],
+  '90_plus': [
+    { min: 10, score: 5 },
+    { min: 6, score: 4 },
+    { min: 4, score: 3 },
+    { min: 2, score: 2 },
+    { min: 0, score: 1 }
+  ]
+};
 
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
+function getBalanceAgeBand(age) {
+  if (age == null || age < 15) return null;
 
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
+  if (age <= 19) return '15_19';
+  if (age <= 29) return '20_29';
+  if (age <= 39) return '30_39';
+  if (age <= 49) return '40_49';
+  if (age <= 59) return '50_59';
+  if (age <= 69) return '60_69';
+  if (age <= 79) return '70_79';
+  if (age <= 89) return '80_89';
 
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
+  return '90_plus';
+}
 
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
+function scoreSemiTandem(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return 0;
+  if (seconds >= 10) return 5;
+  if (seconds >= 8) return 4;
+  if (seconds >= 6) return 3;
+  if (seconds >= 3) return 2;
+  return 1;
+}
 
-      },
+function scoreTandem(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return 0;
+  if (seconds >= 10) return 5;
+  if (seconds >= 7) return 4;
+  if (seconds >= 5) return 3;
+  if (seconds >= 3) return 2;
+  return 1;
+}
 
-      tandem: {
+function scoreUnipodal(age, seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return 0;
 
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
+  const band = getBalanceAgeBand(age);
 
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
+  if (!band || !unipodalCutoffs[band]) return 0;
 
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
+  const row = unipodalCutoffs[band].find(item => seconds >= item.min);
 
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
+  return row ? row.score : 0;
+}
 
-      },
+function scoreBalance(age, seconds, type) {
+  if (seconds == null) return 0;
 
-      uni: {
+  if (type === 'semi') return scoreSemiTandem(seconds);
+  if (type === 'tandem') return scoreTandem(seconds);
+  if (type === 'uni') return scoreUnipodal(age, seconds);
 
-        '50_59': [
-          { min: 30, score: 5 },
-          { min: 20, score: 4 },
-          { min: 10, score: 3 },
-          { min: 5, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '60_69': [
-          { min: 25, score: 5 },
-          { min: 15, score: 4 },
-          { min: 8, score: 3 },
-          { min: 4, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '70_79': [
-          { min: 20, score: 5 },
-          { min: 12, score: 4 },
-          { min: 6, score: 3 },
-          { min: 3, score: 2 },
-          { min: 0, score: 1 }
-        ],
-
-        '80_plus': [
-          { min: 15, score: 5 },
-          { min: 8, score: 4 },
-          { min: 4, score: 3 },
-          { min: 2, score: 2 },
-          { min: 0, score: 1 }
-        ]
-
-      }
-
-    };
-
-
-    function scoreBalance(age, seconds, type) {
-
-      if (
-        !age ||
-        seconds == null
-      ) {
-        return 0;
-      }
-
-      const band =
-        getAgeBand(age);
-
-      const table =
-        balanceCutoffs[type]?.[band];
-
-      if (!table) return 0;
-
-      const row =
-        table.find(
-          r => seconds >= r.min
-        );
-
-      return row
-        ? row.score
-        : 0;
-
-    }
+  return 0;
+}
 
 
     /*
