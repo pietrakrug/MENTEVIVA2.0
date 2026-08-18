@@ -1405,36 +1405,72 @@ Casa · Chave · Flor · Janela · Jardim
 
                   <div class="field">
 
-                    <label>
-                      Memória tardia – após ~5 min
-                    </label>
+                   <label>
+  Memória tardia – após ~5 min
+</label>
 
-                    <select data-block="cognition">
+<input
+  id="memoryDelayedScore"
+  type="number"
+  value="0"
+  readonly
+/>
 
-                      <option value="">
-                      </option>
+<p class="score-help" id="memoryDelayedCount">
+  Palavras corretas e únicas: 0 de 5
+</p>
 
-                      <option value="5">
-                        5 pts – lembra 5 espontâneo
-                      </option>
+<div class="memory-immediate-list">
+  <select class="memory-delayed-word">
+    <option value="">1ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
 
-                      <option value="4">
-                        4 pts – lembra 4 espontâneo
-                      </option>
+  <select class="memory-delayed-word">
+    <option value="">2ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
 
-                      <option value="3">
-                        3 pts – lembra 3 espontâneo
-                      </option>
+  <select class="memory-delayed-word">
+    <option value="">3ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
 
-                      <option value="1">
-                        1 pt – lembra 1–2
-                      </option>
+  <select class="memory-delayed-word">
+    <option value="">4ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
 
-                      <option value="0">
-                        0 pt – nenhuma
-                      </option>
-
-                    </select>
+  <select class="memory-delayed-word">
+    <option value="">5ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+</div>
 
                   </div>
 
@@ -4596,6 +4632,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   atualizarMemoriaImediata();
 });
+  const camposMemoriaTardia = document.querySelectorAll('.memory-delayed-word');
+const contadorMemoriaTardia = document.getElementById('memoryDelayedCount');
+const pontuacaoMemoriaTardia = document.getElementById('memoryDelayedScore');
+
+function atualizarMemoriaTardia() {
+  const palavrasValidas = ['casa', 'chave', 'flor', 'janela', 'jardim'];
+
+  const selecionadas = Array.from(camposMemoriaTardia)
+    .map(function (campo) {
+      return campo.value;
+    })
+    .filter(function (palavra) {
+      return palavrasValidas.includes(palavra);
+    });
+
+  const total = new Set(selecionadas).size;
+
+  if (contadorMemoriaTardia) {
+    contadorMemoriaTardia.textContent =
+      'Palavras corretas e únicas: ' + total + ' de 5';
+  }
+
+  if (pontuacaoMemoriaTardia) {
+    pontuacaoMemoriaTardia.value = total;
+  }
+}
+
+camposMemoriaTardia.forEach(function (campo) {
+  campo.addEventListener('change', atualizarMemoriaTardia);
+});
+
+atualizarMemoriaTardia();
 </script>
 </body>
 </html>
