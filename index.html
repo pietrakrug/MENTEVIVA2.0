@@ -855,7 +855,7 @@
                 </div>
 
 
-                <div class="form-grid">
+<div class="memory-immediate-list">
 
                   <div class="field">
 
@@ -4584,14 +4584,7 @@ function atualizarMemoriaImediata() {
   document.getElementById('memoryImmediateCount').textContent =
     `Palavras corretas e únicas: ${totalCorretas} de 5`;
 
-  let pontos = 0;
-
-  if (totalCorretas === 5) pontos = 5;
-  else if (totalCorretas === 4) pontos = 4;
-  else if (totalCorretas === 3) pontos = 3;
-  else if (totalCorretas === 1 || totalCorretas === 2) pontos = 1;
-
-  document.getElementById('memoryImmediateScore').value = pontos;
+document.getElementById('memoryImmediateScore').value = totalCorretas;
 }
 
 document.querySelectorAll('.memory-immediate-word').forEach((campo) => {
