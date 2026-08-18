@@ -3326,6 +3326,15 @@ function clearCurrentTest() {
     els.verbalFluencyCount.textContent = 'Animais únicos contados: 0';
   }
 }
+    function hasTestInProgress() {
+  const fields = els.testForm.querySelectorAll('input, select, textarea');
+
+  return [...fields].some(field => {
+    if (field.id === 'testDate') return false;
+    if (field.readOnly || field.disabled) return false;
+    return field.value.trim() !== '';
+  });
+}
 function renderScreen(name) {
   const isLeavingTest =
     !els.screens['new-test'].classList.contains('hidden') &&
