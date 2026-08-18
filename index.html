@@ -1202,32 +1202,18 @@ Contar o número de animais diferentes ditos em 60 segundos. Não contar repeti�
                       Memória imediata – 5 palavras
                     </label>
 
-                    <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – lembra 5
-                      </option>
-
-                      <option value="4">
-                        4 pts – lembra 4
-                      </option>
-
-                      <option value="3">
-                        3 pts – lembra 3
-                      </option>
-
-                      <option value="1">
-                        1 pt – lembra 1–2
-                      </option>
-
-                      <option value="0">
-                        0 pt – nenhuma
-                      </option>
-
-                    </select>
+  <input
+  id="memoryImmediateScore"
+  type="number"
+  min="0"
+  max="5"
+  value="0"
+  data-block="cognition"
+  readonly
+/>
+<p class="score-help">
+  Pontuação calculada automaticamente.
+</p>
 
                   </div>
 
@@ -1263,12 +1249,64 @@ Casa · Chave · Flor · Janela · Jardim
                 <div class="field">
 
                   <label>
-                    Resposta do paciente – memória imediata
-                  </label>
+  Ordem das palavras ditas – memória imediata
+</label>
 
-                  <textarea
-                    id="memoryImmediateResponse"
-                    placeholder="Escreva exatamente as palavras ditas pelo paciente."></textarea>
+                 <div class="form-grid">
+  <select class="memory-immediate-word">
+    <option value="">1ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+
+  <select class="memory-immediate-word">
+    <option value="">2ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+
+  <select class="memory-immediate-word">
+    <option value="">3ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+
+  <select class="memory-immediate-word">
+    <option value="">4ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+
+  <select class="memory-immediate-word">
+    <option value="">5ª palavra dita</option>
+    <option value="casa">Casa</option>
+    <option value="chave">Chave</option>
+    <option value="flor">Flor</option>
+    <option value="janela">Janela</option>
+    <option value="jardim">Jardim</option>
+    <option value="nao-relacionado">Não relacionado</option>
+  </select>
+</div>
+
+<p class="score-help" id="memoryImmediateCount">
+  Palavras corretas e únicas: 0 de 5
+</p>
 
                 </div>
 
@@ -4526,7 +4564,39 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
       'dashboard'
     );
 
+function atualizarMemoriaImediata() {
+  const palavrasValidas = [
+    'casa',
+    'chave',
+    'flor',
+    'janela',
+    'jardim'
+  ];
 
+  const palavrasSelecionadas = [
+    ...document.querySelectorAll('.memory-immediate-word')
+  ]
+    .map((campo) => campo.value)
+    .filter((palavra) => palavrasValidas.includes(palavra));
+
+  const totalCorretas = new Set(palavrasSelecionadas).size;
+
+  document.getElementById('memoryImmediateCount').textContent =
+    `Palavras corretas e únicas: ${totalCorretas} de 5`;
+
+  let pontos = 0;
+
+  if (totalCorretas === 5) pontos = 5;
+  else if (totalCorretas === 4) pontos = 4;
+  else if (totalCorretas === 3) pontos = 3;
+  else if (totalCorretas === 1 || totalCorretas === 2) pontos = 1;
+
+  document.getElementById('memoryImmediateScore').value = pontos;
+}
+
+document.querySelectorAll('.memory-immediate-word').forEach((campo) => {
+  campo.addEventListener('change', atualizarMemoriaImediata);
+});
 
   </script>
 
