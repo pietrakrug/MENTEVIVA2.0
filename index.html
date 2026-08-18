@@ -1240,70 +1240,77 @@ Casa · Chave · Flor · Janela · Jardim
                 </div>
 
 
-                <div class="field">
+         <div class="field">
+  <label>Ordem das palavras ditas — memória imediata</label>
 
-                  <label>
-  Ordem das palavras ditas – memória imediata
-</label>
+  <div class="memory-immediate-list">
+    <select class="memory-immediate-word">
+      <option value="">1ª palavra dita</option>
+      <option value="casa">Casa</option>
+      <option value="chave">Chave</option>
+      <option value="flor">Flor</option>
+      <option value="janela">Janela</option>
+      <option value="jardim">Jardim</option>
+      <option value="nao-relacionado">Não relacionado</option>
+    </select>
 
-<div class="memory-immediate-list">
-  <select class="memory-immediate-word">
-    <option value="">1ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+    <select class="memory-immediate-word">
+      <option value="">2ª palavra dita</option>
+      <option value="casa">Casa</option>
+      <option value="chave">Chave</option>
+      <option value="flor">Flor</option>
+      <option value="janela">Janela</option>
+      <option value="jardim">Jardim</option>
+      <option value="nao-relacionado">Não relacionado</option>
+    </select>
 
-  <select class="memory-immediate-word">
-    <option value="">2ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+    <select class="memory-immediate-word">
+      <option value="">3ª palavra dita</option>
+      <option value="casa">Casa</option>
+      <option value="chave">Chave</option>
+      <option value="flor">Flor</option>
+      <option value="janela">Janela</option>
+      <option value="jardim">Jardim</option>
+      <option value="nao-relacionado">Não relacionado</option>
+    </select>
 
-  <select class="memory-immediate-word">
-    <option value="">3ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+    <select class="memory-immediate-word">
+      <option value="">4ª palavra dita</option>
+      <option value="casa">Casa</option>
+      <option value="chave">Chave</option>
+      <option value="flor">Flor</option>
+      <option value="janela">Janela</option>
+      <option value="jardim">Jardim</option>
+      <option value="nao-relacionado">Não relacionado</option>
+    </select>
 
-  <select class="memory-immediate-word">
-    <option value="">4ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
-
-  <select class="memory-immediate-word">
-    <option value="">5ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+    <select class="memory-immediate-word">
+      <option value="">5ª palavra dita</option>
+      <option value="casa">Casa</option>
+      <option value="chave">Chave</option>
+      <option value="flor">Flor</option>
+      <option value="janela">Janela</option>
+      <option value="jardim">Jardim</option>
+      <option value="nao-relacionado">Não relacionado</option>
+    </select>
+  </div>
 </div>
 
-<p class="score-help" id="memoryImmediateCount">
-  Palavras corretas e únicas: 0 de 5
-</p>
-
-                </div>
-
+<div class="field">
+  <label>Pontuação</label>
+  <input
+    id="memoryImmediateScore"
+    type="number"
+    min="0"
+    max="5"
+    value="0"
+    data-block="cognition"
+    readonly
+  />
+  <p class="score-help" id="memoryImmediateCount">
+    Palavras corretas e únicas: 0 de 5
+  </p>
+</div>
 
                 <div class="score-row">
 
