@@ -1401,211 +1401,126 @@ Casa · Chave · Flor · Janela · Jardim
                 </div>
 
 
-                <div class="score-row">
+      
+<!-- MEMÓRIA TARDIA -->
+<div class="block" style="margin-top: var(--space-4);">
+  <div class="block-title">
+    <h4>Memória tardia — após 5 min</h4>
+    <span class="pill">Máx. 5 pts</span>
+  </div>
 
-                  <div class="field">
+  <div class="field">
+    <label>Referência</label>
+    <textarea class="readonly" disabled>Casa · Chave · Flor · Janela · Jardim</textarea>
+  </div>
 
-                   <label>
-  Memória tardia – após ~5 min
-</label>
+  <div class="field">
+    <label>Palavras lembradas — selecionar na ordem dita</label>
 
-<input
-  id="memoryDelayedScore"
-  type="number"
-  min="0"
-  max="5"
-  value="0"
-  data-block="cognition"
-  readonly
-/>
+    <div class="memory-immediate-list memory-delayed-section">
+      <select class="memory-delayed-word">
+        <option value="">1ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
 
-<p class="score-help" id="memoryDelayedCount">
-  Palavras corretas e únicas: 0 de 5
-</p>
+      <select class="memory-delayed-word">
+        <option value="">2ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
 
-<p class="memory-order-title">
-  Ordem das palavras ditas — memória tardia
-</p>
+      <select class="memory-delayed-word">
+        <option value="">3ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
 
-<div class="memory-delayed-section">
-  <div class="memory-immediate-list">
-  <select class="memory-delayed-word">
-    <option value="">1ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+      <select class="memory-delayed-word">
+        <option value="">4ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
 
-  <select class="memory-delayed-word">
-    <option value="">2ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+      <select class="memory-delayed-word">
+        <option value="">5ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+    </div>
+  </div>
 
-  <select class="memory-delayed-word">
-    <option value="">3ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
-
-  <select class="memory-delayed-word">
-    <option value="">4ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
-
-  <select class="memory-delayed-word">
-    <option value="">5ª palavra dita</option>
-    <option value="casa">Casa</option>
-    <option value="chave">Chave</option>
-    <option value="flor">Flor</option>
-    <option value="janela">Janela</option>
-    <option value="jardim">Jardim</option>
-    <option value="nao-relacionado">Não relacionado</option>
-  </select>
+  <div class="field">
+    <label>Pontuação</label>
+    <input
+      id="memoryDelayedScore"
+      type="number"
+      min="0"
+      max="5"
+      value="0"
+      data-block="cognition"
+      readonly
+    />
+    <p class="score-help" id="memoryDelayedCount">
+      Palavras corretas e únicas: 0 de 5
+    </p>
+  </div>
 </div>
+
+<!-- ATENÇÃO: MESES AO CONTRÁRIO -->
+<div class="block" style="margin-top: var(--space-4);">
+  <div class="block-title">
+    <h4>Atenção — meses do ano ao contrário</h4>
+    <span class="pill">Máx. 5 pts</span>
+  </div>
+
+  <div class="score-row">
+    <div class="field">
+      <label>Pontuação</label>
+      <select data-block="cognition">
+        <option value="">Selecione</option>
+        <option value="5">5 pts — sem erros</option>
+        <option value="4">4 pts — 1 erro com autocorreção</option>
+        <option value="3">3 pts — 2 erros</option>
+        <option value="2">2 pts — 3 erros ou hesitação</option>
+        <option value="1">1 pt — incapaz</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Referência</label>
+      <textarea class="readonly" disabled>Recitar os meses de dezembro até janeiro.</textarea>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Resposta do paciente</label>
+    <textarea
+      id="monthsBackwardResponse"
+      placeholder="Escreva a sequência falada pelo paciente."
+    ></textarea>
+  </div>
 </div>
-
-
-
-
-                  <div class="field">
-
-                    <label>
-                      Referência
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Perguntar novamente pelas 5 palavras depois de ~5 minutos, sem aviso prévio. Usar pistas categoriais se necessário.
-                    </textarea>
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="memoria-tardia"
-                      placeholder="Precisou de pistas? Reconhece mas não evoca?" />
-
-                  </div>
-
-                </div>
-
-
-                <div class="field">
-
-                  <label>
-                    Resposta do paciente – memória tardia
-                  </label>
-
-                  <textarea
-                    id="memoryDelayedResponse"
-                    placeholder="Escreva exatamente as palavras lembradas pelo paciente."></textarea>
-
-                </div>
-
-
-                <div class="score-row">
-
-                  <div class="field">
-
-                    <label>
-                      Atenção – meses do ano ao contrário
-                    </label>
-
-                    <select data-block="cognition">
-
-                      <option value="">
-                      </option>
-
-                      <option value="5">
-                        5 pts – sem erros
-                      </option>
-
-                      <option value="4">
-                        4 pts – 1 erro com autocorreção
-                      </option>
-
-                      <option value="3">
-                        3 pts – 2 erros
-                      </option>
-
-                      <option value="2">
-                        2 pts – ≥ 3 erros/hesitação
-                      </option>
-
-                      <option value="1">
-                        1 pt – incapaz
-                      </option>
-
-                    </select>
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Referência
-                    </label>
-
-                    <textarea class="readonly" disabled>
-Recitar meses de dezembro até janeiro. Erros: pular mês, inverter ordem, não conhecer nomes.
-                    </textarea>
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      Obs.
-                    </label>
-
-                    <input
-                      data-note="atencao"
-                      placeholder="Erros, travamentos, não conhece meses..." />
-
-                  </div>
-
-                </div>
-
-
-                <div class="field">
-
-                  <label>
-                    Resposta do paciente – meses do ano ao contrário
-                  </label>
-
-                  <textarea
-                    id="monthsBackwardResponse"
-                    placeholder="Escreva a sequência falada pelo paciente."></textarea>
-
-                </div>
-
-              </div>
-
-            <div class="block" style="margin-top: var(--space-4);">
   <div class="block-title">
     <h4>Memória narrativa – história curta (máx. 10 pts)</h4>
     <span class="pill">2 pontos por resposta correta</span>
