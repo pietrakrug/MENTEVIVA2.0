@@ -3336,44 +3336,35 @@ function clearCurrentTest() {
   });
 }
 function renderScreen(name) {
+  const currentScreen = Object.keys(els.screens).find(key =>
+    !els.screens[key].classList.contains('hidden')
+  );
+
   const isLeavingTest =
-    !els.screens['new-test'].classList.contains('hidden') &&
+    currentScreen === 'new-test' &&
     name !== 'new-test' &&
     hasTestInProgress();
 
   if (isLeavingTest) {
-    const confirmed = window.confirm(
+    const leave = window.confirm(
       'Você possui uma avaliação em andamento. Se sair agora, todas as informações preenchidas serão perdidas. Deseja realmente sair?'
     );
 
-    if (!confirmed) return;
+    if (!leave) {
+      return;
+    }
 
     clearCurrentTest();
   }
 
   Object.entries(els.screens).forEach(([key, el]) => {
+    el.classList.toggle('hidden', key !== name);
+  });
 
-          el.classList.toggle(
-            'hidden',
-            key !== name
-          );
-
-        }
-      );
-
-
-      els.navButtons.forEach(
-        btn => {
-
-          btn.classList.toggle(
-            'active',
-            btn.dataset.screen === name
-          );
-
-        }
-      );
-
-    }
+  els.navButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.screen === name);
+  });
+}
 
 
     /*
