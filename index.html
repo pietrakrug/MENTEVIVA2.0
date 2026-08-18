@@ -4560,40 +4560,42 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
     renderKPIs();
     updateVerbalFluency();
 
-    renderScreen(
-      'dashboard'
-    );
+    renderScreen('dashboard');
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const campos = document.querySelectorAll('.memory-immediate-word');
+  const contador = document.getElementById('memoryImmediateCount');
+  const pontuacao = document.getElementById('memoryImmediateScore');
 
-function atualizarMemoriaImediata() {
-  const palavrasValidas = [
-    'casa',
-    'chave',
-    'flor',
-    'janela',
-    'jardim'
-  ];
+  function atualizarMemoriaImediata() {
+    const palavrasValidas = ['casa', 'chave', 'flor', 'janela', 'jardim'];
 
-  const palavrasSelecionadas = [
-    ...document.querySelectorAll('.memory-immediate-word')
-  ]
-    .map((campo) => campo.value)
-    .filter((palavra) => palavrasValidas.includes(palavra));
+    const selecionadas = Array.from(campos)
+      .map(function (campo) {
+        return campo.value;
+      })
+      .filter(function (palavra) {
+        return palavrasValidas.includes(palavra);
+      });
 
-  const totalCorretas = new Set(palavrasSelecionadas).size;
+    const total = new Set(selecionadas).size;
 
-  document.getElementById('memoryImmediateCount').textContent =
-    `Palavras corretas e únicas: ${totalCorretas} de 5`;
+    if (contador) {
+      contador.textContent = 'Palavras corretas e únicas: ' + total + ' de 5';
+    }
 
-document.getElementById('memoryImmediateScore').value = totalCorretas;
-}
+    if (pontuacao) {
+      pontuacao.value = total;
+    }
+  }
 
-document.querySelectorAll('.memory-immediate-word').forEach((campo) => {
-  campo.addEventListener('change', atualizarMemoriaImediata);
+  campos.forEach(function (campo) {
+    campo.addEventListener('change', atualizarMemoriaImediata);
+  });
+
+  atualizarMemoriaImediata();
 });
-    atualizarMemoriaImediata();
-
-  </script>
-
+</script>
 </body>
-
 </html>
