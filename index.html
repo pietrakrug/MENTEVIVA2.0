@@ -3300,13 +3300,49 @@ function scoreBalance(age, seconds, type) {
     /*
       NAVEGAÇÃO
     */
+function hasTestInProgress() {
+  const fields = els.testForm.querySelectorAll('input, select, textarea');
 
-    function renderScreen(name) {
+  return [...fields].some(field => {
+    if (field.id === 'testDate') return false;
+    if (field.readOnly || field.disabled) return false;
+    return field.value.trim() !== '';
+  });
+}
 
-      Object.entries(
-        els.screens
-      ).forEach(
-        ([key, el]) => {
+function clearCurrentTest() {
+  els.testForm.reset();
+  els.testDate.value = today;
+
+  els.gripRightClass.value = '';
+  els.gripLeftClass.value = '';
+  els.gripScore.value = '';
+  els.gripReference.value = '';
+  els.semiScore.value = '';
+  els.tandemScore.value = '';
+  els.uniScore.value = '';
+
+  if (els.verbalFluencyCount) {
+    els.verbalFluencyCount.textContent = 'Animais únicos contados: 0';
+  }
+}
+function renderScreen(name) {
+  const isLeavingTest =
+    !els.screens['new-test'].classList.contains('hidden') &&
+    name !== 'new-test' &&
+    hasTestInProgress();
+
+  if (isLeavingTest) {
+    const confirmed = window.confirm(
+      'Você possui uma avaliação em andamento. Se sair agora, todas as informações preenchidas serão perdidas. Deseja realmente sair?'
+    );
+
+    if (!confirmed) return;
+
+    clearCurrentTest();
+  }
+
+  Object.entries(els.screens).forEach(([key, el]) => {
 
           el.classList.toggle(
             'hidden',
