@@ -2470,12 +2470,6 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
                   Gerar relatório
                 </button>
 
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  id="previewReportBtn">
-                  Pré-visualizar relatório
-                </button>
 
               </div>
 
@@ -4671,70 +4665,6 @@ els.uniTime.addEventListener('change', computeAutoStrengthAndBalance);
 
       }
     );
-
-
-    /*
-      PRÉ-VISUALIZAÇÃO
-    */
-
-    document
-      .getElementById(
-        'previewReportBtn'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          if (
-            !els.personName.value.trim()
-          ) {
-
-            alert(
-              'Informe o nome da pessoa avaliada.'
-            );
-
-            return;
-
-          }
-
-
-          if (
-            els.gripRight.value === '' ||
-            els.gripLeft.value === ''
-          ) {
-
-            alert(
-              'É obrigatório medir e registrar a força das duas mãos no dinamômetro: direita e esquerda.'
-            );
-
-            return;
-
-          }
-
-
-          if (
-            els.personSex.value === 'O'
-          ) {
-
-            alert(
-              'Para calcular automaticamente a força de preensão conforme a tabela de referência, selecione Feminino ou Masculino.'
-            );
-
-            return;
-
-          }
-
-
-          const data =
-            collectTestData();
-
-
-          buildReport(
-            data
-          );
-
-        }
-      );
 
 
     /*
