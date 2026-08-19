@@ -191,15 +191,14 @@
 .content {
   overflow: hidden;
   padding: var(--space-6);
-  display: grid;
-  gap: var(--space-6);
+  display: block;
   background: radial-gradient(circle at top left, #eef3f1, transparent 55%), var(--color-bg);
 }
 
-    .content > section[id^="screen-"] {
+.content > section[id^="screen-"] {
   display: none;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .content > section[id^="screen-"]:not(.hidden) {
@@ -3336,8 +3335,9 @@ function renderScreen(name) {
   els.navButtons.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.screen === name);
   });
-}
 
+  document.querySelector('.content').scrollTop = 0;
+}
 
     /*
       KPIs
