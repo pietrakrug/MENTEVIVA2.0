@@ -4108,6 +4108,20 @@ function renderReportCharts(data) {
   makeChart('chartBalance', data.balance);
   makeChart('chartLifestyle', data.lifestyle);
 }
+    function getPriorityDomain(domains) {
+  if (!domains || !domains.length) {
+    return 'Sem dados suficientes';
+  }
+
+  const lowest = domains.reduce(
+    (current, item) =>
+      item[1] < current[1]
+        ? item
+        : current
+  );
+
+  return `${lowest[0]} — ${lowest[1]}%`;
+}
     function buildReport(test) {
 
       if (!test) return;
@@ -4167,18 +4181,6 @@ function renderReportCharts(data) {
           ) / 3
         ) || 0;
 
-
-      const {
-        cognitiveAge,
-        physicalAge,
-        reserveAge
-      } =
-        computeAgesEquivalent(
-          age,
-          cognitionPct,
-          physicalPct,
-          lifestylePct
-        );
 
 
       const domains = [
@@ -4268,43 +4270,58 @@ function renderReportCharts(data) {
 
 
           <div class="report-box">
+<div class="report-box">
+  <h4>Leitura funcional individual</h4>
 
-            <h4>
-              Idade cronológica x idades funcionais
-            </h4>
+  <p class="small muted" style="margin-top: 12px;">
+    Idade cronológica:
+    <strong>
+      ${age !== null ? `${age} anos` : 'Não informada'}
+    </strong>.
+    Os indicadores abaixo comparam a pontuação obtida
+    com o máximo previsto no protocolo M50.
+  </p>
 
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
+  <div class="report-grid" style="margin-top: 16px;">
+    <div class="report-box">
+      <span class="small muted">Índice global</span>
 
-              Idade cronológica:
-              ${age ? age + ' anos' : 'não informada'}
-              <br>
+      <strong
+        style="display:block; font-size:var(--text-xl); margin-top:6px;"
+      >
+        ${test.total}/100
+      </strong>
 
-              Idade cognitiva aproximada:
-              ${cognitiveAge ? cognitiveAge + ' anos' : '—'}
-              <br>
+      <p class="small muted" style="margin-top: 6px;">
+        ${test.total}% do índice M50
+        · ${test.classification}
+      </p>
+    </div>
 
-              Idade física aproximada:
-              ${physicalAge ? physicalAge + ' anos' : '—'}
-              <br>
+    <div class="report-box">
+      <span class="small muted">
+        Foco prioritário de acompanhamento
+      </span>
 
-              Idade de reserva de saúde:
-              ${reserveAge ? reserveAge + ' anos' : '—'}
+      <strong
+        style="display:block; font-size:var(--text-lg); margin-top:6px;"
+      >
+        ${getPriorityDomain(domains)}
+      </strong>
 
-              <br><br>
+      <p class="small muted" style="margin-top: 6px;">
+        Menor percentual relativo entre os domínios avaliados.
+      </p>
+    </div>
+  </div>
 
-              As idades funcionais são estimativas internas
-              do método M50, baseadas no desempenho relativo
-              em cada domínio. Servem para comunicação com
-              o aluno e planejamento de treino, e não substituem
-              avaliação médica ou neuropsicológica formal.
-
-            </p>
-
-          </div>
-
+  <p class="small muted" style="margin-top: 16px;">
+    Os percentuais representam o desempenho na escala interna M50
+    e servem para acompanhar evolução e orientar o plano de treino.
+    Eles não equivalem a idade biológica nem a diagnóstico clínico.
+  </p>
+</div>
+            
 <div class="report-box">
   <h4>Desempenho comparado ao ideal</h4>
 
