@@ -1846,21 +1846,26 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
     <textarea class="readonly" disabled>Usar sempre a mesma escada: 4 degraus de 15 a 18 cm, com corrimão disponível. A pessoa inicia parada diante do primeiro degrau e sobe o mais rápido possível com segurança, sem correr. Cronometrar do primeiro movimento até os dois pés alcançarem o quarto degrau. Fazer 3 tentativas e registrar o melhor tempo.</textarea>
   </div>
 
-  <div class="field">
-    <label>Tempo e observações</label>
+<div class="field">
+  <label>Melhor tempo em segundos</label>
 
-    <input
-      id="stairClimbTime"
-      type="number"
-      min="0"
-      step="0.1"
-      placeholder="Melhor tempo em segundos"
-    >
+  <input
+    id="stairClimbTime"
+    type="number"
+    min="0"
+    step="0.1"
+    placeholder="Ex.: 4,5"
+  >
+</div>
 
-    <input
-      placeholder="Corrimão, padrão, pausa, dor ou insegurança..."
-    >
-  </div>
+<div class="field">
+  <label>Observações</label>
+
+  <textarea
+    data-note="escadas"
+    placeholder="Corrimão, padrão de subida, pausa, dor, insegurança ou necessidade de apoio..."
+  ></textarea>
+</div>
 </div>
                 <details>
   <summary>Tabela de referência — subida de escadas (4 degraus)</summary>
