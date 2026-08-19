@@ -1826,6 +1826,43 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
 
                 </div>
 
+        <!-- 5. SUBIDA DE ESCADAS -->
+<div class="score-row">
+  <div class="field">
+    <label>5. Subida de escadas — 4 degraus</label>
+
+    <select id="stairClimbScore" data-block="mobility">
+      <option value="">Pontuação</option>
+      <option value="5">5 pts — excelente para a faixa etária</option>
+      <option value="4">4 pts — bom para a faixa etária</option>
+      <option value="3">3 pts — regular para a faixa etária</option>
+      <option value="2">2 pts — abaixo do esperado</option>
+      <option value="1">1 pt — muito abaixo ou não conclui com segurança</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Como medir</label>
+    <textarea class="readonly" disabled>Usar sempre a mesma escada: 4 degraus de 15 a 18 cm, com corrimão disponível. A pessoa inicia parada diante do primeiro degrau e sobe o mais rápido possível com segurança, sem correr. Cronometrar do primeiro movimento até os dois pés alcançarem o quarto degrau. Fazer 3 tentativas e registrar o melhor tempo.</textarea>
+  </div>
+
+  <div class="field">
+    <label>Tempo e observações</label>
+
+    <input
+      id="stairClimbTime"
+      type="number"
+      min="0"
+      step="0.1"
+      placeholder="Melhor tempo em segundos"
+    >
+
+    <input
+      placeholder="Corrimão, padrão, pausa, dor ou insegurança..."
+    >
+  </div>
+</div>
+
                 <!-- DOMÍNIO 4 – EQUILÍBRIO -->
 
                 <div class="block">
