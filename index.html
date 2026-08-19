@@ -1202,42 +1202,89 @@ Contar o número de animais diferentes ditos em 60 segundos. Não contar repeti�
 
                 </div>
 
-    <select class="memory-immediate-word">
-      <option value="">4ª palavra dita</option>
-      <option value="casa">Casa</option>
-      <option value="chave">Chave</option>
-      <option value="flor">Flor</option>
-      <option value="janela">Janela</option>
-      <option value="jardim">Jardim</option>
-      <option value="nao-relacionado">Não relacionado</option>
-    </select>
-
-    <select class="memory-immediate-word">
-      <option value="">5ª palavra dita</option>
-      <option value="casa">Casa</option>
-      <option value="chave">Chave</option>
-      <option value="flor">Flor</option>
-      <option value="janela">Janela</option>
-      <option value="jardim">Jardim</option>
-      <option value="nao-relacionado">Não relacionado</option>
-    </select>
+   <!-- MEMÓRIA IMEDIATA -->
+<div class="block" style="margin-top: var(--space-4)">
+  <div class="block-title">
+    <h4>Memória imediata</h4>
+    <span class="pill">Máx. 5 pts</span>
   </div>
-</div>
 
-<div class="field">
-  <label>Pontuação</label>
-  <input
-    id="memoryImmediateScore"
-    type="number"
-    min="0"
-    max="5"
-    value="0"
-    data-block="cognition"
-    readonly
-  />
-  <p class="score-help" id="memoryImmediateCount">
-    Palavras corretas e únicas: 0 de 5
-  </p>
+  <div class="field">
+    <label>Referência</label>
+    <textarea class="readonly" disabled>Casa · Chave · Flor · Janela · Jardim</textarea>
+  </div>
+
+  <div class="field">
+    <label>Palavras lembradas — selecionar na ordem dita</label>
+
+    <div class="memory-immediate-list">
+      <select class="memory-immediate-word">
+        <option value="">1ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+
+      <select class="memory-immediate-word">
+        <option value="">2ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+
+      <select class="memory-immediate-word">
+        <option value="">3ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+
+      <select class="memory-immediate-word">
+        <option value="">4ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+
+      <select class="memory-immediate-word">
+        <option value="">5ª palavra dita</option>
+        <option value="casa">Casa</option>
+        <option value="chave">Chave</option>
+        <option value="flor">Flor</option>
+        <option value="janela">Janela</option>
+        <option value="jardim">Jardim</option>
+        <option value="nao-relacionado">Não relacionado</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Pontuação</label>
+    <input
+      id="memoryImmediateScore"
+      type="number"
+      min="0"
+      max="5"
+      value="0"
+      data-block="cognition"
+      readonly
+    >
+    <p class="score-help" id="memoryImmediateCount">
+      Palavras corretas e únicas: 0 de 5
+    </p>
+  </div>
 </div>
 
                 <div class="score-row">
@@ -3746,7 +3793,7 @@ function renderScreen(name) {
         total,
 
         cognitionPct:
-          percent(cognition, 25),
+          percent(cognition, 35),
 
         mobilityPct:
           percent(mobility, 25),
@@ -3790,7 +3837,7 @@ function renderScreen(name) {
       const cognitionPct =
         percent(
           test.cognition,
-          25
+          35
         );
 
 
@@ -4048,7 +4095,7 @@ function renderScreen(name) {
                 style="margin-top:12px;"
               >
                 🧠 Cognitivo:
-                ${test.cognition}/25
+                ${test.cognition}/35
                 (${cognitionPct}%)
                 – ${classifyDomain(cognitionPct)}
               </p>
