@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
   <style>
     :root,
     [data-theme="light"] {
@@ -4009,7 +4011,103 @@ function renderScreen(name) {
     /*
       RELATÓRIO
     */
+let chartInstances = [];
 
+function renderReportCharts(data) {
+  chartInstances.forEach(chart => chart.destroy());
+  chartInstances = [];
+
+  const colors = {
+    achieved: '#015d6c',
+    remaining: '#e6e3dc'
+  };
+
+  function makeChart(canvasId, achievedPct) {
+    const canvas = document.getElementById(canvasId);
+
+    if (!canvas) return;
+
+    const pct = Math.max(
+      0,
+      Math.min(100, Math.round(achievedPct))
+    );
+
+    const chart = new Chart(canvas, {
+      type: 'doughnut',
+
+      data: {
+        labels: [
+          'Resultado alcançado',
+          'Distância até o ideal'
+        ],
+
+        datasets: [{
+          data: [
+            pct,
+            100 - pct
+          ],
+
+          backgroundColor: [
+            colors.achieved,
+            colors.remaining
+          ],
+
+          borderWidth: 0
+        }]
+      },
+
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        cutout: '70%',
+
+        plugins: {
+          legend: {
+            display: false
+          },
+
+          tooltip: {
+            callbacks: {
+              label: (ctx) =>
+                `${ctx.label}: ${ctx.parsed}%`
+            }
+          }
+        }
+      },
+
+      plugins: [{
+        id: 'centerText',
+
+        afterDraw(chart) {
+          const { ctx, chartArea } = chart;
+
+          const x =
+            (chartArea.left + chartArea.right) / 2;
+
+          const y =
+            (chartArea.top + chartArea.bottom) / 2;
+
+          ctx.save();
+          ctx.font = '700 18px Satoshi, sans-serif';
+          ctx.fillStyle = '#222017';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(`${pct}%`, x, y);
+          ctx.restore();
+        }
+      }]
+    });
+
+    chartInstances.push(chart);
+  }
+
+  makeChart('chartGlobal', data.global);
+  makeChart('chartCognition', data.cognition);
+  makeChart('chartMobility', data.mobility);
+  makeChart('chartStrength', data.strength);
+  makeChart('chartBalance', data.balance);
+  makeChart('chartLifestyle', data.lifestyle);
+}
     function buildReport(test) {
 
       if (!test) return;
@@ -4207,8 +4305,51 @@ function renderScreen(name) {
 
           </div>
 
+<div class="report-box">
+  <h4>Desempenho comparado ao ideal</h4>
 
+  <p class="small muted" style="margin-top: 6px;">
+    Resultado ideal: 100% em cada domínio.
+    Os gráficos mostram o percentual alcançado.
+  </p>
+
+  <div
+    class="report-grid"
+    style="grid-template-columns: repeat(3, 1fr); margin-top: 16px;"
+  >
+    <div class="report-box">
+      <h4>Índice geral</h4>
+      <canvas id="chartGlobal"></canvas>
+    </div>
+
+    <div class="report-box">
+      <h4>Cognição</h4>
+      <canvas id="chartCognition"></canvas>
+    </div>
+
+    <div class="report-box">
+      <h4>Mobilidade</h4>
+      <canvas id="chartMobility"></canvas>
+    </div>
+
+    <div class="report-box">
+      <h4>Força</h4>
+      <canvas id="chartStrength"></canvas>
+    </div>
+
+    <div class="report-box">
+      <h4>Controle postural</h4>
+      <canvas id="chartBalance"></canvas>
+    </div>
+
+    <div class="report-box">
+      <h4>Reserva de saúde</h4>
+      <canvas id="chartLifestyle"></canvas>
+    </div>
+  </div>
+</div>
           <div class="scores">
+
 
             ${domains.map(
               ([label, pct, cls]) => `
