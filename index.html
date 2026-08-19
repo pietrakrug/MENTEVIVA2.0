@@ -3854,7 +3854,7 @@ function renderScreen(name) {
           : '';
 
 
-      els.uniScore.value =
+           els.uniScore.value =
         uniTime != null &&
         uniTime !== 0
           ? scoreBalance(
@@ -3863,6 +3863,81 @@ function renderScreen(name) {
               'uni'
             )
           : '';
+
+      const stairTime =
+        els.stairClimbTime.value !== ''
+          ? Number(
+              String(els.stairClimbTime.value).replace(',', '.')
+            )
+          : null;
+
+      if (
+        stairTime === null ||
+        stairTime < 0 ||
+        age === null ||
+        age < 15
+      ) {
+        els.stairClimbScore.value = '';
+        els.stairClimbReference.textContent =
+          'Informe data de nascimento e tempo.';
+      } else {
+        let stairScore;
+
+        if (age <= 19) {
+          stairScore =
+            stairTime <= 2.0 ? 5 :
+            stairTime <= 2.4 ? 4 :
+            stairTime <= 2.9 ? 3 :
+            stairTime <= 3.5 ? 2 : 1;
+        } else if (age <= 29) {
+          stairScore =
+            stairTime <= 1.9 ? 5 :
+            stairTime <= 2.3 ? 4 :
+            stairTime <= 2.8 ? 3 :
+            stairTime <= 3.4 ? 2 : 1;
+        } else if (age <= 39) {
+          stairScore =
+            stairTime <= 2.0 ? 5 :
+            stairTime <= 2.5 ? 4 :
+            stairTime <= 3.0 ? 3 :
+            stairTime <= 3.7 ? 2 : 1;
+        } else if (age <= 49) {
+          stairScore =
+            stairTime <= 2.3 ? 5 :
+            stairTime <= 2.9 ? 4 :
+            stairTime <= 3.6 ? 3 :
+            stairTime <= 4.4 ? 2 : 1;
+        } else if (age <= 59) {
+          stairScore =
+            stairTime <= 2.7 ? 5 :
+            stairTime <= 3.4 ? 4 :
+            stairTime <= 4.2 ? 3 :
+            stairTime <= 5.2 ? 2 : 1;
+        } else if (age <= 69) {
+          stairScore =
+            stairTime <= 3.2 ? 5 :
+            stairTime <= 4.0 ? 4 :
+            stairTime <= 5.0 ? 3 :
+            stairTime <= 6.2 ? 2 : 1;
+        } else if (age <= 79) {
+          stairScore =
+            stairTime <= 3.8 ? 5 :
+            stairTime <= 4.8 ? 4 :
+            stairTime <= 6.0 ? 3 :
+            stairTime <= 7.5 ? 2 : 1;
+        } else {
+          stairScore =
+            stairTime <= 4.8 ? 5 :
+            stairTime <= 6.1 ? 4 :
+            stairTime <= 7.7 ? 3 :
+            stairTime <= 9.5 ? 2 : 1;
+        }
+
+        els.stairClimbScore.value = stairScore;
+
+        els.stairClimbReference.textContent =
+          `Idade: ${age} anos | Tempo: ${stairTime.toFixed(1)} s | Pontuação: ${stairScore} ponto${stairScore === 1 ? '' : 's'}.`;
+      }
 
     }
 
@@ -4711,77 +4786,7 @@ camposMemoriaTardia.forEach(function (campo) {
 });
 
 atualizarMemoriaTardia();
-  function atualizarPontuacaoEscadas() {
-  const nascimento = document.getElementById('personBirthDate');
-  const tempo = document.getElementById('stairClimbTime');
-  const pontos = document.getElementById('stairClimbScore');
-  const referencia = document.getElementById('stairClimbReference');
 
-  if (!nascimento || !tempo || !pontos || !referencia) return;
-
-  if (!nascimento.value || tempo.value === '') {
-    pontos.value = '';
-    referencia.textContent = 'Informe data de nascimento e tempo.';
-    return;
-  }
-
-  const hoje = new Date();
-  const dataNascimento = new Date(`${nascimento.value}T00:00:00`);
-  let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-  const mes = hoje.getMonth() - dataNascimento.getMonth();
-
-  if (
-    mes < 0 ||
-    (mes === 0 && hoje.getDate() < dataNascimento.getDate())
-  ) {
-    idade--;
-  }
-
-  const segundos = Number(String(tempo.value).replace(',', '.'));
-
-  if (!Number.isFinite(segundos) || segundos < 0 || idade < 15) {
-    pontos.value = '';
-    referencia.textContent =
-      'Informe uma data válida (15 anos ou mais) e um tempo válido.';
-    return;
-  }
-
-  let nota;
-
-  if (idade <= 19) {
-    nota = segundos <= 2.0 ? 5 : segundos <= 2.4 ? 4 : segundos <= 2.9 ? 3 : segundos <= 3.5 ? 2 : 1;
-  } else if (idade <= 29) {
-    nota = segundos <= 1.9 ? 5 : segundos <= 2.3 ? 4 : segundos <= 2.8 ? 3 : segundos <= 3.4 ? 2 : 1;
-  } else if (idade <= 39) {
-    nota = segundos <= 2.0 ? 5 : segundos <= 2.5 ? 4 : segundos <= 3.0 ? 3 : segundos <= 3.7 ? 2 : 1;
-  } else if (idade <= 49) {
-    nota = segundos <= 2.3 ? 5 : segundos <= 2.9 ? 4 : segundos <= 3.6 ? 3 : segundos <= 4.4 ? 2 : 1;
-  } else if (idade <= 59) {
-    nota = segundos <= 2.7 ? 5 : segundos <= 3.4 ? 4 : segundos <= 4.2 ? 3 : segundos <= 5.2 ? 2 : 1;
-  } else if (idade <= 69) {
-    nota = segundos <= 3.2 ? 5 : segundos <= 4.0 ? 4 : segundos <= 5.0 ? 3 : segundos <= 6.2 ? 2 : 1;
-  } else if (idade <= 79) {
-    nota = segundos <= 3.8 ? 5 : segundos <= 4.8 ? 4 : segundos <= 6.0 ? 3 : segundos <= 7.5 ? 2 : 1;
-  } else {
-    nota = segundos <= 4.8 ? 5 : segundos <= 6.1 ? 4 : segundos <= 7.7 ? 3 : segundos <= 9.5 ? 2 : 1;
-  }
-
-  pontos.value = nota;
-  referencia.textContent =
-    `Idade: ${idade} anos | Tempo: ${segundos.toFixed(1)} s | Pontuação: ${nota} ponto${nota === 1 ? '' : 's'}.`;
-}
-
-document.getElementById('personBirthDate')
-  ?.addEventListener('input', atualizarPontuacaoEscadas);
-
-document.getElementById('personBirthDate')
-  ?.addEventListener('change', atualizarPontuacaoEscadas);
-
-document.getElementById('stairClimbTime')
-  ?.addEventListener('input', atualizarPontuacaoEscadas);
-
-document.getElementById('stairClimbTime')
-  ?.addEventListener('change', atualizarPontuacaoEscadas);
 </script>
 </body>
 </html>
