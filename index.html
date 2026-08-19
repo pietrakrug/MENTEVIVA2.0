@@ -1831,14 +1831,20 @@ Caminhar 3 m até um cone, contornar e retornar. Observar fluidez, controle do t
   <div class="field">
     <label>5. Subida de escadas — 4 degraus</label>
 
-    <select id="stairClimbScore" data-block="mobility">
-      <option value="">Pontuação</option>
-      <option value="5">5 pts — excelente para a faixa etária</option>
-      <option value="4">4 pts — bom para a faixa etária</option>
-      <option value="3">3 pts — regular para a faixa etária</option>
-      <option value="2">2 pts — abaixo do esperado</option>
-      <option value="1">1 pt — muito abaixo ou não conclui com segurança</option>
-    </select>
+<input
+  id="stairClimbScore"
+  type="number"
+  min="0"
+  max="5"
+  step="1"
+  data-block="mobility"
+  readonly
+  placeholder="Calculada automaticamente"
+>
+
+<p class="score-help" id="stairClimbReference">
+  Informe data de nascimento e tempo.
+</p>
   </div>
 
   <div class="field">
