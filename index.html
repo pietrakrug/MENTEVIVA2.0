@@ -188,13 +188,23 @@
       backdrop-filter: blur(10px);
     }
 
-    .content {
-      overflow: auto;
-      padding: var(--space-6);
-      display: grid;
-      gap: var(--space-6);
-      background: radial-gradient(circle at top left, #eef3f1, transparent 55%), var(--color-bg);
-    }
+.content {
+  overflow: hidden;
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-6);
+  background: radial-gradient(circle at top left, #eef3f1, transparent 55%), var(--color-bg);
+}
+
+    .content > section[id^="screen-"] {
+  display: none;
+  height: 100%;
+  overflow: auto;
+}
+
+.content > section[id^="screen-"]:not(.hidden) {
+  display: block;
+}
 
     .brand {
       display: flex;
