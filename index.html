@@ -4086,414 +4086,317 @@ function renderReportCharts(data) {
 
   return `${lowest[0]} — ${lowest[1]}%`;
 }
-    function buildReport(test) {
+   function buildReport(test) {
+  if (!test) return;
 
-      if (!test) return;
+  state.currentTest = test;
 
+  const age = getAge(test.birthDate);
 
-      state.currentTest =
-        test;
+  const cognitionPct = percent(test.cognition, 35);
+  const mobilityPct = percent(test.mobility, 25);
+  const strengthPct = percent(test.strength, 10);
+  const balancePct = percent(test.balance, 15);
+  const lifestylePct = percent(test.lifestyle, 15);
 
+  const domains = [
+    ["Cognição", cognitionPct, classifyDomain(cognitionPct)],
+    ["Mobilidade funcional", mobilityPct, classifyDomain(mobilityPct)],
+    ["Força e potência", strengthPct, classifyDomain(strengthPct)],
+    ["Controle postural", balancePct, classifyDomain(balancePct)],
+    ["Reserva de saúde", lifestylePct, classifyDomain(lifestylePct)]
+  ];
 
-      const age =
-        getAge(
-          test.birthDate
+  const priority = getPriorityDomain(domains);
+  const sortedDomains = [...domains].sort((a, b) => a[1] - b[1]);
+  const secondPriority = sortedDomains[1]?.[0] || "";
+
+  const globalClass = test.classification || classifyGlobal(test.total);
+
+  const classColor = (classification) => {
+    if (classification === "Excelente" || classification === "Adequado") {
+      return "var(--color-success)";
+    }
+
+    if (classification === "Atenção") {
+      return "var(--color-warning)";
+    }
+
+    return "var(--color-error)";
+  };
+
+  const priorityText = {
+    "Cognição":
+      "Priorizar atividades que estimulem atenção, memória, organização mental e participação em tarefas cognitivamente desafiadoras.",
+    "Mobilidade funcional":
+      "Priorizar transferências, caminhada, mudança de direção, subida de degraus e segurança nos deslocamentos.",
+    "Força e potência":
+      "Priorizar força de membros inferiores, exercícios unilaterais e progressão segura de potência funcional.",
+    "Controle postural":
+      "Priorizar equilíbrio estático e dinâmico, estabilidade unipodal, controle de tronco e prevenção de quedas.",
+    "Reserva de saúde":
+      "Priorizar sono, frequência de exercício, nutrição, convívio social e rotina de estímulo cognitivo."
+  };
+
+  const generalInterpretation = () => {
+    if (test.total >= 90) {
+      return "A pessoa apresenta perfil funcional muito favorável, com boa autonomia global e fatores protetores preservados. O foco é manter consistência, prevenir perdas e sustentar evolução.";
+    }
+
+    if (test.total >= 80) {
+      return "A autonomia global está bem preservada. Há uma base funcional positiva, com oportunidade de desenvolver os domínios que ficaram abaixo do melhor desempenho individual.";
+    }
+
+    if (test.total >= 70) {
+      return "A autonomia global está preservada, mas existem sinais funcionais que justificam acompanhamento direcionado. A prioridade é atuar preventivamente antes que pequenas limitações interfiram na independência.";
+    }
+
+    if (test.total >= 60) {
+      return "O resultado aponta necessidade de intervenção estruturada e acompanhamento próximo. O plano deve priorizar segurança, fortalecimento progressivo e ganho de confiança nas tarefas diárias.";
+    }
+
+    return "O resultado sugere vulnerabilidade funcional importante. Recomenda-se intervenção individualizada, reavaliação frequente e, quando necessário, articulação com profissionais de saúde.";
+  };
+
+  const scoreStatus = (pct) => {
+    if (pct >= 80) return "adequado";
+    if (pct >= 70) return "atenção";
+    return "prioridade";
+  };
+
+  els.reportContent.innerHTML = `
+    <div class="report">
+
+      <div class="report-box" style="
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--color-primary-highlight) 70%, var(--color-surface)),
+          var(--color-surface)
         );
-
-
-      const cognitionPct =
-        percent(
-          test.cognition,
-          35
-        );
-
-
-      const mobilityPct =
-        percent(
-          test.mobility,
-          25
-        );
-
-
-      const strengthPct =
-        percent(
-          test.strength,
-          10
-        );
-
-
-      const balancePct =
-        percent(
-          test.balance,
-          15
-        );
-
-
-      const lifestylePct =
-        percent(
-          test.lifestyle,
-          15
-        );
-
-
-      const physicalPct =
-        Math.round(
-          (
-            mobilityPct +
-            strengthPct +
-            balancePct
-          ) / 3
-        ) || 0;
-
-
-
-      const domains = [
-
-        [
-          '🧠 Domínio Cognitivo',
-          cognitionPct,
-          classifyDomain(cognitionPct)
-        ],
-
-        [
-          '🚶 Mobilidade Funcional',
-          mobilityPct,
-          classifyDomain(mobilityPct)
-        ],
-
-        [
-          '💪 Força e Potência Muscular',
-          strengthPct,
-          classifyDomain(strengthPct)
-        ],
-
-        [
-          '⚖️ Controle Postural',
-          balancePct,
-          classifyDomain(balancePct)
-        ],
-
-        [
-          '🌿 Reserva de Saúde',
-          lifestylePct,
-          classifyDomain(lifestylePct)
-        ]
-
-      ];
-
-
-      els.reportContent.innerHTML = `
-
-        <div class="report">
-
-          <div class="report-head">
-
-            <div>
-
-              <h2 style="font-size:var(--text-xl)">
-                ${test.name}
-              </h2>
-
-              <p class="muted">
-                Teste em ${formatDate(test.date)}
-                · Avaliador:
-                ${test.evaluator || 'Não informado'}
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <div class="pill">
-                Índice global:
-                ${test.total}/100
-              </div>
-
-              <p
-                class="small muted"
-                style="margin-top:8px;"
-              >
-                Classificação global:
-                ${test.classification}
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="notice small">
-
-            Importante: o M50 Mente Viva é um índice
-            de acompanhamento da funcionalidade e evolução.
-            Não constitui diagnóstico médico,
-            psicológico ou neuropsicológico.
-
-          </div>
-
-
-          <div class="report-box">
-<div class="report-box">
-  <h4>Leitura funcional individual</h4>
-
-  <p class="small muted" style="margin-top: 12px;">
-    Idade cronológica:
-    <strong>
-      ${age !== null ? `${age} anos` : 'Não informada'}
-    </strong>.
-    Os indicadores abaixo comparam a pontuação obtida
-    com o máximo previsto no protocolo M50.
-  </p>
-
-  <div class="report-grid" style="margin-top: 16px;">
-    <div class="report-box">
-      <span class="small muted">Índice global</span>
-
-      <strong
-        style="display:block; font-size:var(--text-xl); margin-top:6px;"
-      >
-        ${test.total}/100
-      </strong>
-
-      <p class="small muted" style="margin-top: 6px;">
-        ${test.total}% do índice M50
-        · ${test.classification}
-      </p>
-    </div>
-
-    <div class="report-box">
-      <span class="small muted">
-        Foco prioritário de acompanhamento
-      </span>
-
-      <strong
-        style="display:block; font-size:var(--text-lg); margin-top:6px;"
-      >
-        ${getPriorityDomain(domains)}
-      </strong>
-
-      <p class="small muted" style="margin-top: 6px;">
-        Menor percentual relativo entre os domínios avaliados.
-      </p>
-    </div>
-  </div>
-
-  <p class="small muted" style="margin-top: 16px;">
-    Os percentuais representam o desempenho na escala interna M50
-    e servem para acompanhar evolução e orientar o plano de treino.
-    Eles não equivalem a idade biológica nem a diagnóstico clínico.
-  </p>
-</div>
-            
-<div class="report-box">
-  <h4>Desempenho comparado ao ideal</h4>
-
-  <p class="small muted" style="margin-top: 6px;">
-    Resultado ideal: 100% em cada domínio.
-    Os gráficos mostram o percentual alcançado.
-  </p>
-
-  <div
-    class="report-grid"
-    style="grid-template-columns: repeat(3, 1fr); margin-top: 16px;"
-  >
-    <div class="report-box">
-      <h4>Índice geral</h4>
-      <canvas id="chartGlobal"></canvas>
-    </div>
-
-    <div class="report-box">
-      <h4>Cognição</h4>
-      <canvas id="chartCognition"></canvas>
-    </div>
-
-    <div class="report-box">
-      <h4>Mobilidade</h4>
-      <canvas id="chartMobility"></canvas>
-    </div>
-
-    <div class="report-box">
-      <h4>Força</h4>
-      <canvas id="chartStrength"></canvas>
-    </div>
-
-    <div class="report-box">
-      <h4>Controle postural</h4>
-      <canvas id="chartBalance"></canvas>
-    </div>
-
-    <div class="report-box">
-      <h4>Reserva de saúde</h4>
-      <canvas id="chartLifestyle"></canvas>
-    </div>
-  </div>
-</div>
-          <div class="scores">
-
-
-            ${domains.map(
-              ([label, pct, cls]) => `
-
-                <div class="score-box">
-
-                  <span class="small muted">
-                    ${label}
-                  </span>
-
-                  <strong>
-                    ${pct}%
-                  </strong>
-
-                  <div
-                    class="bar"
-                    style="margin-top:10px"
-                  >
-
-                    <span
-                      style="width:${pct}%"
-                    ></span>
-
-                  </div>
-
-                  <p
-                    class="small muted"
-                    style="margin-top:8px;"
-                  >
-                    ${cls}
-                  </p>
-
-                </div>
-
-              `
-            ).join('')}
-
-          </div>
-
-
-          <div class="report-grid">
-
-            <div class="report-box">
-
-              <h4>
-                Dados da avaliação
-              </h4>
-
-              <p
-                class="small muted"
-                style="margin-top:12px;"
-              >
-                Nascimento:
-                ${test.birthDate
-                  ? formatDate(test.birthDate)
-                  : 'Não informado'}
-              </p>
-
-              <p class="small muted">
-                Sexo:
-                ${test.sex || 'Não informado'}
-              </p>
-
-            </div>
-
-
-            <div class="report-box">
-
-              <h4>
-                Resumo numérico por domínio
-              </h4>
-
-              <p
-                class="small muted"
-                style="margin-top:12px;"
-              >
-                🧠 Cognitivo:
-                ${test.cognition}/35
-                (${cognitionPct}%)
-                – ${classifyDomain(cognitionPct)}
-              </p>
-
-              <p class="small muted">
-                🚶 Mobilidade:
-                ${test.mobility}/25
-                (${mobilityPct}%)
-                – ${classifyDomain(mobilityPct)}
-              </p>
-
-              <p class="small muted">
-                💪 Força:
-                ${test.strength}/10
-                (${strengthPct}%)
-                – ${classifyDomain(strengthPct)}
-              </p>
-
-              <p class="small muted">
-                ⚖️ Postural:
-                ${test.balance}/15
-                (${balancePct}%)
-                – ${classifyDomain(balancePct)}
-              </p>
-
-              <p class="small muted">
-                🌿 Reserva:
-                ${test.lifestyle}/15
-                (${lifestylePct}%)
-                – ${classifyDomain(lifestylePct)}
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="report-box">
-
-            <h4>
-              Observações clínicas e funcionais
-            </h4>
-
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
-              ${test.notes || 'Sem observações registradas.'}
+        border: 1px solid var(--color-border);
+      ">
+        <div class="report-head">
+          <div>
+            <span class="pill">Relatório funcional individual</span>
+            <h2 style="font-size:var(--text-xl); margin-top:12px;">
+              ${test.name}
+            </h2>
+            <p class="muted" style="margin-top:6px;">
+              Avaliação realizada em ${formatDate(test.date)} ·
+              Avaliador(a): ${test.evaluator || "Não informado"}
             </p>
-
           </div>
 
-
-          <div class="report-box">
-
-            <h4>
-              Resultado final
-            </h4>
-
-            <p
-              class="small muted"
-              style="margin-top:12px;"
-            >
-              Índice M50 Mente Viva:
-              <strong>
-                ${test.total}/100
-              </strong>
-              <br>
-
-              Classificação:
-              <strong>
-                ${test.classification}
-              </strong>
-            </p>
-
+          <div style="text-align:right;">
+            <span class="small muted">Índice M50 global</span>
+            <strong style="
+              display:block;
+              font-size:clamp(2.2rem, 5vw, 3.5rem);
+              line-height:1;
+              margin-top:8px;
+              color:var(--color-primary);
+            ">
+              ${test.total}<span style="font-size:1.1rem;">/100</span>
+            </strong>
+            <span class="pill" style="
+              margin-top:10px;
+              background:${classColor(globalClass)};
+              color:white;
+            ">
+              ${globalClass}
+            </span>
           </div>
-
         </div>
 
-      `;
+        <div class="report-grid" style="margin-top:20px;">
+          <div>
+            <span class="small muted">Idade cronológica</span>
+            <strong style="display:block; font-size:var(--text-lg); margin-top:4px;">
+              ${age !== null ? `${age} anos` : "Não informada"}
+            </strong>
+          </div>
 
+          <div>
+            <span class="small muted">Foco prioritário</span>
+            <strong style="display:block; font-size:var(--text-lg); margin-top:4px;">
+              ${priority}
+            </strong>
+          </div>
+        </div>
+      </div>
 
-      renderScreen('report');
+      <div class="notice small">
+        <strong>Importante:</strong> o M50 Mente Viva é um protocolo de rastreio funcional e acompanhamento de evolução. Não constitui diagnóstico médico, psicológico ou neuropsicológico.
+      </div>
 
-    }
+      <div class="report-grid">
+        <div class="report-box">
+          <h4>Leitura funcional</h4>
+          <p class="small muted" style="margin-top:12px;">
+            ${generalInterpretation()}
+          </p>
+        </div>
+
+        <div class="report-box">
+          <h4>Direção do acompanhamento</h4>
+          <p class="small muted" style="margin-top:12px;">
+            O principal foco atual é <strong>${priority}</strong>.
+            ${secondPriority ? `O segundo domínio a acompanhar é <strong>${secondPriority}</strong>.` : ""}
+          </p>
+        </div>
+      </div>
+
+      <div class="report-box">
+        <div class="block-title">
+          <div>
+            <h4>Perfil funcional por domínio</h4>
+            <p class="small muted" style="margin-top:4px;">
+              Percentual atingido em relação ao máximo previsto pelo protocolo M50.
+            </p>
+          </div>
+          <span class="pill">Resultado atual</span>
+        </div>
+
+        <div class="scores" style="margin-top:16px;">
+          ${domains.map(([label, pct, classification]) => `
+            <div class="score-box">
+              <span class="small muted">${label}</span>
+              <strong>${pct}%</strong>
+
+              <div class="bar" style="margin-top:10px;">
+                <span style="
+                  width:${pct}%;
+                  background:${classColor(classification)};
+                "></span>
+              </div>
+
+              <p class="small muted" style="margin-top:8px;">
+                ${classification}
+              </p>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <div class="report-box">
+        <div class="block-title">
+          <div>
+            <h4>Visão gráfica do desempenho</h4>
+            <p class="small muted" style="margin-top:4px;">
+              Cada gráfico mostra o percentual alcançado no domínio avaliado.
+            </p>
+          </div>
+        </div>
+
+        <div class="report-grid" style="
+          grid-template-columns: repeat(3, 1fr);
+          margin-top:16px;
+        ">
+          <div class="report-box">
+            <h4>Índice global</h4>
+            <canvas id="chartGlobal"></canvas>
+          </div>
+
+          <div class="report-box">
+            <h4>Cognição</h4>
+            <canvas id="chartCognition"></canvas>
+          </div>
+
+          <div class="report-box">
+            <h4>Mobilidade</h4>
+            <canvas id="chartMobility"></canvas>
+          </div>
+
+          <div class="report-box">
+            <h4>Força</h4>
+            <canvas id="chartStrength"></canvas>
+          </div>
+
+          <div class="report-box">
+            <h4>Controle postural</h4>
+            <canvas id="chartBalance"></canvas>
+          </div>
+
+          <div class="report-box">
+            <h4>Reserva de saúde</h4>
+            <canvas id="chartLifestyle"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-box">
+          <h4>Resumo numérico</h4>
+
+          <div style="display:grid; gap:10px; margin-top:14px;">
+            ${domains.map(([label, pct, classification]) => `
+              <div style="
+                display:flex;
+                justify-content:space-between;
+                gap:16px;
+                padding-bottom:10px;
+                border-bottom:1px solid var(--color-divider);
+              ">
+                <span class="small muted">${label}</span>
+                <strong class="small">${pct}% · ${classification}</strong>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="report-box">
+          <h4>Plano de ação recomendado</h4>
+          <p class="small muted" style="margin-top:12px;">
+            ${priorityText[priority] || "Definir estratégia individual conforme os resultados obtidos."}
+          </p>
+
+          <div style="
+            margin-top:16px;
+            padding:12px;
+            background:var(--color-surface-offset);
+            border-radius:var(--radius-md);
+          ">
+            <span class="small muted">Sugestão de reavaliação</span>
+            <strong style="display:block; margin-top:4px;">
+              Entre 8 e 12 semanas
+            </strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-box">
+          <h4>Dados da avaliação</h4>
+          <p class="small muted" style="margin-top:12px;">
+            <strong>Data de nascimento:</strong> ${test.birthDate ? formatDate(test.birthDate) : "Não informada"}<br>
+            <strong>Sexo:</strong> ${test.sex || "Não informado"}<br>
+            <strong>Data do teste:</strong> ${test.date ? formatDate(test.date) : "Não informada"}<br>
+            <strong>Avaliador(a):</strong> ${test.evaluator || "Não informado"}
+          </p>
+        </div>
+
+        <div class="report-box">
+          <h4>Observações clínicas e funcionais</h4>
+          <p class="small muted" style="margin-top:12px;">
+            ${test.notes || "Nenhuma observação adicional foi registrada nesta avaliação."}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  renderReportCharts({
+    global: test.total,
+    cognition: cognitionPct,
+    mobility: mobilityPct,
+    strength: strengthPct,
+    balance: balancePct,
+    lifestyle: lifestylePct
+  });
+
+  renderScreen("report");
+}
 
 
     /*
