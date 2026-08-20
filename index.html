@@ -3472,37 +3472,29 @@ function renderScreen(name) {
       KPIs
     */
 
-    function renderKPIs() {
+function renderKPIs() {
+  const totalTests = state.tests.length;
 
-      const totalTests =
-        state.tests.length;
+  const avg = totalTests
+    ? Math.round(
+        state.tests.reduce((total, test) => total + test.total, 0) / totalTests
+      )
+    : 0;
 
-      const avg =
-        totalTests
-          ? Math.round(
-              state.tests.reduce(
-                (a, t) =>
-                  a + t.total,
-                0
-              ) / totalTests
-            )
-          : 0;
+  const risk = state.tests.filter(test => test.total < 70).length;
 
-      const risk =
-        state.tests.filter(
-          t => t.total < 70
-        ).length;
+  if (els.kpiTests) {
+    els.kpiTests.textContent = totalTests;
+  }
 
-      els.kpiTests.textContent =
-        totalTests;
+  if (els.kpiAverage) {
+    els.kpiAverage.textContent = avg;
+  }
 
-      els.kpiAverage.textContent =
-        avg;
-
-      els.kpiRisk.textContent =
-        risk;
-
-    }
+  if (els.kpiRisk) {
+    els.kpiRisk.textContent = risk;
+  }
+}
 
 
     /*
