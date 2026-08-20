@@ -3305,70 +3305,42 @@ const balanceLabels = {
   5: 'Muito bom'
 };
 
-const unipodalCutoffs = {
-  '15_19': [
-    { min: 40, score: 5 },
-    { min: 25, score: 4 },
-    { min: 15, score: 3 },
-    { min: 5, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '20_29': [
-    { min: 40, score: 5 },
-    { min: 25, score: 4 },
-    { min: 15, score: 3 },
-    { min: 5, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '30_39': [
-    { min: 40, score: 5 },
-    { min: 25, score: 4 },
-    { min: 15, score: 3 },
-    { min: 5, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '40_49': [
-    { min: 35, score: 5 },
-    { min: 25, score: 4 },
-    { min: 15, score: 3 },
-    { min: 5, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '50_59': [
-    { min: 30, score: 5 },
-    { min: 20, score: 4 },
-    { min: 10, score: 3 },
-    { min: 5, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '60_69': [
-    { min: 25, score: 5 },
-    { min: 15, score: 4 },
-    { min: 7, score: 3 },
-    { min: 3, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '70_79': [
-    { min: 18, score: 5 },
-    { min: 10, score: 4 },
-    { min: 6, score: 3 },
-    { min: 3, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '80_89': [
-    { min: 10, score: 5 },
-    { min: 7, score: 4 },
-    { min: 4, score: 3 },
-    { min: 2, score: 2 },
-    { min: 0, score: 1 }
-  ],
-  '90_plus': [
-    { min: 10, score: 5 },
-    { min: 6, score: 4 },
-    { min: 4, score: 3 },
-    { min: 2, score: 2 },
-    { min: 0, score: 1 }
-  ]
+const equilibrio = {
+  unipodal: {
+    '15_19': { p1: 10, p2: 20, p3: 35, p4: 45 },
+    '20_29': { p1: 10, p2: 20, p3: 35, p4: 45 },
+    '30_39': { p1: 10, p2: 20, p3: 35, p4: 45 },
+    '40_49': { p1: 10, p2: 20, p3: 35, p4: 40 },
+    '50_59': { p1: 10, p2: 20, p3: 35, p4: 40 },
+    '60_69': { p1: 5, p2: 10, p3: 25, p4: 32 },
+    '70_79': { p1: 3, p2: 7, p3: 16, p4: 22 },
+    '80_89': { p1: 2, p2: 5, p3: 10, p4: 16 },
+    '90_plus': { p1: 1, p2: 3, p3: 6, p4: 10 }
+  },
+
+  tandem: {
+    '15_19': { p1: 5, p2: 10, p3: 20, p4: 30 },
+    '20_29': { p1: 5, p2: 10, p3: 20, p4: 30 },
+    '30_39': { p1: 5, p2: 10, p3: 20, p4: 30 },
+    '40_49': { p1: 5, p2: 10, p3: 20, p4: 30 },
+    '50_59': { p1: 4, p2: 9, p3: 17, p4: 25 },
+    '60_69': { p1: 3, p2: 7, p3: 15, p4: 25 },
+    '70_79': { p1: 2, p2: 5, p3: 10, p4: 20 },
+    '80_89': { p1: 1, p2: 3, p3: 6, p4: 10 },
+    '90_plus': { p1: 1, p2: 3, p3: 5, p4: 8 }
+  },
+
+  semiTandem: {
+    '15_19': { p1: 5, p2: 8, p3: 9, p4: 10 },
+    '20_29': { p1: 5, p2: 8, p3: 9, p4: 10 },
+    '30_39': { p1: 5, p2: 8, p3: 9, p4: 10 },
+    '40_49': { p1: 5, p2: 8, p3: 9, p4: 10 },
+    '50_59': { p1: 5, p2: 8, p3: 9, p4: 10 },
+    '60_69': { p1: 4, p2: 6, p3: 8, p4: 10 },
+    '70_79': { p1: 3, p2: 5, p3: 7, p4: 10 },
+    '80_89': { p1: 2, p2: 4, p3: 6, p4: 10 },
+    '90_plus': { p1: 1, p2: 3, p3: 5, p4: 10 }
+  }
 };
 
 function getBalanceAgeBand(age) {
@@ -3386,41 +3358,39 @@ function getBalanceAgeBand(age) {
   return '90_plus';
 }
 
-function scoreSemiTandem(seconds) {
-  if (!Number.isFinite(seconds) || seconds < 0) return 0;
-  if (seconds >= 10) return 5;
-  if (seconds >= 8) return 4;
-  if (seconds >= 6) return 3;
-  if (seconds >= 3) return 2;
-  return 1;
+function scoreFromThresholds(seconds, ref) {
+  if (!Number.isFinite(seconds) || seconds < 0 || !ref) return 0;
+
+  if (seconds < ref.p1) return 1;
+  if (seconds < ref.p2) return 2;
+  if (seconds < ref.p3) return 3;
+  if (seconds < ref.p4) return 4;
+  return 5;
 }
 
-function scoreTandem(seconds) {
-  if (!Number.isFinite(seconds) || seconds < 0) return 0;
-  if (seconds >= 10) return 5;
-  if (seconds >= 7) return 4;
-  if (seconds >= 5) return 3;
-  if (seconds >= 3) return 2;
-  return 1;
+function scoreSemiTandem(age, seconds) {
+  const band = getBalanceAgeBand(age);
+  if (!band) return 0;
+  return scoreFromThresholds(seconds, equilibrio.semiTandem[band]);
+}
+
+function scoreTandem(age, seconds) {
+  const band = getBalanceAgeBand(age);
+  if (!band) return 0;
+  return scoreFromThresholds(seconds, equilibrio.tandem[band]);
 }
 
 function scoreUnipodal(age, seconds) {
-  if (!Number.isFinite(seconds) || seconds < 0) return 0;
-
   const band = getBalanceAgeBand(age);
-
-  if (!band || !unipodalCutoffs[band]) return 0;
-
-  const row = unipodalCutoffs[band].find(item => seconds >= item.min);
-
-  return row ? row.score : 0;
+  if (!band) return 0;
+  return scoreFromThresholds(seconds, equilibrio.unipodal[band]);
 }
 
 function scoreBalance(age, seconds, type) {
   if (seconds == null) return 0;
 
-  if (type === 'semi') return scoreSemiTandem(seconds);
-  if (type === 'tandem') return scoreTandem(seconds);
+  if (type === 'semi') return scoreSemiTandem(age, seconds);
+  if (type === 'tandem') return scoreTandem(age, seconds);
   if (type === 'uni') return scoreUnipodal(age, seconds);
 
   return 0;
